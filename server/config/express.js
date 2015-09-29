@@ -5,6 +5,7 @@ var session = require('express-session');
 var passport = require('passport');
 var multer = require('multer');
 var favicon = require('serve-favicon');
+app.use(require("express-ejs-layouts"));
 
 module.exports = function (app, config) {
     app.use(bodyParser.urlencoded({extended: false}));
@@ -24,7 +25,7 @@ module.exports = function (app, config) {
 
     app.set('views', config.rootPath + '/server/views');
     app.engine('html', require('ejs').renderFile);
-    app.use('/client', express.static(config.rootPath + '/client'));
+    app.use('/public', express.static(config.rootPath + '/public'));
     app.use('/content', express.static(config.rootPath + '/client/content'));
     app.use('/uploads', express.static(config.rootPath + '/uploads'));
 

@@ -4,6 +4,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
 var favicon = require('serve-favicon');
+app.use(require("express-ejs-layouts"));
 
 var env = process.env.NODE_ENV || 'development';
 
