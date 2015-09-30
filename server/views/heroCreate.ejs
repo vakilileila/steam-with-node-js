@@ -1,0 +1,43 @@
+<article class="content" xmlns="http://www.w3.org/1999/html">
+    <div class="  createHero">
+
+        <form action="/admin/hero/create" method="post">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Item name</label>
+                    <input type="text" name="name"></div>
+                <!--JSON.stringify(cat)-->
+                <div class="col-md-6">
+                    <label>hros</label>
+                    <select name="category">
+                        <% categories.forEach(function (cat) { %>
+                        <option value="<%= JSON.stringify(cat) %>"><%= cat.name %></option>
+                        <% }) %>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label>upload image</label>
+                    <input type="text" name="imageUrl">
+                    <button>upload</button>
+                </div>
+
+                <input type="hidden" name="imageUrl">
+
+                <div class="col-md-6">
+                    <label>price</label>
+                    <input type="text" name="itemName">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="text-align: center; margin: 20px 0;">
+                    <input type="submit">
+                </div>
+            </div>
+
+        </form>
+    </div>
+</article>

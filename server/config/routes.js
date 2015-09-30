@@ -7,6 +7,8 @@ module.exports = function (app) {
 
     app.use('/api', require('../routes/adApi')(app, express));
     app.use('/', require('../routes/adCtrl')(app, express));
+    app.use('/', require('../routes/heroCtrl')(app, express));
+    app.use('/', require('../routes/heroCategoryCtrl')(app, express));
 
     app.use('/api', require('../routes/categoryApi')(app, express));
     app.use('/api', require('../routes/userApi')(app, express));

@@ -3,12 +3,9 @@ var app = express();
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
-var favicon = require('serve-favicon');
 app.use(require("express-ejs-layouts"));
 
 var env = process.env.NODE_ENV || 'development';
-
-app.use(favicon(__dirname + '/server/views/favicon.ico'));
 app.use(cookieParser())
 app.use(session({
     secret: 'keyboard cat',
