@@ -1,10 +1,20 @@
-<article class="content" xmlns="http://www.w3.org/1999/html">
+<article class="content">
     <div class="  createHero">
         <div class="row">
             <div class="col-md-12">
                 <h1 class="filter-herolist">filtering</h1>
-                <a href="/admin/hero/create"> <span class="glyphicon glyphicon-level-up" style="font-size: 35px;"
-                                                    aria-hidden="true"></span></a>
+
+                <div class="col-md-12 new-item"><a href="/admin/hero/create">
+                        <button type="button" id="loading-example-btn" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+                            new hero
+                            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                        </button>
+
+
+
+                    </a></div>
+
+
                 <ul class="list-hero-edit">
                     <% heros.forEach(function(hero){ %>
                     <li>
@@ -13,10 +23,10 @@
                         </a>
 
                         <div>
-                            <a href="/hero/edit/<%= hero._id %>">
+                            <a href="/admin/hero/edit/<%= hero._id %>">
                                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                             </a>
-                            <a href="/hero/delete/<%= hero._id %>">
+                            <a href="/admin/hero/delete/<%= hero._id %>">
                                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                             </a>
                             <a href="/hero/changePrice/<%= hero._id %>">>

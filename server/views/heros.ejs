@@ -1,5 +1,5 @@
 
-<article class="content" >
+<article class="content">
     <div class="row  containerBg">
         <div class="col-md-4">
 
@@ -9,16 +9,6 @@
                 <select class="select-dropdown" name="list hero"></select>
 
             </form>
-            <!---<% var date=new Date();
-            var year = date.getFullYear();
-            %>
-            <select name="year">
-                <%for(var i=year;i>1950;i--)
-            {
-            %>
-                <option value='<%= i%>' /><%= i%> </option>
-                <% }%>
-            </select> --->
 
 
         </div>
@@ -47,26 +37,44 @@
     </div>
     <div class="row">
 
-        <div class="col-sm-6 col-md-4 paging"> <form name="paging" target="_blank" class="numDisplayItem"><span>item per page:</span><ul>
-                    <a href="#"><li>20</li></a>
-                    <a href="#"><li>60</li></a>
-                    <a href="#"><li>all</li></a>
-                </ul></form></div>
+        <div class="col-sm-6 col-md-4 paging">
+            <form name="paging" target="_blank" class="numDisplayItem"><span>item per page:</span>
+                <ul>
+                    <a href="#">
+                        <li>20</li>
+                    </a>
+                    <a href="#">
+                        <li>60</li>
+                    </a>
+                    <a href="#">
+                        <li>all</li>
+                    </a>
+                </ul>
+            </form>
+        </div>
         <div class=" col-md-4"></div>
         <div class="col-sm-6 col-md-4 paging">
-            <form name="paging" target="_blank" >
-                <a href="#"> <span class="glyphicon glyphicon-triangle-right webfont pagenav-right pagenav" aria-hidden="true"></span></a>
+            <form name="paging" target="_blank">
+                <a href="#"> <span class="glyphicon glyphicon-triangle-right webfont pagenav-right pagenav"
+                                   aria-hidden="true"></span></a>
                 <ul>
-                    <a href="#"><li>1</li></a>
-                    <a href="#"><li>2</li></a>
-                    <a href="#"><li>3</li></a>
+                    <a href="#">
+                        <li>1</li>
+                    </a>
+                    <a href="#">
+                        <li>2</li>
+                    </a>
+                    <a href="#">
+                        <li>3</li>
+                    </a>
                     <li>...</li>
-                    <a href="#"><li>17</li></a>
+                    <a href="#">
+                        <li>17</li>
+                    </a>
                 </ul>
                 <a href="#"><span class="glyphicon glyphicon-triangle-left pagenav" aria-hidden="true"></span></a>
             </form>
         </div>
-
 
 
     </div>
@@ -79,10 +87,9 @@
 
                 <div class="item-box">
                     <a href="#">
-
                         <img class="item-box-image" src="<%= hero.imageUrl %>">
-
                     </a>
+
                     <div class="item-info">
                         <div class="shop-hover">
                             <a href="#">
@@ -92,27 +99,24 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="item-name"><%= hero.itemName %></div>
+                        <div class="item-name"><%= hero.category.name %></div>
                         <div><%= hero.name %></div>
                         <div>
-                            <span>40</span>
+                            <span><%= hero.price %></span>
                             <span>rial</span>
                         </div>
 
-
                     </div>
 
-
                 </div>
-
             </div>
             <% }); %>
-
-
         </div>
     </div>
 
 </article>
+
+
 
 
 

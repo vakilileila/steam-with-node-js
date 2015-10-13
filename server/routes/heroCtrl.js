@@ -6,6 +6,8 @@ var HeroItem = require('../models/heroItem');
 module.exports = function (app, express) {
     var apiRouter = express.Router();
 
+
+    /*-------- select page heroList (info hero, update, delete, edit and put price) --------*/
     apiRouter.route('/admin/heros')
         .get(function (req, res) {
             Hero.find().exec(function (err, heros) {
@@ -15,6 +17,7 @@ module.exports = function (app, express) {
             });
         });
 
+    /*--------  admin create hero (nameHero, upload image, select category, price)    --------*/
     apiRouter.route('/admin/hero/create')
         .get(function (req, res) {
             HeroCategory.find().exec(function (err, cats) {
@@ -42,6 +45,8 @@ module.exports = function (app, express) {
             });
         });
 
+
+    /*--------  update hero (nameHero, upload image, select category, price)   --------*/
     apiRouter.route('/admin/hero/edit/:id')
         .get(function (req, res) {
             Hero.findById(req.params.id)
@@ -50,10 +55,20 @@ module.exports = function (app, express) {
                         console.log(err);
                         res.end('error in update hero');
                     }
-                    res.render('./heroUpdate', hero);
-                })
+
+                    HeroCategory.find().exec(function (err, cats) {
+                        if (err) {
+                            console.log(err);
+                            res.end('error ');
+                            return;
+                        }
+                        res.render('./heroUpdate.ejs', {hero: hero, categories: cats});
+                    });
+                });
         })
-        .put(function (req, res) {
+
+
+        .post(function (req, res) {
             var editedHero = req.body;
 
             Hero.findById(req.params.id)
@@ -63,8 +78,10 @@ module.exports = function (app, express) {
                         res.end('error in update hero');
                     }
 
+
+                    editedHero.category = JSON.parse(editedHero.category);
                     hero.name = editedHero.name;
-                    hero.category = editedHero.category;
+
 
                     hero.save(function (err) {
                         if (err) {
@@ -77,41 +94,30 @@ module.exports = function (app, express) {
                 });
         });
 
-    //apiRouter.route('/admin/hero/delete/:id')
-
-    apiRouter.route('/admin/hero/items/update/:heroId')
+    /*--------  admin delete hero    --------*/
+    apiRouter.route('/admin/hero/delete/:id')
         .get(function (req, res) {
-            Hero.findById(req.body.heroId).exec(function (err, hero) {
-                if (err) {
-                    console.log(err);
-                    res.end('Error ...');
-                    return;
-                }
-
-                res.render('./heroItemUpdate', {hero: hero});
-            })
-        })
-        .post(function (req, res) {
-            Hero.findById(req.body.heroId).exec(function (err, hero) {
-                if (err) {
-                    console.log(err);
-                    res.end('Error ...');
-                    return;
-                }
-
-                hero.items = req.body.items;
-
-                hero.save(function (err) {
+            Hero.findById(req.params.id)
+                .exec(function (err, hero) {
                     if (err) {
                         console.log(err);
-                        res.end('Error...');
-                        return
+                        res.end('error in delete hero');
                     }
+                    else
+                        hero.remove(function (err, hero) {
+                            if (err) {
+                                return console.error(err);
+                            } else {
+                                console.log('DELETE removing ID: ' + hero._id);
 
-                    res.end('Success');
-                })
-            })
-        })
+
+                                res.redirect("/admin/heros");
+
+                            }
+                        });
+
+                });
+        });
 
 
     return apiRouter;

@@ -8,4 +8,4 @@ var HeroItemShema = new Schema({
 });
 
 
-module.exports = mongoose.model('HeroCategory', HeroItemShema);
+

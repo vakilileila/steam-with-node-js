@@ -3,7 +3,7 @@ var app = express();
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
-app.use(require("express-ejs-layouts"));
+
 
 var env = process.env.NODE_ENV || 'development';
 app.use(cookieParser())
@@ -22,6 +22,8 @@ require('./server/config/mongoose')(config);
 require('./server/config/routes')(app);
 require('./server/config/auth').configure();
 require('./server/config/ejs');
+
+
 
 
 app.post('/upload', function (req, res) {

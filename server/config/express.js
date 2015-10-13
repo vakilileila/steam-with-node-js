@@ -25,7 +25,7 @@ module.exports = function (app, config) {
     app.set("views", config.rootPath + '/server/views');
     app.use(ejsLayout);
 
-    app.set('views', config.rootPath + '/server/views');
+
     app.engine('html', require('ejs').renderFile);
     app.use('/public', express.static(config.rootPath + '/public'));
     app.use('/content', express.static(config.rootPath + '/client/content'));

@@ -38,9 +38,9 @@ header, section, footer, aside, nav, main, article, figure {
 @media only screen and (max-width : 990px)
 {
     .col-md-8.tab-left
-{
-    top:0;
-}
+    {
+        top:0;
+    }
     .col-md-4.search
     {
         width: 50%;
@@ -61,7 +61,7 @@ header, section, footer, aside, nav, main, article, figure {
     }
     ul.nav.navbar-nav.nav-main li
     {
-       width: 24%;
+        width: 24%;
     }
 }
 @media only screen and (max-width : 480px)
@@ -227,23 +227,103 @@ nav.navbar.navbar-inverse
 {
     margin-bottom: 10px;
 }
- .nav.nav-main.navbar-nav
+.nav.nav-main.navbar-nav
 {
     text-align: center;
-     font-size: 15px;
+    font-size: 15px;
 }
 ul.nav.navbar-nav.nav-main li a:hover
 {
     background-color: #525A63;
 }
-.item-box
+.item-box,.item-hero
 {
     width: 98%;
     margin-top: 0px;
     margin-bottom: 10px;
 
 }
+.item-box-image
+{
+    width: 100%;
+    position: relative;
+}
+.item-box:hover .shop-hover
+{
+    display: inline-block;
 
+}
+.item-box:hover .item-info
+{
+    color: transparent;
+}
+.item-box:hover .item-box-image
+{
+    border: .2em solid #4F2A92;
+    border-bottom: 0;
+
+    -webkit-box-shadow: 0px -4px 10px 0px rgba(255, 255, 255, 0.2); /* WebKit */
+    -moz-box-shadow: 0px -4px 10px 0px rgba(255, 255, 255, 0.2); /* Firefox */
+    box-shadow: 0px -4px 10px 0px rgba(255, 255, 255, 0.2); /* Standard */
+}
+.item-info
+{
+    font-size: 12px;
+    text-align: center;
+    color: #686868;
+    padding: 6px;
+
+}
+.item-info div:nth-of-type(1)
+{
+    font-size: 13px;
+    color: #eeeeee;
+}
+.shop-hover
+{    width: 80%;
+    height: 50px;
+    background-color: #262A2D;
+    position: absolute;
+    top: 49.9%;
+    right: 18px;
+    display: none;
+}
+.shop-hover div
+{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#006e2e+0,006e2e+100;Green+Flat+%233 */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#008a00+22,008a00+22,005700+99,005700+100,6a9630+100,83c783+100,52b152+100,005700+100,6a9630+100,6a9630+100,83c783+100,005700+100 */
+    background: rgb(0,138,0); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(0,138,0,1) 22%, rgba(0,138,0,1) 22%, rgba(0,87,0,1) 99%, rgba(0,87,0,1) 100%, rgba(106,150,48,1) 100%, rgba(131,199,131,1) 100%, rgba(82,177,82,1) 100%, rgba(0,87,0,1) 100%, rgba(106,150,48,1) 100%, rgba(106,150,48,1) 100%, rgba(131,199,131,1) 100%, rgba(0,87,0,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(22%,rgba(0,138,0,1)), color-stop(22%,rgba(0,138,0,1)), color-stop(99%,rgba(0,87,0,1)), color-stop(100%,rgba(0,87,0,1)), color-stop(100%,rgba(106,150,48,1)), color-stop(100%,rgba(131,199,131,1)), color-stop(100%,rgba(82,177,82,1)), color-stop(100%,rgba(0,87,0,1)), color-stop(100%,rgba(106,150,48,1)), color-stop(100%,rgba(106,150,48,1)), color-stop(100%,rgba(131,199,131,1)), color-stop(100%,rgba(0,87,0,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(0,138,0,1) 22%,rgba(0,138,0,1) 22%,rgba(0,87,0,1) 99%,rgba(0,87,0,1) 100%,rgba(106,150,48,1) 100%,rgba(131,199,131,1) 100%,rgba(82,177,82,1) 100%,rgba(0,87,0,1) 100%,rgba(106,150,48,1) 100%,rgba(106,150,48,1) 100%,rgba(131,199,131,1) 100%,rgba(0,87,0,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(0,138,0,1) 22%,rgba(0,138,0,1) 22%,rgba(0,87,0,1) 99%,rgba(0,87,0,1) 100%,rgba(106,150,48,1) 100%,rgba(131,199,131,1) 100%,rgba(82,177,82,1) 100%,rgba(0,87,0,1) 100%,rgba(106,150,48,1) 100%,rgba(106,150,48,1) 100%,rgba(131,199,131,1) 100%,rgba(0,87,0,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(0,138,0,1) 22%,rgba(0,138,0,1) 22%,rgba(0,87,0,1) 99%,rgba(0,87,0,1) 100%,rgba(106,150,48,1) 100%,rgba(131,199,131,1) 100%,rgba(82,177,82,1) 100%,rgba(0,87,0,1) 100%,rgba(106,150,48,1) 100%,rgba(106,150,48,1) 100%,rgba(131,199,131,1) 100%,rgba(0,87,0,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(0,138,0,1) 22%,rgba(0,138,0,1) 22%,rgba(0,87,0,1) 99%,rgba(0,87,0,1) 100%,rgba(106,150,48,1) 100%,rgba(131,199,131,1) 100%,rgba(82,177,82,1) 100%,rgba(0,87,0,1) 100%,rgba(106,150,48,1) 100%,rgba(106,150,48,1) 100%,rgba(131,199,131,1) 100%,rgba(0,87,0,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008a00', endColorstr='#005700',GradientType=0 ); /* IE6-9 */
+
+    padding: 10px;
+    margin: 6px;
+
+}
+.shop-hover div:hover
+{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#008a00+22,009e2a+29,009e2a+32,005700+99,005700+100,6a9630+100,007a1a+100,005700+100,6a9630+100,6a9630+100,83c783+100,52b152+100,83c783+100 */
+    background: rgb(0,138,0); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(0,138,0,1) 22%, rgba(0,158,42,1) 29%, rgba(0,158,42,1) 32%, rgba(0,87,0,1) 99%, rgba(0,87,0,1) 100%, rgba(106,150,48,1) 100%, rgba(0,122,26,1) 100%, rgba(0,87,0,1) 100%, rgba(106,150,48,1) 100%, rgba(106,150,48,1) 100%, rgba(131,199,131,1) 100%, rgba(82,177,82,1) 100%, rgba(131,199,131,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(22%,rgba(0,138,0,1)), color-stop(29%,rgba(0,158,42,1)), color-stop(32%,rgba(0,158,42,1)), color-stop(99%,rgba(0,87,0,1)), color-stop(100%,rgba(0,87,0,1)), color-stop(100%,rgba(106,150,48,1)), color-stop(100%,rgba(0,122,26,1)), color-stop(100%,rgba(0,87,0,1)), color-stop(100%,rgba(106,150,48,1)), color-stop(100%,rgba(106,150,48,1)), color-stop(100%,rgba(131,199,131,1)), color-stop(100%,rgba(82,177,82,1)), color-stop(100%,rgba(131,199,131,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(0,138,0,1) 22%,rgba(0,158,42,1) 29%,rgba(0,158,42,1) 32%,rgba(0,87,0,1) 99%,rgba(0,87,0,1) 100%,rgba(106,150,48,1) 100%,rgba(0,122,26,1) 100%,rgba(0,87,0,1) 100%,rgba(106,150,48,1) 100%,rgba(106,150,48,1) 100%,rgba(131,199,131,1) 100%,rgba(82,177,82,1) 100%,rgba(131,199,131,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(0,138,0,1) 22%,rgba(0,158,42,1) 29%,rgba(0,158,42,1) 32%,rgba(0,87,0,1) 99%,rgba(0,87,0,1) 100%,rgba(106,150,48,1) 100%,rgba(0,122,26,1) 100%,rgba(0,87,0,1) 100%,rgba(106,150,48,1) 100%,rgba(106,150,48,1) 100%,rgba(131,199,131,1) 100%,rgba(82,177,82,1) 100%,rgba(131,199,131,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(0,138,0,1) 22%,rgba(0,158,42,1) 29%,rgba(0,158,42,1) 32%,rgba(0,87,0,1) 99%,rgba(0,87,0,1) 100%,rgba(106,150,48,1) 100%,rgba(0,122,26,1) 100%,rgba(0,87,0,1) 100%,rgba(106,150,48,1) 100%,rgba(106,150,48,1) 100%,rgba(131,199,131,1) 100%,rgba(82,177,82,1) 100%,rgba(131,199,131,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(0,138,0,1) 22%,rgba(0,158,42,1) 29%,rgba(0,158,42,1) 32%,rgba(0,87,0,1) 99%,rgba(0,87,0,1) 100%,rgba(106,150,48,1) 100%,rgba(0,122,26,1) 100%,rgba(0,87,0,1) 100%,rgba(106,150,48,1) 100%,rgba(106,150,48,1) 100%,rgba(131,199,131,1) 100%,rgba(82,177,82,1) 100%,rgba(131,199,131,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008a00', endColorstr='#83c783',GradientType=0 ); /* IE6-9 */
+
+}
+.price-item
+{
+    font-size: 12px;
+    color: #ffffff;
+
+}
 .discounted-box
 {
 
@@ -278,11 +358,7 @@ ul.nav.navbar-nav.nav-main li a:hover
 
 
 }
-.item-box img
-{
-    width: 100%;
-    position: relative;
-}
+
 .discounted-box img
 {
     width: 100%;
@@ -368,18 +444,7 @@ ul.nav.navbar-nav.nav-main li a:hover
     background-color: #071215;
     width: 100%;
 }
-.item-info
-{
-font-size: 12px;
-    text-align: center;
-    color: #686868;
-    padding: 6px;
-}
-.item-info div:nth-of-type(1)
-{
-    font-size: 13px;
-    color: #eeeeee;
-}
+
 .carousel-item
 {
     width: 100%;
@@ -498,8 +563,71 @@ select option
     color: #71767B;
     padding-top: 3px;
 }
-.active
+.createHero
 {
-    color: #000;
-    background-color: #444A54;
+    width: 100%;
+    background-color: #f2f2f2;
+    padding: 25px;
+}
+.createHero label
+{
+    width: 100%;
+    margin: 20px 0 10px 0;
+}
+.createHero input[type=text],.createHero select
+{
+    width: 75%;
+    height: 30px;
+}
+.list-hero-edit
+{
+    list-style: none;
+    color: #eeeeee;
+    width: 100%;
+    float: left;
+    padding: 0;
+
+}
+.list-hero-edit li{
+    cursor: pointer;
+    width: 100%;
+    line-height: 40px;
+    padding: 0 20px;
+}
+.listhero-name
+{
+    width: 85%;
+    float: left;
+}
+.list-hero-edit li:nth-of-type(odd)
+{
+    background-color: #D6D6D6;
+
+}
+.filter-herolist
+{
+    background-color: #A9B8CE;
+    padding: 10px 30px;
+}
+.new-item
+{
+    text-align: right;
+}
+.new-item a
+{
+    font-size: 20px;
+    margin-left: 6px;
+
+}
+.new-item a button
+{
+    margin:0 0 10px 0;
+}
+.edit-button
+{
+    text-align: center;
+}
+.edit-button button
+{
+    width: 40%;
 }
