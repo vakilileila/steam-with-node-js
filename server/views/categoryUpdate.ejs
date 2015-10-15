@@ -1,0 +1,32 @@
+<article class="content">
+    <div class="createHero">
+
+            <form action="/admin/category/edit/<%= category._id %>" method="post">
+                <div class="row">
+                    <div class="col-md-6">
+                <label>name category</label>
+                <input type="text" name="name" value="<%= category.name %>" >
+                        </div>
+                    </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>upload image</label>
+                        <input type="text" name="imageUrl">
+                        <button>upload</button>
+                    </div>
+
+                    <input type="hidden" name="imageUrl">
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="text-align: center; margin: 20px 0;">
+                        <input type="submit">
+                    </div>
+            </form>
+
+
+
+    </div>
+
+</article>

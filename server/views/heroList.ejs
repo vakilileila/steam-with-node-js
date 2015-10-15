@@ -1,0 +1,42 @@
+<article class="content">
+    <div class="  createHero">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="filter-herolist">filtering</h1>
+
+                <div class="col-md-12 new-item"><a href="/admin/hero/create">
+                        <button type="button" id="loading-example-btn" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+                            new hero
+                            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                        </button>
+
+
+
+                    </a></div>
+
+
+                <ul class="list-hero-edit">
+                    <% heros.forEach(function(hero){ %>
+                    <li>
+                        <a>
+                            <div class="listhero-name"><%= hero.name %></div>
+                        </a>
+
+                        <div>
+                            <a href="/admin/hero/edit/<%= hero._id %>">
+                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                            </a>
+                            <a href="/admin/hero/delete/<%= hero._id %>">
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                            </a>
+                            <a href="/hero/changePrice/<%= hero._id %>">>
+                                <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                    </li>
+                    <% }); %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</article>

@@ -1,0 +1,37 @@
+<article class="content" xmlns="http://www.w3.org/1999/html">
+    <div class="createHero">
+
+        <form action="/admin/heroCategories/create" method="post">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label>categoryName</label>
+                    <input type="text" name="name"></div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label>upload image</label>
+                    <input type="text" name="imageUrl">
+                    <button>upload</button>
+                </div>
+
+                <input type="hidden" name="imageUrl">
+
+
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="text-align: center; margin: 20px 0;">
+                    <input type="submit">
+                </div>
+                <div class="col-md-12 edit-button"><a href="/admin/heroCategories"><button type="button" id="myButton" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+                            edit itemHero
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        </button></a></div>
+            </div>
+
+        </form>
+    </div>
+</article>

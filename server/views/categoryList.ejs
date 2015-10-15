@@ -1,0 +1,55 @@
+<article class="content" xmlns="http://www.w3.org/1999/html">
+    <div class="  createHero">
+
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="filter-herolist">filtering</h1>
+
+                <div class="col-md-12 new-item"><a href="/admin/heroCategories/create">
+                        <button type="button" id="loading-example-btn" data-loading-text="Loading..."
+                                class="btn btn-primary" autocomplete="off">
+                            new Category
+                            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                        </button>
+
+
+                    </a></div>
+
+                <ul class="list-hero-edit">
+                    <% categories.forEach(function(category){ %>
+                    <li>
+                        <a>
+                            <div class="listhero-name"><%= category.name %></div>
+                        </a>
+
+                        <div>
+
+
+                            <a href="/admin/category/edit/<%= category._id %>">
+                                <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal"
+                                        data-target="#edit"><span class="glyphicon glyphicon-pencil"></span>
+                                </button>
+                            </a>
+
+
+
+                            <a href="/admin/category/delete/<%= category._id %>">
+                                <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal"
+                                        data-target="#delete"><span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </a>
+
+
+                            <a href="/hero/changePrice/<%= category._id %>">>
+                                <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                    </li>
+                    <% }); %>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</article>

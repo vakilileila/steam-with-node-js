@@ -5,8 +5,10 @@ var session = require('express-session');
 var passport = require('passport');
 var multer = require('multer');
 var favicon = require('serve-favicon');
+var ejsLayout = require("express-ejs-layouts")
 
 module.exports = function (app, config) {
+    app.use(favicon(config.rootPath + '/server/views/favicon.ico'));
     app.use(bodyParser.urlencoded({extended: false}));
     app.use(bodyParser.json());
     app.use(cookieParser());
@@ -20,11 +22,12 @@ module.exports = function (app, config) {
 
     //for ejs layout
     app.set("view engine", "ejs");
-    app.set("views", "./views");
+    app.set("views", config.rootPath + '/server/views');
+    app.use(ejsLayout);
 
-    app.set('views', config.rootPath + '/server/views');
+
     app.engine('html', require('ejs').renderFile);
-    app.use('/client', express.static(config.rootPath + '/client'));
+    app.use('/public', express.static(config.rootPath + '/public'));
     app.use('/content', express.static(config.rootPath + '/client/content'));
     app.use('/uploads', express.static(config.rootPath + '/uploads'));
 

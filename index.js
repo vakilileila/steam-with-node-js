@@ -3,11 +3,9 @@ var app = express();
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
-var favicon = require('serve-favicon');
+
 
 var env = process.env.NODE_ENV || 'development';
-
-app.use(favicon(__dirname + '/server/views/favicon.ico'));
 app.use(cookieParser())
 app.use(session({
     secret: 'keyboard cat',
@@ -24,6 +22,8 @@ require('./server/config/mongoose')(config);
 require('./server/config/routes')(app);
 require('./server/config/auth').configure();
 require('./server/config/ejs');
+
+
 
 
 app.post('/upload', function (req, res) {
