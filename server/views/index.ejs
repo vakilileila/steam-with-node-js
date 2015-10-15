@@ -1,1 +1,7 @@
-<h1><%=: 'Product' | myName %></h1>
+<% if (user) { %>
+<h2><%= user.name %></h2>
+<a href="/logout">Logout</a>
+<% } %>
+<% if (!user) { %>
+<a href="/auth/dropbox">Login</a>
+<% } %>
