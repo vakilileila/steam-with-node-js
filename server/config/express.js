@@ -31,5 +31,5 @@ module.exports = function (app, config) {
     app.use('/content', express.static(config.rootPath + '/client/content'));
     app.use('/uploads', express.static(config.rootPath + '/uploads'));
 
-    app.use(multer({dest: './uploads/;'}));
+    app.use(multer({dest: './uploads/'}));
 }

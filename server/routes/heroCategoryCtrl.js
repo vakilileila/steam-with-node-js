@@ -102,24 +102,47 @@ module.exports = function (app, express) {
     /*--------  admin delete hero    --------*/
     apiRouter.route('/admin/category/delete/:id')
         .get(function (reg, res) {
-            HeroCategory.findById(reg.params.id)
-                .exec(function (err, category) {
-                    if (err) {
-                        console.log(err);
-                        res.end('error in delete category');
-                    }
-                    else
-                        category.remove(function (err, category) {
-                            if (err) {
-                                console.log(err);
-                            }
-                            else {
-                                console.log('DELETE removing ID: ' + category._id);
-                                res.redirect('/admin/heroCategories');
-                            }
-                        });
+            Hero.findOne({'category._id':req.params.id})
+                .exec(function (err, hero) {
+                    if(erro){
 
+                    }
+
+                    if(hero){
+                        res.render('', {
+                            errors:[
+                                'The current Categroy is used in hero ' + hero._id
+                            ]
+                        })
+                    }
+                    else{
+                        HeroCategory.findById(reg.params.id)
+                            .exec(function (err, category) {
+                                if (err) {
+                                    console.log(err);
+                                    res.end('error in delete category');
+                                }
+                                else
+                                    category.remove(function (err, category) {
+                                        if (err) {
+                                            console.log(err);
+                                        }
+                                        else {
+                                            console.log('DELETE removing ID: ' + category._id);
+                                            res.redirect('/admin/heroCategories');
+                                        }
+                                    });
+
+                            });
+                    }
                 });
+
+            Hero.find({'category._id':req.params.id}).exec(function (err, heros) {
+                if(heros.length> 0){
+                //    errors ...
+                }
+            });
+
         });
 
     return apiRouter;

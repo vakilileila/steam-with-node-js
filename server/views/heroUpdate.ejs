@@ -10,9 +10,9 @@
             <!--JSON.stringify(cat)-->
             <div class="col-md-6">
                 <label>hros</label>
-                <select name="category">
+                <select name="category" >
                     <% categories.forEach(function (cat) { %>
-                    <option value="<%= JSON.stringify(cat.name) %>"><%= cat.name %></option>
+                    <option value="<%= JSON.stringify(cat) %>"><%= cat.name %></option>
                     <% }) %>
                 </select>
             </div>
@@ -31,6 +31,10 @@
                     <input type="text" name="itemName">
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12" style="text-align: center; margin: 20px 0;">
+                    <input type="submit">
+                </div>
         </form>
 
 

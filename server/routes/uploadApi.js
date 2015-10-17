@@ -4,6 +4,7 @@ module.exports = function (app, express) {
 
     apiRouter.route('/upload')
         .post(function (req, res) {
+            debugger;
             res.send({fileName: req.files.file.path});
         });
 

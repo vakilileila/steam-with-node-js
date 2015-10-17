@@ -26,15 +26,27 @@ module.exports = function (app, express) {
                     res.end('error ');
                     return;
                 }
-                res.render('./heroCreate.ejs', {categories: cats});
+                res.render('./heroCreate.ejs', {
+                    categories: cats,
+                    errors: []
+                });
             });
         })
         .post(function (req, res) {
+            res.render('./heroCreate.ejs', {
+                errors: [
+                    'name is required ...',
+                    'You can not enter hero',
+                    'You not allowed to create hero'
+                ]
+            });
+
+            return;
+
             var dto = req.body;
+            dto.imageUrl = dto.image;
             dto.category = JSON.parse(dto.category);
-
             var newHero = new Hero(dto);
-
             newHero.save(function (err) {
                 if (err) {
                     console.log(err);
@@ -55,7 +67,6 @@ module.exports = function (app, express) {
                         console.log(err);
                         res.end('error in update hero');
                     }
-
                     HeroCategory.find().exec(function (err, cats) {
                         if (err) {
                             console.log(err);
@@ -66,8 +77,6 @@ module.exports = function (app, express) {
                     });
                 });
         })
-
-
         .post(function (req, res) {
             var editedHero = req.body;
 
@@ -77,19 +86,24 @@ module.exports = function (app, express) {
                         console.log(err);
                         res.end('error in update hero');
                     }
-
-
-                    editedHero.category = JSON.parse(editedHero.category);
-                    hero.name = editedHero.name;
-
-
-                    hero.save(function (err) {
+                    HeroCategory.find().exec(function (err, cats) {
                         if (err) {
                             console.log(err);
-                            res.end('Error in ');
+                            res.end('error ');
+                            return;
                         }
+                        editedHero.category = JSON.parse(editedHero.category);
+                        hero.category = editedHero.category;
+                        hero.name = editedHero.name;
+                        hero.save(function (err) {
+                            if (err) {
+                                console.log(err);
+                                res.end('Error in ');
+                            }
 
-                        res.end('hero updated successfully');
+
+                            res.end('hero updated successfully');
+                        });
                     });
                 });
         });
