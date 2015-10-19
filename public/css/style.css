@@ -631,3 +631,26 @@ select option
 {
     width: 40%;
 }
+.draging-box
+{
+    width: 100%;
+    height: 250px;
+    border: 5px dashed rgb(85, 85, 85);
+    padding: 50px;
+    position: relative;
+    text-align: center;
+    font-size: 3em;
+    color: #E2E2E2;
+    line-height: 150px;
+
+}
+.btn-upload{
+    position: relative;
+    z-index: 1;
+    top: 150px;
+    text-align: center;
+}
+.item img
+{
+    width: 100%;
+}

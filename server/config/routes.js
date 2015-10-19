@@ -7,16 +7,11 @@ module.exports = function (app) {
             user: req.isAuthenticated() ? req.user : null
         });
     });
-    
+
     app.use('/', require('../routes/heroCtrl')(app, express));
-<<<<<<< HEAD
-
     app.use('/', require('../routes/heroCategoryCtrl')(app, express));
-    app.use('/api',require('../routes/heroCategoryApi')(app, express));
-
-=======
-    app.use('/', require('../routes/heroCategoryCtrl')(app, express));
+    app.use('/api', require('../routes/heroCategoryApi')(app, express));
     app.use('/', require('../routes/authCtrl')(app, express));
->>>>>>> 428208effdeefa40dc2768e759e118365f37bc12
+    app.use('/', require('../routes/indexCtrl')(app, express));
     app.use('/api', require('../routes/uploadApi')(app, express));
 }
