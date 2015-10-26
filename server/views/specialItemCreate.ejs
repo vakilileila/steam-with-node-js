@@ -1,38 +1,52 @@
-<link rel="stylesheet" href="/public/css/kendo/kendo.common.min.css">
-<link rel="stylesheet" href="/public/css/kendo/kendo.material.min.css">
-<link rel="stylesheet" href="/public/css/kendo/kendo.rtl.min.css">
-
-
 <article class="content" xmlns="http://www.w3.org/1999/html">
     <div class="createHero">
 
 
-        <form action="/admin/hero/create" method="post">
+        <form action="/admin/specialItem/create" method="post">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>title</label>
+                    <input type="text" name="title">
+                </div>
+                <div class="col-md-6">
+                    <label> Previous price</label>
+                    <input type="text" name="pricePre"></div>
+            </div>
 
             <div class="row">
                 <div class="col-md-6">
-                    <label>Item name</label>
-                    <input type="text" name="name"></div>
+                    <label>category</label>
+                    <input type="text" name="category"></div>
                 <!--JSON.stringify(cat)-->
                 <div class="col-md-6">
-                    <label>hros</label>
-                    <input style=" width: 75%; border: 1px solid #A9A9A9;" id="categories">
-                    <input type="hidden" name="category" id="category">
+                    <label>New price</label>
+                    <input type="text" name="priceNew">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-6">
-                    <label>price</label>
-                    <input type="text" name="price">
+                    <label> Item name</label>
+                    <input type="text" name="name">
                 </div>
+                <div class="col-md-6">
+                    <label>discount</label>
+                    <input type="text" name="discount">
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>discountedTime</label>
+                    <input type="text" name="discountedTime">
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-8">
                     <label>upload image</label>
+
                     <div id="uploader">
                         <div id="drop_element" class="draging-box">
-DRAG IMAGE OR FILE
+                            DRAG IMAGE OR FILE
                         </div>
                         <img src="" id="uploadedFile" style="display: none">
                         <input type="hidden" name="image" id="imageUrl">
@@ -42,7 +56,7 @@ DRAG IMAGE OR FILE
                 <div class="col-md-4 btn-upload"><a class="btn btn-primary" id="btn_choosefile">Upload File</a></div>
 
                 <input type="hidden" name="imageUrl">
-</div>
+            </div>
 
 
             <div class="row">
@@ -67,7 +81,7 @@ DRAG IMAGE OR FILE
 <script>
     window.JalaliDate = Date;
 </script>
-<script src="/public/js/kendo.all.2015.2.624.hasPersian.js"></script>
+
 
 <script>
     var uploader = new plupload.Uploader({
@@ -95,24 +109,4 @@ DRAG IMAGE OR FILE
         }
     });
     uploader.init();
-
-    $('#categories').kendoComboBox({
-        dataTextField: 'name',
-        dataValueField: '_id',
-        filter: "contains",
-        autoBind: false,
-        minLength: 3,
-        dataSource: {
-            serverFiltering: true,
-            transport: {
-                read: {
-                    url: '/api/categories'
-                }
-            }
-        },
-        select: function (e) {
-            var dataItem = this.dataItem(e.item.index());
-            $('#category').val(JSON.stringify(dataItem));
-        }
-    })
 </script>

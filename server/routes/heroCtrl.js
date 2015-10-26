@@ -33,15 +33,7 @@ module.exports = function (app, express) {
             });
         })
         .post(function (req, res) {
-            res.render('./heroCreate.ejs', {
-                errors: [
-                    'name is required ...',
-                    'You can not enter hero',
-                    'You not allowed to create hero'
-                ]
-            });
 
-            return;
 
             var dto = req.body;
             dto.imageUrl = dto.image;
