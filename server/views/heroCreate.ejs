@@ -26,23 +26,35 @@
                     <label>price</label>
                     <input type="text" name="price">
                 </div>
-                </div>
+            </div>
+
+
             <div class="row">
                 <div class="col-md-8">
                     <label>upload image</label>
+
                     <div id="uploader">
                         <div id="drop_element" class="draging-box">
-DRAG IMAGE OR FILE
+                            DRAG IMAGE OR FILE
                         </div>
                         <img src="" id="uploadedFile" style="display: none">
                         <input type="hidden" name="image" id="imageUrl">
                     </div>
 
                 </div>
-                <div class="col-md-4 btn-upload"><a class="btn btn-primary" id="btn_choosefile">Upload File</a></div>
+                <div class="col-md-4 btn-upload"><a class="btn btn-primary" id="btn_choosefile">Upload File</a>
+                </div>
 
                 <input type="hidden" name="imageUrl">
-</div>
+            </div>
+
+
+
+
+
+
+
+
 
 
             <div class="row">
@@ -59,6 +71,8 @@ DRAG IMAGE OR FILE
             </div>
 
         </form>
+
+
     </div>
 </article>
 
@@ -115,4 +129,21 @@ DRAG IMAGE OR FILE
             $('#category').val(JSON.stringify(dataItem));
         }
     })
+</script>
+/*--- ajax post------*/
+<script>
+
+    $("#btnDiscount").click(function(){
+        $.ajax({
+
+            type: 'post',
+            dataType: 'json',
+            data:{} ,
+            success: function(){
+                console.log('success`');
+            }
+
+        });
+    });
+
 </script>

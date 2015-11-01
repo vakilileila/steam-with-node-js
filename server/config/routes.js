@@ -12,6 +12,7 @@ module.exports = function (app) {
     app.use('/', require('../routes/heroCtrl')(app, express));
     app.use('/', require('../routes/heroCategoryCtrl')(app, express));
     app.use('/api', require('../routes/heroCategoryApi')(app, express));
+    app.use('/api', require('../routes/heroApi')(app, express));
     app.use('/', require('../routes/authCtrl')(app, express));
     app.use('/', require('../routes/homeCtrl')(app, express));
 

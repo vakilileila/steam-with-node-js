@@ -17,6 +17,7 @@
 
                 <ul class="list-hero-edit">
                     <% heros.forEach(function(hero){ %>
+
                     <li>
                         <a>
                             <div class="listhero-name"><%= hero.name %></div>
@@ -29,9 +30,79 @@
                             <a href="/admin/hero/delete/<%= hero._id %>">
                                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                             </a>
-                            <a href="/hero/changePrice/<%= hero._id %>">>
+                            <a href="/hero/changePrice/<%= hero._id %>">
                                 <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
                             </a>
+
+                            <script>
+
+                                $("#btnModalDiscount").click(function(){
+
+                                    $.ajax({
+
+                                        type: 'get',
+                                        dataType: 'json',
+                                        data:{} ,
+                                        success: function(){
+                                            console.log('success');
+                                        },
+
+                                        url:  json.parse("/admin/specialItem/addDiscount/<%= hero._id %>")
+
+
+                                    });
+                                });
+
+                            </script>
+                            <!-- Button trigger modal -->
+                            <a href="" id="btnModalDiscount" data-target="#myModal" data-toggle="modal">
+                            <span class="glyphicon glyphicon-import" aria-hidden="true"  ></span>
+                            </a>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div   class="row ">
+                                                <fieldset class="fieldset-discount">
+                                                    <legend class="legend-discount ">discount</legend>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-6">
+                                                            <label>Discounted</label>
+                                                            <input type="text" name="discount">
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <label>discount price</label>
+                                                            <input type="text" name="discountPrice">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row ">
+                                                        <a name="1"></a>
+
+                                                        <div class="col-md-6">
+                                                            <label>rate</label>
+                                                            <input type="text" name="rate">
+                                                        </div>
+
+                                                    </div>
+
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button id="btnDiscount" type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </li>
                     <% }); %>
@@ -40,3 +111,4 @@
         </div>
     </div>
 </article>
+<!--- ajax post------>

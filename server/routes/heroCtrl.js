@@ -38,6 +38,9 @@ module.exports = function (app, express) {
             var dto = req.body;
             dto.imageUrl = dto.image;
             dto.category = JSON.parse(dto.category);
+            dto.discount={
+                isOnDiscount:false
+            };
             var newHero = new Hero(dto);
             newHero.save(function (err) {
                 if (err) {
@@ -45,9 +48,15 @@ module.exports = function (app, express) {
                     res.end('new hero failed ...');
                     return;
                 }
-                res.end('New Hero added successfully');
+                res.redirect('/admin/hero/create');
             });
-        });
+        })
+
+
+
+
+
+
 
 
     /*--------  update hero (nameHero, upload image, select category, price)   --------*/
@@ -100,6 +109,8 @@ module.exports = function (app, express) {
                 });
         });
 
+
+
     /*--------  admin delete hero    --------*/
     apiRouter.route('/admin/hero/delete/:id')
         .get(function (req, res) {
@@ -124,6 +135,8 @@ module.exports = function (app, express) {
 
                 });
         });
+
+
 
 
     return apiRouter;
