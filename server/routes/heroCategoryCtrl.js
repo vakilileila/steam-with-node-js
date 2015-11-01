@@ -35,7 +35,9 @@ module.exports = function (app, express) {
             res.render('./categoryCreate.ejs');
         })
         .post(function (req, res) {
-            var newHero = new HeroCategory(req.body);
+            var dto = req.body;
+            dto.imageUrl = dto.image;
+            var newHero = new HeroCategory(dto);
 
             newHero.save(function (err) {
                 if (err) {

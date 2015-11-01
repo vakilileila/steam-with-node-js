@@ -1,20 +1,18 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-
-var HeroShema = new Schema({
+var specialItem = Schema({
     name: String,
     imageUrl: String,
-    category: {},
+    category: String,
     price: Number,
+    title: String,
     discount:{
         isOnDiscount:Boolean,
         price: Number,
         rate:Number
         //endDate:
     }
+})
 
-});
-
-
-module.exports = mongoose.model('Hero', HeroShema);
+module.exports = mongoose.model('Special', specialItem);

@@ -3,6 +3,8 @@ var app = express();
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
+var Slide = require('./server/models/slideshow');
+var SpecialItem = require('./server/models/specialItem');
 
 
 var env = process.env.NODE_ENV || 'development';
@@ -25,7 +27,6 @@ require('./server/config/ejs');
 
 
 
-
 app.post('/upload', function (req, res) {
     if (req.files) {
         console.log('file is ...');
@@ -37,6 +38,11 @@ app.post('/upload', function (req, res) {
         res.send('file is not ...');
     }
 });
+
+
+
+
+
 
 app.listen(config.port);
 
