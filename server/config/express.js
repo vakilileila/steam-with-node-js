@@ -32,4 +32,13 @@ module.exports = function (app, config) {
     app.use('/uploads', express.static(config.rootPath + '/uploads'));
 
     app.use(multer({dest: './uploads/'}));
+
+    // locals global
+    app.use(function (req, res, next) {
+        res.locals = {
+            siteTitle: 'alaki',
+            isAuthenticated: req.isAuthenticated(),
+            user: req.isAuthenticated() ? req.user : null
+        }
+    });
 }
