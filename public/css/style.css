@@ -563,6 +563,14 @@ select option
     color: #71767B;
     padding-top: 3px;
 }
+.modal-header
+{
+    color: #111111;
+}
+.content-modal
+{
+    padding: 0 30px;
+}
 .createHero
 {
     width: 100%;
@@ -578,6 +586,13 @@ select option
 {
     width: 75%;
     height: 30px;
+    color:#222222;
+
+}
+.createHero label
+
+{
+    color: #111111;
 }
 .list-hero-edit
 {

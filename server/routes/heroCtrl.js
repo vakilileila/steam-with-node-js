@@ -1,7 +1,7 @@
 var bodyParser = require('body-parser');
 var Hero = require('../models/hero');
 var HeroCategory = require('../models/heroCategory');
-var HeroItem = require('../models/heroItem');
+
 
 module.exports = function (app, express) {
     var apiRouter = express.Router();
@@ -96,6 +96,7 @@ module.exports = function (app, express) {
                         editedHero.category = JSON.parse(editedHero.category);
                         hero.category = editedHero.category;
                         hero.name = editedHero.name;
+                        hero.price= editedHero.price;
                         hero.save(function (err) {
                             if (err) {
                                 console.log(err);

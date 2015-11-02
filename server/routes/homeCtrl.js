@@ -18,7 +18,7 @@ module.exports = function (app, express) {
                     return;
 
                 }
-                Hero.find({'dicount.isOnDiscount': 'false'})
+                Hero.find({'discount.isOnDiscount': 'true'})
                     .exec(function(err, specialHero){
                         if(err){
                             console.log(err);

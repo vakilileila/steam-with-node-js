@@ -18,15 +18,18 @@ module.exports = function(app, express){
                 })
         })
         .post( function (req, res) {
-            var discountInfo = req.body;
-            Hero.findById(req.params.itemId)
-                .exec(function (err, specialItem) {
-                    if (err) {
 
+            Hero.findById(req.params.id)
+                .exec(function (err, specialItem) {
+
+                    if (err) {
+                        console.log(err);
+                        res.end('error in update heroDiscount');
                     }
-                    specialItem.isOnDiscount = true;
-                    specialItem.discount.price = discountInfo.price;
-                    specialItem.discount.rate = discountInfo.rate;
+                    var discountInfo = req.body;
+                    specialItem.discount.isOnDiscount = true;
+                    specialItem.discount.priceDiscount = discountInfo.priceDiscount;
+                    specialItem.discount.rate = discountInfo.rateDiscount;
 
 
                     specialItem.save(function (err) {

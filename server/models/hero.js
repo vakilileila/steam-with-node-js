@@ -9,7 +9,7 @@ var HeroShema = new Schema({
     price: Number,
     discount:{
         isOnDiscount:Boolean,
-        price: Number,
+        priceDiscount: Number,
         rate:Number
         //endDate:
     }
