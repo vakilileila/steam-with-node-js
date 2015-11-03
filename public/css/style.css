@@ -223,6 +223,10 @@ nav.navbar.navbar-inverse
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#25292d', endColorstr='#3c414b',GradientType=0 );
     color: #969aa1;
 }
+.active
+{
+
+}
 .tab-left
 {
     margin-bottom: 10px;
@@ -586,8 +590,7 @@ select option
 {
     width: 75%;
     height: 30px;
-    color:#222222;
-
+    color:#222
 }
 .createHero label
 
