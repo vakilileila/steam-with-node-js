@@ -1,5 +1,6 @@
 var Hero = require('../models/hero');
 var HeroCategory = require('../models/heroCategory');
+var Enumerable = require('linq');
 
 module.exports = function (app, express) {
     var apiRouter = express.Router();
@@ -22,9 +23,8 @@ module.exports = function (app, express) {
     /*--------select page categoryList --------  */
     apiRouter.route('/admin/heroCategories')
         .get(function (req, res) {
-            req.body
             HeroCategory.find().exec(function (err, cats) {
-                res.render('./categoryList.ejs', {categories: cats});
+                res.render('./categoryList.ejs', {categories: cats, layout: 'layoutAdmin'});
             });
         });
 
@@ -32,7 +32,7 @@ module.exports = function (app, express) {
     /*-------- create category (nameCategory-image)  --------*/
     apiRouter.route('/admin/heroCategories/create')
         .get(function (req, res) {
-            res.render('./categoryCreate.ejs');
+            res.render('./categoryCreate.ejs',{layout: 'layoutAdmin'});
         })
         .post(function (req, res) {
             var dto = req.body;
@@ -60,7 +60,14 @@ module.exports = function (app, express) {
                         console.log(err);
                         res.end('Fetching data failed...');
                     }
-                    res.render('./heros.ejs', {heros: heros});
+
+                    var herosView = Enumerable.from(heros)
+                        .select(function (hero) {
+                            hero.imageUrl = "/uploads/" + hero.imageUrl;
+                            return hero;
+                        });
+
+                    res.render('./heros.ejs', {heros: herosView});
                 })
         });
 
@@ -74,7 +81,7 @@ module.exports = function (app, express) {
                         console.log(err);
                         res.end('error in update hero');
                     }
-                    res.render('categoryUpdate.ejs', {category: category})
+                    res.render('categoryUpdate.ejs', {category: category, layout: 'layoutAdmin'})
                 })
         })
         .post(function (reg, res) {
@@ -104,10 +111,10 @@ module.exports = function (app, express) {
     /*--------  admin delete hero    --------*/
     apiRouter.route('/admin/category/delete/:id')
         .get(function (reg, res) {
-            Hero.findOne({'category._id':req.params.id})
+            /*Hero.findOne({'category._id':req.params.id})
                 .exec(function (err, hero) {
                     if(erro){
-
+                        console.log('not permit');
                     }
 
                     if(hero){
@@ -117,7 +124,7 @@ module.exports = function (app, express) {
                             ]
                         })
                     }
-                    else{
+                    else{*/
                         HeroCategory.findById(reg.params.id)
                             .exec(function (err, category) {
                                 if (err) {
@@ -136,14 +143,14 @@ module.exports = function (app, express) {
                                     });
 
                             });
-                    }
+              /*   }
                 });
 
             Hero.find({'category._id':req.params.id}).exec(function (err, heros) {
                 if(heros.length> 0){
                 //    errors ...
                 }
-            });
+            });*/
 
         });
 

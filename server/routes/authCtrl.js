@@ -13,7 +13,7 @@ module.exports = function (app, express) {
             res.redirect('/');
         });
 
-    apiRouter.route('/auth/dropbox/callback')
+    apiRouter.route('/logout')
         .get(function (req, res) {
             req.logout();
             res.redirect('/');

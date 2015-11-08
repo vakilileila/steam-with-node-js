@@ -1,5 +1,6 @@
 <article class="content" xmlns="http://www.w3.org/1999/html">
     <div class="createHero">
+      <h1>New Hero</h1>
 
         <form action="/admin/heroCategories/create" method="post">
 
@@ -48,6 +49,7 @@
 
 
 <script>
+
     var uploader = new plupload.Uploader({
         container: document.getElementById('uploader'),
         browse_button: 'btn_choosefile',
@@ -61,9 +63,12 @@
 
         init: {
             FileUploaded: function (file, up, res) {
-                var fileName = JSON.parse(res.response).fileName;
-                $('#imageUrl').val(fileName);
-                $('#uploadedFile').attr('src', '/' + fileName);
+                debugger;
+
+                var fileInfo = JSON.parse(res.response);
+
+                $('#imageUrl').val(fileInfo.fileName);
+                $('#uploadedFile').attr('src', fileInfo.displayFileName);
                 $('#uploadedFile').show();
             },
             FilesAdded: function (up, files) {

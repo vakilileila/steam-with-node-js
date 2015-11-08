@@ -11,8 +11,9 @@ module.exports = function (app, express) {
     apiRouter.route('/admin/heros')
         .get(function (req, res) {
             Hero.find().exec(function (err, heros) {
-                res.render('./heroList.ejs', {
-                    heros: heros
+                res.render('./heroList.ejs',{
+                    heros: heros,
+                    layout: 'layoutAdmin'
                 });
             });
         });
@@ -27,6 +28,7 @@ module.exports = function (app, express) {
                     return;
                 }
                 res.render('./heroCreate.ejs', {
+                    layout: 'layoutAdmin',
                     categories: cats,
                     errors: []
                 });
@@ -74,7 +76,7 @@ module.exports = function (app, express) {
                             res.end('error ');
                             return;
                         }
-                        res.render('./heroUpdate.ejs', {hero: hero, categories: cats});
+                        res.render('./heroUpdate.ejs', {hero: hero, categories: cats, layout: 'layoutAdmin'});
                     });
                 });
         })

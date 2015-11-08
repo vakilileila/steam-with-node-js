@@ -1,32 +1,75 @@
 <article class="content">
     <div class="createHero">
+        <h1>Edit Hero</h1>
 
-            <form action="/admin/category/edit/<%= category._id %>" method="post">
-                <div class="row">
-                    <div class="col-md-6">
-                <label>name category</label>
-                <input type="text" name="name" value="<%= category.name %>" >
+        <form action="/admin/category/edit/<%= category._id %>" method="post">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>name category</label>
+                    <input type="text" name="name" value="<%= category.name %>">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <label>upload image</label>
+                    <div id="uploader">
+                        <div id="drop_element" class="draging-box">
+                            DRAG IMAGE OR FILE
                         </div>
+                        <img src="" id="uploadedFile" style="display: none">
+                        <input type="hidden" name="image" id="imageUrl">
                     </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label>upload image</label>
-                        <input type="text" name="imageUrl">
-                        <button>upload</button>
-                    </div>
-
-                    <input type="hidden" name="imageUrl">
-
 
                 </div>
-                <div class="row">
-                    <div class="col-md-12" style="text-align: center; margin: 20px 0;">
-                        <input type="submit">
-                    </div>
-            </form>
+                <div class="col-md-4 btn-upload"><a class="btn btn-primary" id="btn_choosefile">Upload File</a></div>
 
+                <input type="hidden" name="imageUrl">
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="text-align: center; margin: 20px 0;">
+                    <input type="submit">
+                </div>
+            </div>
+        </form>
 
 
     </div>
 
 </article>
+<script src="/public/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/public/bower_components/plupload/js/plupload.full.min.js"></script>
+<script>
+    window.JalaliDate = Date;
+</script>
+
+
+<script>
+    var uploader = new plupload.Uploader({
+        container: document.getElementById('uploader'),
+        browse_button: 'btn_choosefile',
+        runtimes: 'html5,flash,silverlight,html4',
+        url: "/api/upload",
+        filters: [
+            {title: "Image files", extensions: "jpg,gif,png"},
+        ],
+        drop_element: 'drop_element',
+        dragdrop: true,
+
+        init: {
+            FileUploaded: function (file, up, res) {
+                debugger;
+
+                var fileInfo = JSON.parse(res.response);
+
+                $('#imageUrl').val(fileInfo.fileName);
+                $('#uploadedFile').attr('src', fileInfo.displayFileName);
+                $('#uploadedFile').show();
+            },
+            FilesAdded: function (up, files) {
+                debugger;
+                up.start();
+            }
+        }
+    });
+    uploader.init();
+</script>

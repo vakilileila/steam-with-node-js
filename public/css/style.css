@@ -27,7 +27,37 @@ a
 header, section, footer, aside, nav, main, article, figure {
     display: block;
 }
+.nav-login
+{
+    position: relative;
+    top: 10px;
 
+    text-align: right;
+    right: 10px;
+}
+.nav-login a
+{
+    color: #908d8b;
+}
+.logout-icon
+{
+    padding-left: 4px;
+    font-size: 1.3em;
+    color: #6F9C32;
+    top: 4px;
+}
+.logout-icon:hover
+{
+    color: #45611F;
+    font-size: 1.2em;
+}
+.login-text
+{
+    color: #908d8b;
+    font-size: 13px;
+    font-family: "Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+}
 @media (min-width: 992px)
 {
     .col-md-4.search
@@ -205,6 +235,24 @@ nav.navbar.navbar-inverse
 {
     padding: 0px;
 }
+.nav-main-admin
+{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4a515b+0,444a54+100 */
+    background: #4a515b; /* Old browsers */
+    background: -moz-linear-gradient(top,  #4a515b 0%, #444a54 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4a515b), color-stop(100%,#444a54)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #4a515b 0%,#444a54 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #4a515b 0%,#444a54 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #4a515b 0%,#444a54 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #4a515b 0%,#444a54 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a515b', endColorstr='#444a54',GradientType=0 ); /* IE6-9 */
+
+}
+.content-admin
+{
+    width: 72%;
+    margin: 0px auto 0;
+}
 .nav-main li
 {
     width: 24.5%;
@@ -222,6 +270,10 @@ nav.navbar.navbar-inverse
     background: linear-gradient(to bottom, #25292d 1%,#3c414b 99%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#25292d', endColorstr='#3c414b',GradientType=0 );
     color: #969aa1;
+}
+.active
+{
+
 }
 .tab-left
 {
@@ -586,8 +638,7 @@ select option
 {
     width: 75%;
     height: 30px;
-    color:#222222;
-
+    color:#222
 }
 .createHero label
 

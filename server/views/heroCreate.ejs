@@ -5,7 +5,7 @@
 
 <article class="content" xmlns="http://www.w3.org/1999/html">
     <div class="createHero">
-
+<h1>New Item</h1>
 
         <form action="/admin/hero/create" method="post">
 
@@ -49,14 +49,6 @@
             </div>
 
 
-
-
-
-
-
-
-
-
             <div class="row">
                 <div class="col-md-12" style="text-align: center; margin: 20px 0;">
                     <input type="submit">
@@ -97,9 +89,12 @@
 
         init: {
             FileUploaded: function (file, up, res) {
-                var fileName = JSON.parse(res.response).fileName;
-                $('#imageUrl').val(fileName);
-                $('#uploadedFile').attr('src', '/' + fileName);
+                debugger;
+
+                var fileInfo = JSON.parse(res.response);
+
+                $('#imageUrl').val(fileInfo.fileName);
+                $('#uploadedFile').attr('src', fileInfo.displayFileName);
                 $('#uploadedFile').show();
             },
             FilesAdded: function (up, files) {
@@ -130,20 +125,4 @@
         }
     })
 </script>
-/*--- ajax post------*/
-<script>
 
-    $("#btnDiscount").click(function(){
-        $.ajax({
-
-            type: 'post',
-            dataType: 'json',
-            data:{} ,
-            success: function(){
-                console.log('success`');
-            }
-
-        });
-    });
-
-</script>

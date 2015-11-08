@@ -1,6 +1,7 @@
 var bodyParser = require('body-parser');
 var Slide = require('../models/slideshow');
 var Hero = require('../models/hero');
+var HeroCategory = require('../models/heroCategory');
 
 
 
@@ -32,7 +33,13 @@ module.exports = function (app, express) {
 
             });
         });
+    apiRouter.route('/admin')
 
+        .get(function (req, res) {
+            HeroCategory.find().exec(function (err, cats) {
+                res.render('./categoryList.ejs', {categories: cats, layout: 'layoutAdmin'});
+            });
+        });
     /*--------  admin create slideshow (nameSlide, upload image, description, price)    --------*/
     apiRouter.route('/admin/slideshow/create')
         .get(function (reg, res) {
@@ -42,7 +49,7 @@ module.exports = function (app, express) {
                     res.end('error');
                     return;
                 }
-                res.render('slideshowCreate.ejs', {slide: slide});
+                res.render('slideshowCreate.ejs', {slide: slide,  layout: 'layoutAdmin'});
 
             });
 

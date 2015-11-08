@@ -40,6 +40,7 @@ module.exports = function (app, express) {
         if (req.isAuthenticated())
             res.send({isAuthenticated: true, user: req.user});
         else res.send({isAuthenticated: false});
+
     });
 
     return apiRouter;
