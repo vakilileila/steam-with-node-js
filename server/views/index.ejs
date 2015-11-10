@@ -14,9 +14,9 @@
 
                 <div class="carousel-inner">
 
-                    <% for(i=0; i<slide.length; i++){%>
+                    <% for(i = 0; i < slide.length; i++){ %>
 
-                    <div class="item  <%= slide[i]==slide[0] ? "active" : "" %>">
+                    <div class="item  <%= slide[i] == slide[0] ? "active" : "" %>">
 
 
                         <a href="#">
@@ -34,11 +34,7 @@
                         </a>
 
 
-
-
-
                     </div>
-
 
                     <% }; %>
 
@@ -55,38 +51,40 @@
 
 
         </div>
-
-        <div class="col-md-4 col-sm-6 tab-right">
-
+        <div class="tab-right">
             <% specialHero.forEach(function(specil){ %>
+            <div class="col-md-4 col-sm-6 specialHero " style="padding: 0;">
+
 
 
                 <a href="#">
                     <div class="discounted-box item-box"><h1> SPOTLIGHT</h1>
 
-                <div class="discounted"><span class="discounted-item"><%= specil.discount.rate%></span></div>
-                <img src="<%= specil.imageUrl%>">
+                        <div class="discounted"><span class="discounted-item"><%= specil.discount.rate %></span></div>
+                        <img src="<%= specil.imageUrl %>">
 
 
-
-                </a>
+                    </div>
                     <div class="item-info">
                         <div class="item-name"><%= specil.name %></div>
-                        <div>name hero</div>
+                        <div><%= specil.category.name %></div>
                         <div>
-                            <span>40$</span>
-                            <span>60$</span>
+                            <span><%= specil.price%></span>
+                            <span>$</span>
                         </div>
                         <div>time discounted</div>
                     </div>
-                </div>
+                </a>
 
+
+            </div>
             <% }); %>
         </div>
-    </div>
 
 
     </div>
+    </div>
+
 
 </article>
 <script src="../../public/js/bootstrap.min.js"></script>

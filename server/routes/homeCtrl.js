@@ -2,6 +2,7 @@ var bodyParser = require('body-parser');
 var Slide = require('../models/slideshow');
 var Hero = require('../models/hero');
 var HeroCategory = require('../models/heroCategory');
+var Enumerable = require('linq');
 
 
 
@@ -26,7 +27,12 @@ module.exports = function (app, express) {
                             res.end('fetching specialHero failed');
                             return;
                         }
-                        res.render('index.ejs', {slide: slide , specialHero:specialHero});
+                        var specialHeroView = Enumerable.from(specialHero)
+                            .select(function(special){
+                                special.imageUrl = "/uploads/" + special.imageUrl;
+                                return special;
+                            })
+                        res.render('index.ejs', {slide: slide , specialHero:specialHeroView});
                     })
 
 
