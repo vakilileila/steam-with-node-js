@@ -9,14 +9,19 @@ module.exports = function (app, express) {
     apiRouter.route('/category')
 
         .get(function (req, res) {
-            HeroCategory.find().exec(function (err, category) {
+            HeroCategory.find().exec(function (err, categoreis) {
                 if (err) {
                     console.log(err);
                     res.end('Fetching data failed...');
                     return;
                 }
+                var categoriesView = Enumerable.from(categoreis)
+                    .select(function (category) {
+                        category.imageUrl = "/uploads/" + category.imageUrl;
+                        return category;
+                    });
 
-                res.render('./category.ejs', {category: category});
+                res.render('./category.ejs', { categoreis:categoriesView});
             });
         });
 
@@ -24,7 +29,10 @@ module.exports = function (app, express) {
     apiRouter.route('/admin/heroCategories')
         .get(function (req, res) {
             HeroCategory.find().exec(function (err, cats) {
-                res.render('./categoryList.ejs', {categories: cats, layout: 'layoutAdmin'});
+
+
+
+                res.render('./categoryList.ejs', {categories: cats , layout: 'layoutAdmin'});
             });
         });
 
@@ -40,6 +48,7 @@ module.exports = function (app, express) {
             var newHero = new HeroCategory(dto);
 
             newHero.save(function (err) {
+
                 if (err) {
                     res.end('error');
                     return;

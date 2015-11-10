@@ -1,6 +1,7 @@
 var bodyParser = require('body-parser');
 var Hero = require('../models/hero');
 var HeroCategory = require('../models/heroCategory');
+var Enumerable = require('linq');
 
 
 module.exports = function (app, express) {
@@ -29,8 +30,8 @@ module.exports = function (app, express) {
                 }
                 res.render('./heroCreate.ejs', {
                     layout: 'layoutAdmin',
-                    categories: cats,
-                    errors: []
+                    categories: cats
+                    /*errors: []*/
                 });
             });
         })
@@ -45,11 +46,13 @@ module.exports = function (app, express) {
             };
             var newHero = new Hero(dto);
             newHero.save(function (err) {
+                debugger;
                 if (err) {
                     console.log(err);
                     res.end('new hero failed ...');
                     return;
                 }
+                debugger;
                 res.redirect('/admin/hero/create');
             });
         })

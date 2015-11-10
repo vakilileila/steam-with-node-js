@@ -15,6 +15,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <label>upload image</label>
+
                     <div id="uploader">
                         <div id="drop_element" class="draging-box">
                             DRAG IMAGE OR FILE
@@ -24,7 +25,8 @@
                     </div>
 
                 </div>
-                <div class="col-md-4 btn-upload"><a class="btn btn-primary" id="btn_choosefile">Upload File</a></div>
+                <div class="col-md-4 btn-upload"><a class="btn btn-primary" id="btn_choosefile">Upload File</a>
+                </div>
 
                 <input type="hidden" name="imageUrl">
             </div>
@@ -40,8 +42,7 @@
 
         </form>
     </div>
-</article>
-<script src="/public/bower_components/jquery/dist/jquery.min.js"></script>
+</article><script src="/public/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/public/bower_components/plupload/js/plupload.full.min.js"></script>
 <script>
     window.JalaliDate = Date;
@@ -49,7 +50,6 @@
 
 
 <script>
-
     var uploader = new plupload.Uploader({
         container: document.getElementById('uploader'),
         browse_button: 'btn_choosefile',
@@ -69,9 +69,11 @@
 
                 $('#imageUrl').val(fileInfo.fileName);
                 $('#uploadedFile').attr('src', fileInfo.displayFileName);
+                debugger;
                 $('#uploadedFile').show();
+                debugger;
             },
-            FilesAdded: function (up, files) {
+            FilesAdded: function (up, file) {
                 debugger;
                 up.start();
             }
