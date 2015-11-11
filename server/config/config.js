@@ -11,7 +11,7 @@ module.exports = {
 
 
     production: {
-        db: ' mongodb://<iransteamdb>:<l-8611268296>@ds053164.mongolab.com:53164/iransteamdb',
+        db: ' mongodb://iransteamdb:l-8611268296@ds053164.mongolab.com:53164/iransteamdb',
         root: rootPath,
         app: {
             name: 'MEAN - A Modern Stack - Production'
