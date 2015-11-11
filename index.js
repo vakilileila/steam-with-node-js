@@ -4,8 +4,6 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
 var Slide = require('./server/models/slideshow');
-var SpecialItem = require('./server/models/specialItem');
-
 
 var env = process.env.NODE_ENV || 'development';
 app.use(cookieParser())

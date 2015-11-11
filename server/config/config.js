@@ -5,13 +5,11 @@ var rootPath = path.normalize(__dirname + '/../../');
 module.exports = {
     development: {
         rootPath: rootPath,
-        db: 'mongodb://iransteamdb:l-8611268296@ds053164.mongolab.com:53164/iransteamdb'
+        db: 'mongodb://dbadmin:123456@ds053764.mongolab.com:53764/dbiransteam'
 
     },
-
-
     production: {
-        db: 'mongodb://iransteamdb:l-8611268296@ds053164.mongolab.com:53164/iransteamdb',
+        db: 'mongodb://dbadmin:123456@ds053764.mongolab.com:53764/dbiransteam',
         root: rootPath,
         app: {
             name: 'MEAN - A Modern Stack - Production'
