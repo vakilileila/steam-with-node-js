@@ -4,11 +4,11 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
 var multer = require('multer');
-var favicon = require('serve-favicon');
+
 var ejsLayout = require("express-ejs-layouts")
 
 module.exports = function (app, config) {
-    app.use(favicon(config.rootPath + '/server/views/favicon.ico'));
+
     app.use(bodyParser.urlencoded({extended: false}));
     app.use(bodyParser.json());
     app.use(cookieParser());
