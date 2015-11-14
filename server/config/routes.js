@@ -14,7 +14,7 @@ module.exports = function (app) {
     app.use('/api', require('../routes/heroCategoryApi')(app, express));
     app.use('/api', require('../routes/heroApi')(app, express));
     app.use('/', require('../routes/authCtrl')(app, express));
-    app.use('/', require('../routes/homeCtrl')(app, express));
+
 
     app.use('/api', require('../routes/uploadApi')(app, express));
 }
