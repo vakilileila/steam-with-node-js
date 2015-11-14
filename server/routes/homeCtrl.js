@@ -10,35 +10,42 @@ module.exports = function (app, express) {
     var apiRouter = express.Router();
 
 
-    /!*--------- select index page   -------*!/
-    apiRouter.route('/')
-        .get( function (req, res) {
-            Slide.find().exec(function (err, slide) {
-                if (err) {
-                    console.log(err);
-                    res.end('Fetching data failed...');
-                    return;
+    /*--------- select index page   -------*/
+    try {
+        apiRouter.route('/')
 
-                }
-                Hero.find({'discount.isOnDiscount': 'true'})
-                    .exec(function(err, specialHero){
-                        if(err){
-                            console.log(err);
-                            res.end('fetching specialHero failed');
-                            return;
-                        }
-                        var specialHeroView = Enumerable.from(specialHero)
-                            .select(function(special){
-                                special.imageUrl = "/uploads/" + special.imageUrl;
-                                return special;
-                            })
-                        res.render('index.ejs', {slide: slide , specialHero:specialHeroView});
-                    })
+        .get(function (req, res) {
+             Slide.find().exec(function (err, slide) {
+                 if (err) {
+                     console.log(err);
+                     res.end('Fetching data failed...');
+                     return;
+
+                 }
+                 Hero.find({'discount.isOnDiscount': 'true'})
+                     .exec(function (err, specialHero) {
+                         if (err) {
+                             console.log(err);
+                             res.end('fetching specialHero failed');
+                             return;
+                         }
+                         var specialHeroView = Enumerable.from(specialHero)
+                             .select(function (special) {
+                                 special.imageUrl = "/uploads/" + special.imageUrl;
+                                 return special;
+                             })
+                         res.render('index.ejs', {slide: slide, specialHero: specialHeroView});
+                     })
 
 
-
-            });
-        });
+             });
+         });
+     }
+     catch ( err )
+     {
+         if(err)
+       console.log('500')
+     }
     apiRouter.route('/admin')
 
         .get(function (req, res) {
