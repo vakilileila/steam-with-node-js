@@ -19,7 +19,7 @@ module.exports = function (app, config) {
     }));
     app.use(passport.initialize());
     app.use(passport.session());
-
+    app.set('views', __dirname+'/views');
     //for ejs layout
     app.set("view engine", "ejs");
     app.set("views", config.rootPath + '/server/views');
