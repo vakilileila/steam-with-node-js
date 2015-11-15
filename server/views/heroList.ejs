@@ -42,49 +42,7 @@
                             </a>
 
                             <!-- Modal -->
-<<<<<<< HEAD
 
-=======
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-                                 aria-labelledby="myModalLabel">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                                        </div>
-                                        <div class="modal-body">
-
-                                            <form name="form" action="/api/admin/specialItem/addDiscount/<%= hero._id %>" method="post">
-                                                <div class="row content-modal ">
-
-                                                    <div class="col-md-6">
-                                                        <label>discount price</label>
-                                                        <input type="text" name="priceDiscount">
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <label>Rate</label>
-                                                        <input type="text" name="rateDiscount">
-                                                    </div>
-                                                </div>
-                                            </form>
-
-
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                    Close
-                                                </button>
-                                                <button id="btnAddDiscount" type="submit" class="btn btn-primary">Save
-                                                    Discount
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
->>>>>>> 0ad2b7ef594a54b350161e77d7ce661f01551cce
                         </div>
                     </li>
                     <% }); %>
@@ -150,29 +108,12 @@
             $('#myModal').modal('show');
         });
 
-<<<<<<< HEAD
         $('#discountForm').submit(function (e) {
 
 
             var form = $(this);
-=======
-</script>
-<script>
-    <% heros.forEach(function(hero){ %>
 
-    $("#btnAddDiscount").click(function () {
->>>>>>> 0ad2b7ef594a54b350161e77d7ce661f01551cce
 
-     /*   $('.form').submit(function(){
-     })*/
-
-        $('.form').on('submit', function (e) {
-debugger;
-            e.preventDefault();
-
-            var form = $(this);
-
-<<<<<<< HEAD
             e.preventDefault();
 
             $.ajax({
@@ -190,21 +131,6 @@ debugger;
 
         })
 
-=======
-            $.ajax({
-                type: 'post',
-                dataType: 'json',
-                data: form.serialize(),
-                success: function () {
-                    console.log('success add discount');
-                },
-                url: "/api/admin/specialItem/addDiscount/<%= hero._id %>"
-
-
-            })
-            window.location.href = '/admin/heros'
-        });
->>>>>>> 0ad2b7ef594a54b350161e77d7ce661f01551cce
     })
 </script>
 
