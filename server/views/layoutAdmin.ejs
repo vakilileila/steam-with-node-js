@@ -1,11 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<<<<<<< HEAD
-    <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
-=======
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
->>>>>>> 0ad2b7ef594a54b350161e77d7ce661f01551cce
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
     <link href="/public/css/style.css" rel="stylesheet">
     <link href="/public/css/bootstrap.css" rel="stylesheet">
     <link href="/public/css/bootstrap.min.css" rel="stylesheet">
@@ -14,41 +10,28 @@
 
 </head>
 <body class="main-body">
-<<<<<<< HEAD
-
-<header></header>
-<article class="main-content">
-
-    <div class="row head-top">
-
-
-        <div class="col-md-12" style="padding: 0;">
-            <nav class="navbar navbar-inverse">
-                <div class="container-fluid " style="padding: 0px; ">
-=======
-<header></header>
-<article class="main-content">
-    <div class="row">
-        <a href="#">
-        <span class="col-md-12 col-sm-6 cart-shop ">
-            <span>(1)</span>
-            <span>سبد خريد</span>
-            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-        </span>
-        </a>
-    </div>
-    <div class="row head-top">
-        <div class="col-md-4 search" style="padding: 0;">
-            <div class="search-box">
-                <input type="text" placeholder="search" class="search-input"><span class=" search-icon"
-                                                                                   aria-hidden="true"></span>
-            </div>
+<header>
+    <div class="header-content">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8"></div>
+            <div class="col-md-2 nav-login"><% if (user) { %>
+                <span  class="login-text"><%= user.name %></span>
+                <a href="/logout"><span class="glyphicon glyphicon-new-window logout-icon" aria-hidden="true"></span></a>
+                <% } %>
+                <% if (!user) { %>
+                <a href="/auth/dropbox">Login</a>
+                <% } %></div>
         </div>
+    </div>
+</header><article class="main-content">
 
-        <div class="col-md-8" style="padding: 0;">
+    <div class="row head-top">
+
+
+        <div class="col-md-12" style="padding: 0; ">
             <nav class="navbar navbar-inverse">
-                <div class="container-fluid " style="padding: 0px">
->>>>>>> 0ad2b7ef594a54b350161e77d7ce661f01551cce
+                <div class="container-fluid " style="padding: 0px;float: right">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -65,28 +48,19 @@
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-9"
-<<<<<<< HEAD
-                         aria-expanded="false" style="float: right;padding: 0px">
+                         aria-expanded="false" style="padding: 0 5px 0">
+
+
+
                         <ul class="nav navbar-nav nav-main-admin">
-                            <li ><a href="/">صفحه اصلی سایت</a></li>
-                            <li ><a href="/admin/slideshow/create">اسلایدشو</a></li>
-                            <li ><a href="/admin/heroCategories/create">ایجاد هیرو</a></li>
-                            <li ><a href="/admin/heroCategories">لیست  هیروها</a></li>
-                            <li ><a href="/admin/heroCategories">ویرایش هیرو</a></li>
-                            <li ><a href="/admin/hero/create">ایجاد آیتم </a></li>
-                            <li ><a href="/admin/heros"> لیست آیتم ها</a></li>
-                            <li ><a href="/admin/heros">ویرایش آیتم ها</a></li>
-
-
-
-=======
-                         aria-expanded="false" style="padding: 0px">
-                        <ul class="nav navbar-nav nav-main">
-                            <li><a href="#">admin</a></li>
-                            <li><a href="#">admin</a></li>
-                            <li class="active"><a href="/category"> لیست هیرو ها</a></li>
-                            <li ><a href="/">آیتم های داغ</a></li>
->>>>>>> 0ad2b7ef594a54b350161e77d7ce661f01551cce
+                            <li><a href="/">صفحه اصلی سایت</a></li>
+                            <li><a href="/admin/slideshow/create">اسلایدشو</a></li>
+                            <li><a href="/admin/heroCategories/create">ایجاد هیرو</a></li>
+                            <li><a href="/admin/heroCategories">لیست هیروها</a></li>
+                            <li><a href="/admin/heroCategories">ویرایش هیرو</a></li>
+                            <li><a href="/admin/hero/create">ایجاد آیتم </a></li>
+                            <li><a href="/admin/heros"> لیست آیتم ها</a></li>
+                            <li><a href="/admin/heros">ویرایش آیتم ها</a></li>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
