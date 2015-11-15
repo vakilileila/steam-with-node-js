@@ -19,13 +19,18 @@ module.exports = function (app, config) {
     }));
     app.use(passport.initialize());
     app.use(passport.session());
-    app.set('views', __dirname+'/views');
+try {
     //for ejs layout
     app.set("view engine", "ejs");
+    app.set('views', __dirname + '/views');
     app.set("views", config.rootPath + '/server/views');
     app.set('layout', 'layout');// defaults to 'layout'
     app.use(ejsLayout);
-
+}
+    catch(err)
+    {if(err)
+       console.log('error')
+    }
 
     app.engine('html', require('ejs').renderFile);
     app.use('/public', express.static(config.rootPath + '/public'));
