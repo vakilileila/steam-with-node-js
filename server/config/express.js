@@ -22,14 +22,15 @@ module.exports = function (app, config) {
 try {
     //for ejs layout
     app.set("view engine", "ejs");
-    app.set('views', __dirname + '/views');
-    app.set("views", __dirname + '/server/views');
+    app.set("views", config.rootPath + '/server/views');
     app.set('layout', 'layout');// defaults to 'layout'
     app.use(ejsLayout);
 }
     catch(err)
-    {if(err)
-       console.log('error')
+    {
+       if(err){
+           console.log("error try catch")
+       }
     }
 
     app.engine('html', require('ejs').renderFile);
