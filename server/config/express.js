@@ -23,7 +23,7 @@ try {
     //for ejs layout
     app.set("view engine", "ejs");
     app.set('views', __dirname + '/views');
-    app.set("views", config.rootPath + '/server/views');
+    app.set("views", __dirname + '/server/views');
     app.set('layout', 'layout');// defaults to 'layout'
     app.use(ejsLayout);
 }

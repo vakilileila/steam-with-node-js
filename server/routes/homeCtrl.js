@@ -18,7 +18,7 @@ module.exports = function (app, express) {
              Slide.find().exec(function (err, slide) {
                  if (err) {
                      console.log(err);
-                     res.end('Fetching data failed...');
+                     res.end('Fetching data failed home...');
                      return;
 
                  }
