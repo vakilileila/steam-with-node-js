@@ -47,9 +47,13 @@ try {
             isAuthenticated: req.isAuthenticated(),
             user: req.isAuthenticated() ? req.user : null
         }
+<<<<<<< HEAD
 
         next();
     });
 
 
+=======
+    });
+>>>>>>> 0ad2b7ef594a54b350161e77d7ce661f01551cce
 }
