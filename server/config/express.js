@@ -20,6 +20,9 @@ module.exports = function (app, config) {
     app.use(passport.initialize());
     app.use(passport.session());
 
+
+    app.engine('ejs', require('ejs').renderFile);
+
     //for ejs layout
     app.set("view engine", "ejs");
     app.set("views", config.rootPath + '/server/views');
