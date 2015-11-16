@@ -31,6 +31,7 @@
                             <a href="/admin/hero/delete/<%= hero._id %>">
                                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                             </a>
+
                             <a href="/hero/changePrice/<%= hero._id %>">
                                 <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
                             </a>
@@ -42,6 +43,13 @@
                             </a>
 
                             <!-- Modal -->
+
+
+
+
+                            <a  id="btnUnDiscount" hero-id="<%= hero._id %>">
+                                <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+                            </a>
 
                         </div>
                     </li>
@@ -91,6 +99,7 @@
         </div>
     </div>
 </form>
+
 <script>
     $(function () {
 
@@ -133,6 +142,33 @@
 
     })
 </script>
+<!--remove discount-->
+
+<script type="text/javascript">
+    $(function(){
+        $('#btnUnDiscount').click(function(e){
+            e.preventDefault();
+            console.log('select_link clicked');
+            var data = {};
+            data.title = "title";
+            data.message = "message";
+
+            $.ajax({
+                type: 'POST',
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                url: '/api/admin/hero/undiscount/'+ $(this).attr('hero-id'),
+                success: function(data) {
+                    console.log('success');
+                    console.log(JSON.stringify(data));
+                }
+            });
+
+        });
+    });
+</script>
+
+
 
 
 
