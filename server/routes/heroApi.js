@@ -46,33 +46,32 @@ module.exports = function (app, express) {
     /*----------- remove discount------------*/
 
     apiRouter.route('/admin/hero/undiscount/:id')
-        /*.get(function (reg, res) {
+       .get(function (reg, res) {
          Hero.findById(reg.params.id)
-         .exec(function (err, hero) {
+         .exec(function (err, specialItem) {
          if (err) {
          console.log(err);
          res.end('update discount error');
          return;
-
          }
-         res.json(hero);
+         res.json(specialItem);
          })
-         })*/
+         })
         .post(function (req, res) {
 
             Hero.findById(req.params.id)
-                .exec(function (err, hero) {
+                .exec(function (err, specialItem) {
 
                     if (err) {
                         console.log(err);
                         res.end('error in update heroDiscount');
                     }
+                    var discountInfo = req.body;
+                    specialItem.discount.isOnDiscount = false;
 
-                    hero.discount.isOnDiscount = false;
 
 
-
-                    hero.save(function (err) {
+                    specialItem.save(function (err) {
                         if (err) {
                             console.log(err);
                             res.end('err');
@@ -81,7 +80,6 @@ module.exports = function (app, express) {
                         res.end("Success");
                     });
                 });
-        })
-
+        });
     return apiRouter;
 }

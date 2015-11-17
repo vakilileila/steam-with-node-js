@@ -47,7 +47,7 @@
 
 
 
-                            <a  id="btnUnDiscount" hero-id="<%= hero._id %>">
+                            <a  class="showModalundiscount" id="btnUnDiscount" discount-id="<%= hero._id %>">
                                 <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
                             </a>
 
@@ -59,6 +59,41 @@
         </div>
     </div>
 </article>
+
+
+<form id="remve-discountForm"
+      action="">
+    <div class="modal modal-undiscount fade" id="mymodal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+
+
+                    <div class="row content-modal ">
+
+                        <p>you sure</p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            Close
+                        </button>
+
+
+                        <input type="submit" value="Save">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
 <form id="discountForm"
       action="">
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -101,6 +136,56 @@
 </form>
 
 <script>
+    $(function(){
+        $('.modal-undiscount').modal({
+            show: false
+        });
+        $('.showModalundiscount').click(function(){
+            var id= $(this).attr('discount-id');
+            var url= '/api/admin/hero/undiscount/' + id;
+            debugger;
+            $('#remve-discountForm').attr("action", url);
+            $('.modal-undiscount').modal('show');
+            debugger;
+        }) ;
+        $('#remve-discountForm').submit(function(e){
+            debugger;
+            var form = $(this);
+            e.preventDefault();
+            debugger;
+            $.ajax({
+                url: form.attr('action'),
+                type: 'POST',
+                data: form.serialize(),
+                success: function (data) {
+
+                },
+                error: function () {
+                    alert('There has been an error, please alert us immediately');
+                }
+            });
+
+            /* $.ajax({
+             url:form.attr('action'),
+             type:'post',
+             data:{},
+             success: function (data) {
+
+             },
+             error: function () {
+             alert('There has been an error, please alert us immediately');
+             }
+
+
+
+             });*/
+            window.location.href = "/admin/heros";
+        })
+    })
+
+</script>
+
+<script>
     $(function () {
 
         //init ...
@@ -109,22 +194,19 @@
         });
 
         $('.showModal').click(function () {
-            debugger;
+
             var id = $(this).attr('hero-id');
             var url = '/api/admin/specialItem/addDiscount/' + id;
             $('#discountForm').attr("action", url);
 
             $('#myModal').modal('show');
+            debugger;
         });
 
         $('#discountForm').submit(function (e) {
-
-
             var form = $(this);
-
-
             e.preventDefault();
-
+            debugger;
             $.ajax({
                 url: form.attr('action'),
                 type: 'POST',
@@ -142,8 +224,12 @@
 
     })
 </script>
-<!--remove discount-->
 
+
+
+
+
+<!--
 <script type="text/javascript">
     $(function(){
         $('#btnUnDiscount').click(function(e){
@@ -157,7 +243,7 @@
                 type: 'POST',
                 data: JSON.stringify(data),
                 contentType: 'application/json',
-                url: '/api/admin/hero/undiscount/'+ $(this).attr('hero-id'),
+                url: '/api/admin/hero/undiscount/' + $(this).attr('discount-id'),
                 success: function(data) {
                     console.log('success');
                     console.log(JSON.stringify(data));
@@ -167,8 +253,6 @@
         });
     });
 </script>
-
-
-
+-->
 
 
