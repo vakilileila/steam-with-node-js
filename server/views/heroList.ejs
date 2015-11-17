@@ -32,19 +32,15 @@
                                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                             </a>
 
-                            <a href="/hero/changePrice/<%= hero._id %>">
+                            <a href="#" class="showPriceModal" price-id="<%= hero._id%>"  >
                                 <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
                             </a>
 
 
-                            <!-- Button trigger modal -->
+
                             <a href="#" id="showAddDiscount"  class="showModal" hero-id="<%= hero._id %>">
                                 <span class="glyphicon glyphicon-import" aria-hidden="true"></span>
                             </a>
-
-                            <!-- Modal -->
-
-
 
 
                             <a  class="showModalundiscount" id="btnUnDiscount" discount-id="<%= hero._id %>">
@@ -60,7 +56,7 @@
     </div>
 </article>
 
-
+<!-- modal remve discount -->
 <form id="remve-discountForm"
       action="">
     <div class="modal modal-undiscount fade" id="mymodal" tabindex="-1" role="dialog"
@@ -93,10 +89,48 @@
         </div>
     </div>
 </form>
+<script>
+    $(function(){
+        $('.modal-undiscount').modal({
+            show: false
+        });
+        $('.showModalundiscount').click(function(){
+            var id= $(this).attr('discount-id');
+            var url= '/api/admin/hero/undiscount/' + id;
+            debugger;
+            $('#remve-discountForm').attr("action", url);
+            $('.modal-undiscount').modal('show');
+            debugger;
+        }) ;
+        $('#remve-discountForm').submit(function(e){
+            debugger;
+            var form = $(this);
+            e.preventDefault();
+            debugger;
+            $.ajax({
+                url: form.attr('action'),
+                type: 'POST',
+                data: form.serialize(),
+                success: function (data) {
 
+                },
+                error: function () {
+
+                }
+            });
+
+            window.location.href = "/admin/heros";
+        })
+    })
+
+</script>
+<!-- end modal remve discount-->
+
+
+<!-- modal add discount -->
 <form id="discountForm"
       action="">
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+    <div class="modal fade modalChangePrice" id="myModal" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -134,56 +168,6 @@
         </div>
     </div>
 </form>
-
-<script>
-    $(function(){
-        $('.modal-undiscount').modal({
-            show: false
-        });
-        $('.showModalundiscount').click(function(){
-            var id= $(this).attr('discount-id');
-            var url= '/api/admin/hero/undiscount/' + id;
-            debugger;
-            $('#remve-discountForm').attr("action", url);
-            $('.modal-undiscount').modal('show');
-            debugger;
-        }) ;
-        $('#remve-discountForm').submit(function(e){
-            debugger;
-            var form = $(this);
-            e.preventDefault();
-            debugger;
-            $.ajax({
-                url: form.attr('action'),
-                type: 'POST',
-                data: form.serialize(),
-                success: function (data) {
-
-                },
-                error: function () {
-                    alert('There has been an error, please alert us immediately');
-                }
-            });
-
-            /* $.ajax({
-             url:form.attr('action'),
-             type:'post',
-             data:{},
-             success: function (data) {
-
-             },
-             error: function () {
-             alert('There has been an error, please alert us immediately');
-             }
-
-
-
-             });*/
-            window.location.href = "/admin/heros";
-        })
-    })
-
-</script>
 
 <script>
     $(function () {
@@ -224,7 +208,77 @@
 
     })
 </script>
+<!-- end modal add discount-->
 
+
+
+<!--modal update price hero-->
+<form id="changePrice"
+      action="">
+    <div class="modal  fade" id="mymodal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+
+
+                    <div class="row content-modal ">
+                        <label>change price</label>
+
+                       <input type="text" name="changePrice">
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            Close
+                        </button>
+
+
+                        <input type="submit" value="Save">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    $(function(){
+        $('.modalChangePrice').modal
+        {
+            show:false;
+        }
+       $('.showPriceModal').click(function(){
+           var id = $(this).attr('price-id');
+           var  url='/admin/hero/changePrice/' + id;
+           $('#changePrice').attr("action", url);
+           $('.modalChangePrice').modal('show')
+       })
+    })
+    $('#changePrice').submit(function(e){
+        e.preventDefault();
+        var form= $(this)
+        $.ajax({
+            type: 'post',
+            data:form.serialize(),
+            url:form.attr('action'),
+            success: function(data) {
+                console.log('success');
+                console.log(JSON.stringify(data));
+            }
+
+
+        })
+
+
+    })
+
+</script>
+<!-- end modal update price hero-->
 
 
 

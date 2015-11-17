@@ -1,5 +1,5 @@
 
-var path = require('path');
+/*var path = require('path');
 var rootPath = path.normalize(__dirname + '/../../');
 
 module.exports = {
@@ -18,9 +18,9 @@ module.exports = {
     }
 
 
-}
+}*/
 
-/*
+
 var path = require('path');
 var rootPath = path.normalize(__dirname + '/../../');
 
@@ -34,7 +34,7 @@ module.exports = {
 
 
     production: {
-        db: ' mongodb://<iransteamdb>:<l-8611268296>@ds053164.mongolab.com:53164/iransteamdb',
+        db: 'mongodb://admin:admin@ds053784.mongolab.com:53784/dbiransteam',
         root: rootPath,
         app: {
             name: 'MEAN - A Modern Stack - Production'
@@ -44,4 +44,4 @@ module.exports = {
 
 
 
-}*/
+}
