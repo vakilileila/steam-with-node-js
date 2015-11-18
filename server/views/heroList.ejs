@@ -130,7 +130,7 @@
 <!-- modal add discount -->
 <form id="discountForm"
       action="">
-    <div class="modal fade modalChangePrice" id="myModal" tabindex="-1" role="dialog"
+    <div class="modal fade " id="myModal" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -215,7 +215,7 @@
 <!--modal update price hero-->
 <form id="changePrice"
       action="">
-    <div class="modal  fade" id="mymodal" tabindex="-1" role="dialog"
+    <div class="modal modalChangePrice fade" id="mymodal" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -253,29 +253,33 @@
             show:false;
         }
        $('.showPriceModal').click(function(){
+           debugger;
            var id = $(this).attr('price-id');
-           var  url='/admin/hero/changePrice/' + id;
+           var  url='/api/admin/hero/changePrice/' + id;
            $('#changePrice').attr("action", url);
            $('.modalChangePrice').modal('show')
+           debugger;
        })
-    })
-    $('#changePrice').submit(function(e){
-        e.preventDefault();
-        var form= $(this)
-        $.ajax({
-            type: 'post',
-            data:form.serialize(),
-            url:form.attr('action'),
-            success: function(data) {
-                console.log('success');
-                console.log(JSON.stringify(data));
-            }
+        $('#changePrice').submit(function(e){
+            e.preventDefault();
+            var form= $(this)
+            debugger;
+            $.ajax({
+                type: 'post',
+                data:form.serialize(),
+                url:form.attr('action'),
+                success: function(data) {
+                    console.log('success');
+                    console.log(JSON.stringify(data));
+                }
 
 
+            })
+
+            window.location.href = "/admin/heros";
         })
-
-
     })
+
 
 </script>
 <!-- end modal update price hero-->

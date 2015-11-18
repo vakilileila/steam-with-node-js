@@ -101,7 +101,7 @@ module.exports = function (app, express) {
 
                     }
                     var priceInfo= reg.body;
-                    changePrice.price=priceInfo.changePrice;
+                    changePrice.price = priceInfo.changePrice;
 
                     changePrice.save(function(err){
                         if(err){

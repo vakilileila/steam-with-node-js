@@ -80,7 +80,7 @@ module.exports = function (app, express) {
                     return;
                 }
 
-                res.end('Succes');
+                res.redirect('/admin/slideshow/create');
             });
         });
 
