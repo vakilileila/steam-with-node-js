@@ -5,6 +5,8 @@ var session = require('express-session');
 var passport = require('passport');
 var multer = require('multer');
 
+
+
 var ejsLayout = require("express-ejs-layouts")
 
 module.exports = function (app, config) {
@@ -23,13 +25,10 @@ module.exports = function (app, config) {
 
 
 
+
+
     //for ejs layout
     app.set("view engine", "ejs");
-
-    console.log('ROOTPATH ***********************************************');
-    console.log(JSON.stringify(config));
-    console.log('***********************************************');
-
     app.set("views", config.rootPath + './server/views');
     app.set('layout', 'layout');// defaults to 'layout'
     app.use(ejsLayout);
