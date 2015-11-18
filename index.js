@@ -7,6 +7,7 @@ var Slide = require('./server/models/slideshow');
 var ejs = require('ejs');
 
 var env = process.env.NODE_ENV || 'development';
+
 app.use(cookieParser())
 app.use(session({
     secret: 'keyboard cat',
