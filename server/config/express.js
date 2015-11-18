@@ -21,11 +21,13 @@ module.exports = function (app, config) {
     app.use(passport.session());
 
 
-
-
     //for ejs layout
-    app.set("view engine", "ejs");
+    app.set("vie
 
+    console.log('ROOTPATH ***********************************************');
+    console.log(JSON.stringify(config));
+    console.log('***********************************************');
+    
     app.set("views", config.rootPath + './server/views');
     app.set('layout', 'layout');// defaults to 'layout'
     app.use(ejsLayout);

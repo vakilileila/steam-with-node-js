@@ -4,31 +4,32 @@
 
 <article class="content">
     <div class="createHero">
-<h1>Edit Item</h1>
+        <h1>Edit Item</h1>
+
         <form action="/admin/hero/edit/<%= hero._id %>" method="post">
             <div class="row">
-            <div class="col-md-6">
-                <label>name item</label>
-                <input type="text" name="name" value="<%= hero.name %>">
-            </div>
-            <!--JSON.stringify(cat)-->
-            <div class="col-md-6">
-
-
+                <div class="col-md-6">
+                    <label>name item</label>
+                    <input type="text" name="name" value="<%= hero.name %>">
+                </div>
                 <!--JSON.stringify(cat)-->
+                <div class="col-md-6">
+
+
+                    <!--JSON.stringify(cat)-->
 
                     <label>hros</label>
                     <input style=" width: 75%; border: 1px solid #A9A9A9;" id="categories">
                     <input type="hidden" name="category" id="category">
 
-            </div>
+                </div>
             </div>
             <div class="row">
 
 
                 <div class="col-md-6">
                     <label>price</label>
-                    <input type="text" name="price" value="<%= hero.price%>">
+                    <input type="text" name="price" value="<%= hero.price %>">
                 </div>
             </div>
             <div class="row">

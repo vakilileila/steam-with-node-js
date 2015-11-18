@@ -57,13 +57,6 @@ module.exports = function (app, express) {
             });
         })
 
-
-
-
-
-
-
-
     /*--------  update hero (nameHero, upload image, select category, price)   --------*/
     apiRouter.route('/admin/hero/edit/:id')
         .get(function (req, res) {
