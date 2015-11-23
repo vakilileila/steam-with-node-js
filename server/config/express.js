@@ -4,7 +4,8 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
 var multer = require('multer');
-
+var mongoosePaginate = require('mongoose-paginate');
+var paginate = require('express-paginate');
 
 
 var ejsLayout = require("express-ejs-layouts")
@@ -23,7 +24,7 @@ module.exports = function (app, config) {
     app.use(passport.session());
 
 
-
+    app.use(paginate.middleware(10, 50));
 
 
 

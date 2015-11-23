@@ -1,6 +1,8 @@
 var Hero = require('../models/hero');
 var HeroCategory = require('../models/heroCategory');
 var Enumerable = require('linq');
+var paginate = require('express-paginate');
+
 
 module.exports = function (app, express) {
     var apiRouter = express.Router();
@@ -20,9 +22,55 @@ module.exports = function (app, express) {
                         category.imageUrl = "/uploads/" + category.imageUrl;
                         return category;
                     });
+                debugger;
+                if (!HeroCategory.paginate)
+                    consoleSchema.log('Mongose Plugin is Exits ...');
 
-                res.render('./category.ejs', { categoreis:categoriesView});
+                HeroCategory.paginate({}, {page: req.query.page, limit: req.query.limit}
+                    ,
+                    function (err, categoreis, pageCount, itemCount) {
+                        res.render('./category.ejs', {
+                            categoreis: categoriesView,
+                            pageCount: pageCount,
+                            itemCount: itemCount,
+                            pages: paginate.getArrayPages(req)(3, pageCount, req.query.page),
+                            paginate:paginate
+
+                        });
+                    });
             });
+           /*HeroCategory.find().exec(function (err, categoreis) {
+                if (err) {
+                    console.log(err);
+                    res.end('Fetching data failed...');
+                    return;
+                }
+                var categoriesView = Enumerable.from(categoreis)
+                    .select(function (category) {
+                        category.imageUrl = "/uploads/" + category.imageUrl;
+                        return category;
+                    });
+
+
+                categoreis.paginate({}, {
+                    page: req.query.page,
+                    limit: req.query.limit
+                }, function (err, categoreis, pageCount, itemCount) {
+
+                    if (err) return next(err);
+
+                    res.render('./category.ejs', {
+                        categoreis: categoriesView,
+                        categoreis: categoreis,
+                        pageCount: pageCount,
+                        itemCount: itemCount,
+                        pages: paginate.getArrayPages(req)(3, pageCount, req.query.page)
+                    });
+
+                });
+
+                res.render('./category.ejs', {categoreis: categoriesView});
+            });*/
         });
 
     /*--------select page categoryList --------  */
@@ -31,8 +79,7 @@ module.exports = function (app, express) {
             HeroCategory.find().exec(function (err, cats) {
 
 
-
-                res.render('./categoryList.ejs', {categories: cats , layout: 'layoutAdmin'});
+                res.render('./categoryList.ejs', {categories: cats, layout: 'layoutAdmin'});
             });
         });
 
@@ -40,7 +87,7 @@ module.exports = function (app, express) {
     /*-------- create category (nameCategory-image)  --------*/
     apiRouter.route('/admin/heroCategories/create')
         .get(function (req, res) {
-            res.render('./categoryCreate.ejs',{layout: 'layoutAdmin'});
+            res.render('./categoryCreate.ejs', {layout: 'layoutAdmin'});
         })
         .post(function (req, res) {
             var dto = req.body;
@@ -59,10 +106,9 @@ module.exports = function (app, express) {
         });
 
 
-
     /*-------- click on category, select hero page   --------*/
     apiRouter.route('/heros/:id')
-        .get(function (req, res) {
+        .get(function (req, res, next) {
             Hero.find({'category._id': req.params.id})
                 .exec(function (err, heros) {
                     if (err) {
@@ -76,7 +122,25 @@ module.exports = function (app, express) {
                             return hero;
                         });
 
-                    res.render('./heros.ejs', {heros: herosView});
+
+                    heros.paginate({}, {
+                        page: req.query.page,
+                        limit: req.query.limit
+                    }, function (err, heros, pageCount, itemCount) {
+
+                        if (err) return next(err);
+
+                        res.render('./heros.ejs',
+                            {
+                                heros: herosView,
+                                heros: heros,
+                                pageCount: pageCount,
+                                itemCount: itemCount,
+                                pages: paginate.getArrayPages(req)(3, pageCount, req.query.page)
+                            });
+
+                    });
+
                 })
         });
 
@@ -102,7 +166,7 @@ module.exports = function (app, express) {
                         res.end('error in update hero');
                     }
 
-                    category.name=editedCategory.name;
+                    category.name = editedCategory.name;
 
 
                     category.save(function (err) {
@@ -121,45 +185,45 @@ module.exports = function (app, express) {
     apiRouter.route('/admin/category/delete/:id')
         .get(function (reg, res) {
             /*Hero.findOne({'category._id':req.params.id})
-                .exec(function (err, hero) {
-                    if(erro){
-                        console.log('not permit');
-                    }
+             .exec(function (err, hero) {
+             if(erro){
+             console.log('not permit');
+             }
 
-                    if(hero){
-                        res.render('', {
-                            errors:[
-                                'The current Categroy is used in hero ' + hero._id
-                            ]
-                        })
+             if(hero){
+             res.render('', {
+             errors:[
+             'The current Categroy is used in hero ' + hero._id
+             ]
+             })
+             }
+             else{*/
+            HeroCategory.findById(reg.params.id)
+                .exec(function (err, category) {
+                    if (err) {
+                        console.log(err);
+                        res.end('error in delete category');
                     }
-                    else{*/
-                        HeroCategory.findById(reg.params.id)
-                            .exec(function (err, category) {
-                                if (err) {
-                                    console.log(err);
-                                    res.end('error in delete category');
-                                }
-                                else
-                                    category.remove(function (err, category) {
-                                        if (err) {
-                                            console.log(err);
-                                        }
-                                        else {
-                                            console.log('DELETE removing ID: ' + category._id);
-                                            res.redirect('/admin/heroCategories');
-                                        }
-                                    });
+                    else
+                        category.remove(function (err, category) {
+                            if (err) {
+                                console.log(err);
+                            }
+                            else {
+                                console.log('DELETE removing ID: ' + category._id);
+                                res.redirect('/admin/heroCategories');
+                            }
+                        });
 
-                            });
-              /*   }
                 });
+            /*   }
+             });
 
-            Hero.find({'category._id':req.params.id}).exec(function (err, heros) {
-                if(heros.length> 0){
-                //    errors ...
-                }
-            });*/
+             Hero.find({'category._id':req.params.id}).exec(function (err, heros) {
+             if(heros.length> 0){
+             //    errors ...
+             }
+             });*/
 
         });
 

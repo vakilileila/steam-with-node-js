@@ -37,11 +37,49 @@
     </div>
     <div class="row">
 
-        <div class="col-sm-6 col-md-4 paging"> <form name="paging" target="_blank" class="numDisplayItem"><span>item per page:</span><ul>
+        <div class="col-sm-6 col-md-4 paging">
+            <form action="/category">
+                <a href="<%= paginate.href({sort: 'name'})%>">
+                    <ul>
+                        <% categoreis.forEach(function(cats){ %>
+                        <li><%= cats.name%></li>
+
+                        <% }); %>
+                    </ul></a>
+                <% if (paginate.hasPreviousPages || paginate.hasNextPages(pageCount)) { %>
+                <div class="navigation well-sm" id="pagination"></div>
+                <ul class="pager">
+                    <% if (paginate.hasPreviousPages) { %>
+                    <li class="previus">
+                        <a href=<% paginate.href(true).prev %>>
+                            <i class="fa fa-arrow-circle-left"></i>
+                            | Previous
+                        </a>
+                    </li>
+                    <% } %>
+                    <% if(pages){%>
+                    <% pages.forEach(function(page){ %>
+                    <a class="btn btn-default" href="<%= page.url== page.number%>" ></a>
+
+                    <% }); %>
+                    <%};%>
+                    <% if (paginate.hasNextPages(pageCount)) { %>
+                    <li class="next">
+                        <a href=<% paginate.href(true).next %>>
+                            | Next
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+                <% } %>
+            </form>
+
+            <!--<form name="paging" target="_blank" class="numDisplayItem"><span>item per page:</span><ul>
                     <a href="#"><li>20</li></a>
                     <a href="#"><li>60</li></a>
                     <a href="#"><li>all</li></a>
-                </ul></form></div>
+                </ul></form>--></div>
         <div class=" col-md-4"></div>
         <div class="col-sm-6 col-md-4 paging">
             <form name="paging" target="_blank" >
