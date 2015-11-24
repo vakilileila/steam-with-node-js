@@ -174,7 +174,7 @@ module.exports = function (app, express) {
                             console.log(err);
                             res.end('Error in ');
                         }
-                        res.end('category updated successfully');
+                        res.redirect('/admin/heroCategories');
                     });
 
                 });

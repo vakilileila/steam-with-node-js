@@ -8,6 +8,15 @@ var ejs = require('ejs');
 
 var env = process.env.NODE_ENV || 'development';
 
+ejs.filters.translate = function (key) {
+    var translates = require('./translate.fa.json');
+
+    var value = translates[key];
+
+    return value ? value : key;
+};
+
+
 app.use(cookieParser())
 app.use(session({
     secret: 'keyboard cat',

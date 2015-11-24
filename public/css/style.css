@@ -655,10 +655,22 @@ select option
     background-color: #f2f2f2;
     padding: 25px;
 }
+.createHero h1
+{
+    text-align: right;
+}
 .createHero label
 {
     width: 100%;
     margin: 20px 0 10px 0;
+    text-align: right;
+}
+.col-md-6.oneInput {
+    float: right;
+}
+.col-md-6.oneInput input
+{
+    float: right;
 }
 .createHero input[type=text],.createHero select
 {
@@ -722,6 +734,9 @@ select option
 .edit-button button
 {
     width: 40%;
+}
+button#myButton {
+    padding: 5px 30px;
 }
 .draging-box
 {

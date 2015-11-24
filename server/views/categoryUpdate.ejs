@@ -1,17 +1,23 @@
 <article class="content">
     <div class="createHero">
-        <h1>Edit Hero</h1>
+        <h1><%=: 'Edit Hero' | translate %></h1>
 
         <form action="/admin/category/edit/<%= category._id %>" method="post">
             <div class="row">
-                <div class="col-md-6">
-                    <label>name category</label>
+                <div class="col-md-6 oneInput">
+                    <label> <%=: 'name category' | translate %></label>
                     <input type="text" name="name" value="<%= category.name %>">
                 </div>
             </div>
             <div class="row">
+                <div class="col-md-4 btn-upload"><a class="btn btn-default"
+                                                    id="btn_choosefile"><%=: 'upload image' | translate %></a></div>
+
+                <input type="hidden" name="imageUrl">
+
                 <div class="col-md-8">
-                    <label>upload image</label>
+                    <label> <%=: 'upload image' | translate %></label>
+
                     <div id="uploader">
                         <div id="drop_element" class="draging-box">
                             DRAG IMAGE OR FILE
@@ -21,13 +27,15 @@
                     </div>
 
                 </div>
-                <div class="col-md-4 btn-upload"><a class="btn btn-primary" id="btn_choosefile">Upload File</a></div>
 
-                <input type="hidden" name="imageUrl">
             </div>
             <div class="row">
                 <div class="col-md-12" style="text-align: center; margin: 20px 0;">
-                    <input type="submit">
+                    <button type="submit" id="myButton" data-loading-text="Loading..." class="btn btn-primary"
+                            autocomplete="off">
+                        <span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span>
+                        <%=: 'save changes' | translate %>
+                    </button>
                 </div>
             </div>
         </form>

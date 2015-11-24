@@ -6,7 +6,7 @@ var rootPath = path.normalize(__dirname + '/../../');
 module.exports = {
     development: {
         rootPath: rootPath,
-        db: 'mongodb://localhost:27017/dbDota2',
+        db: 'mongodb://admin:admin@ds053784.mongolab.com:53784/dbiransteam',
         port: process.env.PORT || 3030
     },
     production: {
