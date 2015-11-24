@@ -39,13 +39,7 @@
 
         <div class="col-sm-6 col-md-4 paging">
             <form action="/category">
-                <a href="<%= paginate.href({sort: 'name'})%>">
-                    <ul>
-                        <% categoreis.forEach(function(cats){ %>
-                        <li><%= cats.name%></li>
 
-                        <% }); %>
-                    </ul></a>
                 <% if (paginate.hasPreviousPages || paginate.hasNextPages(pageCount)) { %>
                 <div class="navigation well-sm" id="pagination"></div>
                 <ul class="pager">
