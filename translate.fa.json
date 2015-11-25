@@ -5,5 +5,21 @@
   "upload image" : "آ‍‍‍‍‍‍‍‍‍‍‍بلود عکس",
   "name category" : "نام هیرو",
   "Edit Hero" : "ویرایش هیرو",
-  "Create New Hero" : "ایجاد هیروی جدید"
+  "Create New Hero" : "ایجاد هیروی جدید",
+  "Enter Discount Special Item" : "وارد کردن تخفیف ایتم ویژه",
+  "Discount Price" : "قیمت تخفیف",
+  "Discount Rate" : "نرخ تخفیف",
+  "Remve Discount" : "حذف تخفیف",
+  "Click Button for Remve Discount" : "برای حذف تخفیف روی دکمه ذخیره کلیک کنید",
+  "Close" : "بستن",
+  "Enter Price Item" : "وارد کردن قیمت آیتم",
+  "Item Price" : "قیمت آیتم",
+  "Create New Item" : "ایجاد آیتم جدید",
+  "Item Name" : "نام آیتم",
+  "Select Hero": "انتخاب هیروی مربوطه",
+  "Item Price" : "قیمت آیتم",
+  "Description Item" : "توضییحاتی در مورد آیتم",
+  "Create New Slide": "ایجاد اسلاید جدید",
+  "Price" : "قیمت"
+
 }

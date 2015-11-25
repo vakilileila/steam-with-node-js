@@ -66,23 +66,27 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <h4 class="modal-title" id="myModalLabel"><%=: 'Remve Discount' | translate %></h4>
                 </div>
                 <div class="modal-body">
 
 
                     <div class="row content-modal ">
 
-                        <p>you sure</p>
+                        <p><%=: 'Click Button for Remve Discount' | translate %></p>
                     </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">
-                            Close
+                            <%=: 'Close' | translate %>
                         </button>
 
 
-                        <input type="submit" value="Save">
+                        <button type="submit" id="myButton" data-loading-text="Loading..." class="btn btn-primary"
+                                autocomplete="off">
+                            <span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span>
+                            <%=: 'save' | translate %>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -137,7 +141,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <h4 class="modal-title" id="myModalLabel"><%=: 'Enter Discount Special Item' | translate %></h4>
                 </div>
                 <div class="modal-body">
 
@@ -145,23 +149,27 @@
                     <div class="row content-modal ">
 
                         <div class="col-md-6">
-                            <label>discount price</label>
+                            <label> <%=: 'Discount Price' | translate %></label>
                             <input type="text" name="priceDiscount" id="priceDiscount">
                         </div>
 
                         <div class="col-md-6">
-                            <label>Rate</label>
+                            <label> <%=: 'Discount Rate' | translate %></label>
                             <input type="text" name="rateDiscount" id="rateDiscount">
                         </div>
                     </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">
-                            Close
+                            <%=: 'Close' | translate %>
                         </button>
 
 
-                        <input type="submit" value="Save">
+                        <button type="submit" id="myButton" data-loading-text="Loading..." class="btn btn-primary"
+                                autocomplete="off">
+                            <span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span>
+                            <%=: 'save changes' | translate %>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -222,24 +230,28 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <h4 class="modal-title" id="myModalLabel"><%=: 'Enter Price Item' | translate %></h4>
                 </div>
                 <div class="modal-body">
 
 
                     <div class="row content-modal ">
-                        <label>change price</label>
+                        <label><%=: 'Item Price' | translate %></label>
 
                        <input type="text" name="changePrice">
                     </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">
-                            Close
+                            <%=: 'Close' | translate %>
                         </button>
 
 
-                        <input type="submit" value="Save">
+                        <button type="submit" id="myButton" data-loading-text="Loading..." class="btn btn-primary"
+                                autocomplete="off">
+                            <span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span>
+                            <%=: 'save' | translate %>
+                        </button>
                     </div>
                 </div>
             </div>

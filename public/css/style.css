@@ -649,6 +649,37 @@ select option
 {
     padding: 0 30px;
 }
+.content-modal label
+{
+    width: 100%;
+    text-align: right;
+}
+.content-modal input
+{
+    float: right;
+}
+button.close
+{
+    float: left;
+}
+.modal-title
+{
+    text-align: right;
+}
+.modal-body p{
+    text-align: right;
+    font-size: 16px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+span.glyphicon.glyphicon-floppy-saved
+{
+
+    left: 8px;
+}
+div.modal-footer
+{
+    text-align: left;
+}
 .createHero
 {
     width: 100%;
@@ -658,6 +689,10 @@ select option
 .createHero h1
 {
     text-align: right;
+    text-align: right;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 20px;
+    color: #138FCC;
 }
 .createHero label
 {
@@ -729,14 +764,44 @@ select option
 }
 .edit-button
 {
-    text-align: center;
+
 }
 .edit-button button
 {
-    width: 40%;
+   background-color: #A0A8AD;
+    color: #000;
+}
+.edit-button button:hover
+{
+    background-color: #b0b8bd;
 }
 button#myButton {
-    padding: 5px 30px;
+    padding: 5px 50px;
+}
+.create-form .col-md-6
+{
+    float: right;
+}
+.create-slide .col-md-6
+{
+    float: right;
+}
+.create-slide input
+{
+    float: right;
+}
+.create-input
+{
+    float: right;
+}
+.create-texterea.form-control
+{
+    width: 66%;
+    float: right;
+}
+.modal-footer span
+{
+    float: right;
 }
 .draging-box
 {

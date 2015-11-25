@@ -1,30 +1,35 @@
 <article class="content" xmlns="http://www.w3.org/1999/html">
     <div class="createHero">
 
-<h1>New Slider</h1>
+<h1><%=: 'Create New Slide' | translate %></h1>
 
-        <form action="/admin/slideshow/create" method="post">
+        <form class="create-slide" action="/admin/slideshow/create" method="post">
 
             <div class="row">
                 <div class="col-md-6">
-                    <label>Item name</label>
+                    <label><%=: 'Item Name' | translate %></label>
                     <input type="text" name="name"></div>
                 <div class="col-md-6">
-                    <label>price</label>
+                    <label><%=: 'Price' | translate %></label>
                     <input type="text" name="price">
                 </div>
 
             </div>
 
             <div class="row">
-                <div class="col-md-6">
-                    <label>description</label>
-                    <textarea class="form-control" rows="5" id="comment" name="description"></textarea>
+                <div class="col-md-12">
+                    <label>description<%=: '' | translate %></label>
+                    <textarea class="form-control create-texterea" rows="5" id="comment" name="description"></textarea>
                 </div>
             </div>
             <div class="row">
+                <div class="col-md-4 btn-upload"><a class="btn btn-default"
+                                                    id="btn_choosefile"><%=: 'upload image' | translate %></a></div>
+
+                <input type="hidden" name="imageUrl">
                 <div class="col-md-8">
-                    <label>upload image</label>
+                    <label><%=: 'upload image' | translate %></label>
+
                     <div id="uploader">
                         <div id="drop_element" class="draging-box">
                             DRAG IMAGE OR FILE
@@ -34,23 +39,16 @@
                     </div>
 
                 </div>
-                <div class="col-md-4 btn-upload"><a class="btn btn-primary" id="btn_choosefile">Upload File</a></div>
 
-                <input type="hidden" name="imageUrl">
             </div>
-
-
             <div class="row">
-                <div class="col-md-12" style="text-align: center; margin: 20px 0;">
-                    <input type="submit">
+                <div class="col-md-12" style="text-align: center; margin: 50px 0;">
+                    <button type="submit" id="myButton" data-loading-text="Loading..." class="btn btn-primary"
+                            autocomplete="off">
+                        <%=: 'save' | translate %>
+                        <span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span>
+                    </button>
                 </div>
-                <div class="col-md-12 edit-button"><a href="/admin/heros">
-                        <button type="button" id="myButton" data-loading-text="Loading..." class="btn btn-primary"
-                                autocomplete="off">
-                            edit itemHero
-                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                        </button>
-                    </a></div>
             </div>
 
         </form>
