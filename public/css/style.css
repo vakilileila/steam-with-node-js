@@ -109,6 +109,10 @@ header, section, footer, aside, nav, main, article, figure {
     {
         width: 100%;
     }
+    .list-hero-edit .listhero-name
+    {
+        width: 100%;
+    }
 }
 @media (max-width: 908px)
 {
@@ -129,6 +133,15 @@ header, section, footer, aside, nav, main, article, figure {
     .nav>li
     {
         float: right;
+    }
+    .create-form .col-md-6,.col-md-6.oneInput
+    {
+        width: 100%;
+    float:right;
+    }
+    .list-hero-edit .listhero-name
+    {
+        width: 75%;
     }
 
 
@@ -781,10 +794,12 @@ button#myButton {
 .create-form .col-md-6
 {
     float: right;
+
 }
 .create-slide .col-md-6
 {
     float: right;
+    width: 100%;
 }
 .create-slide input
 {

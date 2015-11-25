@@ -10,11 +10,11 @@
         <form class="create-form" action="/admin/hero/create" method="post">
 
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-12">
                     <label><%=: 'Item Name' | translate %></label>
                     <input type="text" class="create-input" name="name"></div>
                 <!--JSON.stringify(cat)-->
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-12">
                     <label style="    padding-right: 25%;"><%=: 'Select Hero' | translate %></label>
                     <input style=" width: 75%; border: 1px solid #A9A9A9; " id="categories">
                     <input type="hidden" name="category" id="category">
@@ -22,7 +22,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-12">
                     <label><%=: 'Item Price' | translate %></label>
                     <input class="create-input" type="text" name="price">
                 </div>
