@@ -7,7 +7,9 @@
         <h1><%=: 'Edit Item' | translate %></h1>
 
         <form class="create-form" action="/admin/hero/edit/<%= hero._id %>" method="post">
-
+            <div id="gif">
+                <div class="loading"></div>
+            </div>
 
             <div class="row">
                 <div class="col-md-6 col-sm-12">
@@ -114,4 +116,18 @@
             $('#category').val(JSON.stringify(dataItem));
         }
     })
+</script>
+<!-- loading-->
+<script>
+    debugger;
+    $('.create-form').submit(function(){
+        debugger;
+        $('#gif').css('visibility' , 'visible');
+        debugger
+        $('button:submit').attr("disabled", true);
+        debugger;
+        return true
+    })
+
+
 </script>

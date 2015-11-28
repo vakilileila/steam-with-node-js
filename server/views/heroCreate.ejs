@@ -5,6 +5,9 @@
 
 <article class="content" xmlns="http://www.w3.org/1999/html">
     <div class="createHero">
+        <div id="gif">
+            <div class="loading"></div>
+        </div>
 <h1><%=: 'Create New Item' | translate %></h1>
 
         <form class="create-form" action="/admin/hero/create" method="post">
@@ -14,7 +17,7 @@
                     <label><%=: 'Item Name' | translate %></label>
                     <input type="text" class="create-input" name="name"></div>
                 <!--JSON.stringify(cat)-->
-                <div class="col-md-6 col-sm-12">
+                <div class="col-md-6 col-sm-12 coombbox-create">
                     <label style="    padding-right: 25%;"><%=: 'Select Hero' | translate %></label>
                     <input style=" width: 75%; border: 1px solid #A9A9A9; " id="categories">
                     <input type="hidden" name="category" id="category">
@@ -31,9 +34,10 @@
 
             <div class="row">
                 <div class="col-md-4 btn-upload"><a class="btn btn-default"
-                                                    id="btn_choosefile"><%=: 'upload image' | translate %></a></div>
+                                                    id="btn_choosefile"><%=: 'upload image' | translate %></a>
+                </div>
 
-                <input type="hidden" name="imageUrl">
+
                 <div class="col-md-8">
                     <label><%=: 'upload image' | translate %></label>
 
@@ -49,7 +53,21 @@
 
             </div>
             <div class="row">
+                <script>
+                    debugger;
+                    $('.create-form').submit(function(){
+                        debugger;
+                        $('#gif').css('visibility' , 'visible');
+                        debugger
+                        $('button:submit').attr("disabled", true);
+                        debugger;
+                        return true
+                    })
+
+
+                </script>
                 <div class="col-md-12" style="text-align: center; margin: 50px 0;">
+
                     <button type="submit" id="myButton" data-loading-text="Loading..." class="btn btn-primary"
                             autocomplete="off">
                         <%=: 'save' | translate %>

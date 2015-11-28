@@ -53,7 +53,7 @@ module.exports = function (app, express) {
                     return;
                 }
                 debugger;
-                res.redirect('/admin/hero/create');
+                res.redirect('/admin/heros');
             });
         })
 

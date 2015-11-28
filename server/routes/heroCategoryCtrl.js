@@ -101,7 +101,7 @@ module.exports = function (app, express) {
                     return;
                 }
 
-                res.redirect('/admin/heroCategories/create');
+                res.redirect('/admin/heroCategories');
             });
         });
 

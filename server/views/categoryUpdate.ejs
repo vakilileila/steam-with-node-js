@@ -1,5 +1,8 @@
 <article class="content">
     <div class="createHero">
+        <div id="gif">
+            <div class="loading"></div>
+        </div>
         <h1><%=: 'Edit Hero' | translate %></h1>
 
         <form action="/admin/category/edit/<%= category._id %>" method="post">
@@ -79,4 +82,17 @@
         }
     });
     uploader.init();
+</script>
+<script>
+    debugger;
+    $('.createHero').submit(function(){
+        debugger;
+        $('#gif').css('visibility' , 'visible');
+        debugger
+        $('button:submit').attr("disabled", true);
+        debugger;
+        return true
+    })
+
+
 </script>

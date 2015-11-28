@@ -146,6 +146,17 @@ header, section, footer, aside, nav, main, article, figure {
 
 
 }
+@media (max-width: 768px) {
+
+    .col-md-4.btn-upload
+    {
+        top:340px;
+    }
+    .col-md-12.edit-button
+    {
+        text-align: center;
+    }
+}
 
 header
 {
@@ -698,6 +709,7 @@ div.modal-footer
     width: 100%;
     background-color: #f2f2f2;
     padding: 25px;
+    position: relative;
 }
 .createHero h1
 {
@@ -871,4 +883,91 @@ button#myButton {
     border-image-repeat: initial;
     min-width: -webkit-min-content;
     margin-top: 30px;
+}
+
+#gif
+{
+    width: 100%;
+    position: absolute;
+    top:0;
+    right: 0;
+    background-color: #010101;
+    opacity: .3;
+    height: 100%;
+    z-index: 9999;
+    visibility: hidden;
+
+
+    
+}
+
+@-moz-keyframes spin { 100% {
+    -moz-transform:rotate(360deg);
+}
+}
+@-webkit-keyframes spin { 100% {
+    -webkit-transform:rotate(360deg);
+}
+}
+@keyframes spin { 100% {
+    -webkit-transform:rotate(360deg);
+    transform:rotate(360deg);
+}
+}
+
+.loading{
+   /* background: url("/../../public/images/loading 2.gif");*/
+    position: absolute;
+    top: 70%;
+    right: 45%;
+    width: 100px;
+    height: 64px;
+
+   opacity: 1;
+
+}
+
+.loading:after
+{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 50%;
+    -webkit-animation: loader .6s linear;
+    animation: loader .6s linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    border-radius: 500rem;
+    border-color: #767676 transparent transparent;
+    border-style: solid;
+    border-width: .2em;
+    box-shadow: 0 0 0 1px transparent;
+    width: 3.2585em;
+    height: 3.2585em;
+    margin: 0 0 0 -1.12925em;
+    border-color: #FFF transparent transparent;
+    -webkit-animation:spin 2s linear infinite;
+    -moz-animation:spin 2s linear infinite;
+    animation:spin 2s linear infinite;
+
+}
+.loading:before
+{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 50%;
+    border-radius: 500rem;
+    border: .2em solid rgba(0,0,0,.1);
+    width: 3.2585em;
+    height: 3.2585em;
+    margin: 0 0 0 -1.12925em;
+    border-color: rgba(255,255,255,.4);
+}
+
+
+.coombbox-create
+{
+    position: relative;
+    right: -23%;
 }

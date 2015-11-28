@@ -4,7 +4,9 @@
 <h1><%=: 'Create New Slide' | translate %></h1>
 
         <form class="create-slide" action="/admin/slideshow/create" method="post">
-
+            <div id="gif">
+                <div class="loading"></div>
+            </div>
             <div class="row">
                 <div class="col-md-6">
                     <label><%=: 'Item Name' | translate %></label>
@@ -94,3 +96,18 @@
     });
     uploader.init();
     </script>
+
+<!--loading-->
+<script>
+    debugger;
+    $('.create-slide').submit(function(){
+        debugger;
+        $('#gif').css('visibility' , 'visible');
+        debugger
+        $('button:submit').attr("disabled", true);
+        debugger;
+        return true
+    })
+
+
+</script>

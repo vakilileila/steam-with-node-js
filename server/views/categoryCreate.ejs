@@ -1,5 +1,8 @@
 <article class="content" xmlns="http://www.w3.org/1999/html">
     <div class="createHero">
+        <div id="gif">
+            <div class="loading"></div>
+        </div>
       <h1><%=: 'Create New Hero' | translate %></h1>
 
         <form action="/admin/heroCategories/create" method="post">
@@ -86,3 +89,16 @@
     });
     uploader.init();
     </script>
+<script>
+    debugger;
+    $('.createHero').submit(function(){
+        debugger;
+        $('#gif').css('visibility' , 'visible');
+        debugger
+        $('button:submit').attr("disabled", true);
+        debugger;
+        return true
+    })
+
+
+</script>
