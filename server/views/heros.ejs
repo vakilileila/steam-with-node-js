@@ -39,40 +39,6 @@
 
         <div class="col-sm-6 col-md-4 paging">
 
-            <a href="<%= paginate.href({sort: 'name'})%>"></a>
-            <ul>
-                <% heros.forEach(function(hero){ %>
-
-                <% }); %>
-            </ul>
-<%= if(paginate.hasPreviousPages || paginate.hasNextPages(pageCount)){%>
-            <nav class="navigation well " id="pagination">
-                <ul class="pager">
-                    <%= if(paginate.hasPreviousPages){%>
-                    <li class="previous">
-                        <a class="prev" href="<%= paginate.href(true)%>">
-                            | Previous
-                            <i class="fa fa-arrow-circle-left"></i>
-                        </a>
-                    </li>
-                    <%};%>
-                    <%= if(pages){%>
-                    <% pages.forEach(function(page){ %>
-                    <a class="btn btn-default" href="<%= page.url== page.number%>" ></a>
-
-                    <% }); %>
-                    <%};%>
-                    <%= if(paginate.hasNextPages(pageCount)){%>
-                    <li class="next"></li>
-                    <a class="next" href="<%= paginate.href()%>">| next
-                        <i class="fa fa-arrow-circle-right"></i>
-                    </a>
-                    <%};%>
-
-
-                </ul>
-            </nav>
-            <% }; %>
 
 
 

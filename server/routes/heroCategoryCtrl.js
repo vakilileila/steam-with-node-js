@@ -108,7 +108,7 @@ module.exports = function (app, express) {
 
     /*-------- click on category, select hero page   --------*/
     apiRouter.route('/heros/:id')
-        .get(function (req, res, next) {
+        .get(function (req, res) {
             Hero.find({'category._id': req.params.id})
                 .exec(function (err, heros) {
                     if (err) {
@@ -122,25 +122,7 @@ module.exports = function (app, express) {
                             return hero;
                         });
 
-
-                    heros.paginate({}, {
-                        page: req.query.page,
-                        limit: req.query.limit
-                    }, function (err, heros, pageCount, itemCount) {
-
-                        if (err) return next(err);
-
-                        res.render('./heros.ejs',
-                            {
-                                heros: herosView,
-                                heros: heros,
-                                pageCount: pageCount,
-                                itemCount: itemCount,
-                                pages: paginate.getArrayPages(req)(3, pageCount, req.query.page)
-                            });
-
-                    });
-
+                    res.render('./heros.ejs', {heros: herosView});
                 })
         });
 
@@ -184,20 +166,19 @@ module.exports = function (app, express) {
     /*--------  admin delete hero    --------*/
     apiRouter.route('/admin/category/delete/:id')
         .get(function (reg, res) {
-            /*Hero.findOne({'category._id':req.params.id})
-             .exec(function (err, hero) {
-             if(erro){
+            debugger;
+           var x= Hero.find({'category._id':reg.params.id})
+             .exec(function (err, x) {
+             if(err){
              console.log('not permit');
              }
+                   debugger;
 
-             if(hero){
-             res.render('', {
-             errors:[
-             'The current Categroy is used in hero ' + hero._id
-             ]
-             })
+             if(x){
+             res.end('hero used')
+                 debugger;
              }
-             else{*/
+             else{
             HeroCategory.findById(reg.params.id)
                 .exec(function (err, category) {
                     if (err) {
@@ -216,9 +197,9 @@ module.exports = function (app, express) {
                         });
 
                 });
-            /*   }
+              }
              });
-
+/*
              Hero.find({'category._id':req.params.id}).exec(function (err, heros) {
              if(heros.length> 0){
              //    errors ...
