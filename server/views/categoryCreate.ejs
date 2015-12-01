@@ -1,5 +1,21 @@
 <article class="content" xmlns="http://www.w3.org/1999/html">
+
+
+
+    <a id='linkButton'>ClickMe</a>
+
+    <script type="text/javascript">
+
+            toastr.options.timeOut = 1500; // 1.5s
+            toastr.info('Page Loaded!');
+            $('#linkButton').click(function() {
+                toastr.success('Click Button');
+            });
+
+    </script>
+
     <div class="createHero">
+
         <div id="gif">
             <div class="loading"></div>
         </div>

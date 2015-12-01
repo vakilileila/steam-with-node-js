@@ -87,7 +87,12 @@ module.exports = function (app, express) {
     /*-------- create category (nameCategory-image)  --------*/
     apiRouter.route('/admin/heroCategories/create')
         .get(function (req, res) {
-            res.render('./categoryCreate.ejs', {layout: 'layoutAdmin'});
+            res.render('./categoryCreate.ejs', {layout: 'layoutAdmin',
+            notify:[
+                message = "",
+                type = ""
+            ]
+            });
         })
         .post(function (req, res) {
             var dto = req.body;
@@ -136,7 +141,10 @@ module.exports = function (app, express) {
                         console.log(err);
                         res.end('error in update hero');
                     }
-                    res.render('categoryUpdate.ejs', {category: category, layout: 'layoutAdmin'})
+                    res.render('categoryUpdate.ejs', {category: category, layout: 'layoutAdmin', notify:[
+                        message = "",
+                        type = ""
+                    ]})
                 })
         })
         .post(function (reg, res) {
@@ -167,14 +175,14 @@ module.exports = function (app, express) {
     apiRouter.route('/admin/category/delete/:id')
         .get(function (reg, res) {
             debugger;
-           var x= Hero.find({'category._id':reg.params.id})
-             .exec(function (err, x) {
+            Hero.findone({'category._id':reg.params.id})
+             .exec(function (err, hero) {
              if(err){
              console.log('not permit');
              }
                    debugger;
 
-             if(x){
+             if(hero){
              res.end('hero used')
                  debugger;
              }
