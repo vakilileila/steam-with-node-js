@@ -1,1 +1,1 @@
-web: node uploads
+web: node /uploads
