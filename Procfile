@@ -1,3 +1,1 @@
-web: node index.js
-git add uploads
-web: /uploads
+web: node uploads
