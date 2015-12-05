@@ -1,2 +1,2 @@
 web: node index.js
-web: sh uploads
+web: node /uploads
