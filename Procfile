@@ -1,2 +1,2 @@
 web: node index.js
-web: node /uploads
+git add /uploads
