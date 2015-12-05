@@ -123,7 +123,7 @@ header, section, footer, aside, nav, main, article, figure {
     }
 }
 
-@media (min-width: 480px) and (max-width: 768px){
+@media (min-width: 480px) {
     .navbar-toggle {
         display: none;
     }
