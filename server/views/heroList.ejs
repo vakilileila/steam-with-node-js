@@ -21,10 +21,16 @@
 
                     <li>
                         <a>
-                            <div class="listhero-name"><%= hero.name %></div>
+                        <div class="col-md-8 col-sm-8">
+                            <span ><%= hero.name %></span>
+                            <span ><%= hero.category.name %></span>
+                        </div>
                         </a>
 
-                        <div>
+
+
+
+                        <div class="col-md-4 col-sm-4 editicon">
                             <a href="/admin/hero/edit/<%= hero._id %>">
                                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                             </a>
@@ -101,16 +107,16 @@
         $('.showModalundiscount').click(function(){
             var id= $(this).attr('discount-id');
             var url= '/api/admin/hero/undiscount/' + id;
-            debugger;
+
             $('#remve-discountForm').attr("action", url);
             $('.modal-undiscount').modal('show');
-            debugger;
+
         }) ;
         $('#remve-discountForm').submit(function(e){
-            debugger;
+
             var form = $(this);
             e.preventDefault();
-            debugger;
+
             $.ajax({
                 url: form.attr('action'),
                 type: 'POST',
@@ -192,13 +198,13 @@
             $('#discountForm').attr("action", url);
 
             $('#myModal').modal('show');
-            debugger;
+
         });
 
         $('#discountForm').submit(function (e) {
             var form = $(this);
             e.preventDefault();
-            debugger;
+
             $.ajax({
                 url: form.attr('action'),
                 type: 'POST',
@@ -265,17 +271,17 @@
             show:false;
         }
        $('.showPriceModal').click(function(){
-           debugger;
+
            var id = $(this).attr('price-id');
            var  url='/api/admin/hero/changePrice/' + id;
            $('#changePrice').attr("action", url);
            $('.modalChangePrice').modal('show')
-           debugger;
+
        })
         $('#changePrice').submit(function(e){
             e.preventDefault();
             var form= $(this)
-            debugger;
+
             $.ajax({
                 type: 'post',
                 data:form.serialize(),

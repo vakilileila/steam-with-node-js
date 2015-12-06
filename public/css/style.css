@@ -174,7 +174,7 @@ header, section, footer, aside, nav, main, article, figure {
         width: 100%;
     float:right;
     }
-    .list-hero-edit .listhero-name
+    .list-hero-edit
     {
         width: 75%;
     }
@@ -800,13 +800,18 @@ div.modal-footer
 }
 .listhero-name
 {
-    width: 85%;
+    width: 50%;
     float: left;
 }
 .list-hero-edit li:nth-of-type(odd)
 {
     background-color: #D6D6D6;
+    float: left;
 
+}
+.editicon
+{
+    text-align: center;
 }
 .filter-herolist
 {
