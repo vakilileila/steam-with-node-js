@@ -102,7 +102,7 @@ module.exports = function (app, express) {
                             }
 
 
-                            res.end('hero updated successfully');
+                            res.redirect('/admin/heros');
                         });
                     });
                 });

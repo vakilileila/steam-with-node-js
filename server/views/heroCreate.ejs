@@ -8,7 +8,7 @@
         <div id="gif">
             <div class="loading"></div>
         </div>
-<h1><%=: 'Create New Item' | translate %></h1>
+        <h1><%=: 'Create New Item' | translate %></h1>
 
         <form class="create-form" action="/admin/hero/create" method="post">
 
@@ -55,9 +55,9 @@
             <div class="row">
                 <script>
                     debugger;
-                    $('.create-form').submit(function(){
+                    $('.create-form').submit(function () {
                         debugger;
-                        $('#gif').css('visibility' , 'visible');
+                        $('#gif').css('visibility', 'visible');
                         debugger
                         $('button:submit').attr("disabled", true);
                         debugger;
@@ -75,11 +75,14 @@
                     </button>
                 </div>
             </div>
-                <div class="row">
-                <div class="col-md-12 edit-button"><a href="/admin/heros"><button type="button" id="myButton" data-loading-text="Loading..." class="btn btn-edit" autocomplete="off">
+            <div class="row">
+                <div class="col-md-12 edit-button"><a href="/admin/heros">
+                        <button type="button" id="myButton" data-loading-text="Loading..." class="btn btn-edit"
+                                autocomplete="off">
                             edit itemHero
                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                        </button></a></div>
+                        </button>
+                    </a></div>
             </div>
         </form>
 

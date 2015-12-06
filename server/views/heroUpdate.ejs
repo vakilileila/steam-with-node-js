@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <label><%=: 'Item Name' | translate %></label>
-                    <input type="text" class="create-input" name="name" value="<%= hero.name %>" ></div>
+                    <input type="text" class="create-input" name="name" value="<%= hero.name %>"></div>
                 <!--JSON.stringify(cat)-->
                 <div class="col-md-6 col-sm-12">
                     <label style="    padding-right: 25%;"><%=: 'Select Hero' | translate %></label>
@@ -30,9 +30,10 @@
             </div>
             <div class="row">
                 <div class="col-md-4 btn-upload"><a class="btn btn-default"
-                                                    id="btn_choosefile"><%=: 'upload image' | translate %></a></div>
+                                                    id="btn_choosefile"><%=: 'upload image' | translate %></a>
+                </div>
 
-                <input type="hidden" name="imageUrl">
+
                 <div class="col-md-8">
                     <label><%=: 'upload image' | translate %></label>
 
@@ -84,12 +85,17 @@
 
         init: {
             FileUploaded: function (file, up, res) {
-                var fileName = JSON.parse(res.response).fileName;
-                $('#imageUrl').val(fileName);
-                $('#uploadedFile').attr('src', '/' + fileName);
+                debugger;
+
+                var fileInfo = JSON.parse(res.response);
+
+                $('#imageUrl').val(fileInfo.fileName);
+                $('#uploadedFile').attr('src', fileInfo.displayFileName);
+                debugger;
                 $('#uploadedFile').show();
+                debugger;
             },
-            FilesAdded: function (up, files) {
+            FilesAdded: function (up, file) {
                 debugger;
                 up.start();
             }
@@ -117,12 +123,13 @@
         }
     })
 </script>
+
 <!-- loading-->
 <script>
     debugger;
-    $('.create-form').submit(function(){
+    $('.create-form').submit(function () {
         debugger;
-        $('#gif').css('visibility' , 'visible');
+        $('#gif').css('visibility', 'visible');
         debugger
         $('button:submit').attr("disabled", true);
         debugger;
