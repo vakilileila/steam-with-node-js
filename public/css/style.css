@@ -103,11 +103,21 @@ header, section, footer, aside, nav, main, article, figure {
         right: 10px;
     }
 }
-@media (max-width : 480px)
+@media only screen and  (max-width : 480px)
 {
     .col-md-4.col-sm-6.specialHero {
-        width: 100%;
-        
+        width: 48%;
+        margin-left: 8px
+    }
+    article.content
+    {
+        width: 90%;
+        margin: 0 auto;
+    }
+    article.main-content
+    {
+        width: 90%;
+        margin: 0 auto;
     }
     .col-md-4.search
     {
@@ -128,7 +138,7 @@ header, section, footer, aside, nav, main, article, figure {
     }
 }
 
-@media (min-width: 470px) and (max-width: 908px)
+@media only screen and (min-width: 470px) and (max-width: 908px)
 {
     .col-md-4.col-sm-6.specialHero {
         width: 48%;
@@ -137,14 +147,17 @@ header, section, footer, aside, nav, main, article, figure {
     article.content
     {
         width: 90%;
+        margin: 0 auto;
     }
     article.main-content
     {
         width: 90%;
+        margin: 0 auto;
     }
 }
 
-@media (min-width: 450px) {
+
+@media only screen and (min-width: 450px) {
 
     .navbar-toggle {
         display: none;
