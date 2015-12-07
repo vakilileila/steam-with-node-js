@@ -100,7 +100,8 @@
                         <a href="#">
                             <div>
                                 <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-                                <span class="price-item"><%= hero.price %></span>
+                                <span class="price-textitem"><%=: 'Rial' | translate %></span>
+                                <span class="price-hero"><%= hero.price %></span>
                             </div>
                         </a>
                     </div>
@@ -108,8 +109,9 @@
                     <div><%= hero.name %></div>
                     <div class="item-name"><%= hero.category.name %></div>
                     <div>
-                        <span style="font-family: 'weblogmayekan';"><%= hero.price %></span>
-                        <span>rial</span>
+                        <span class="price-textitem"><%=: 'Rial' | translate %></span>
+                        <span class="price-hero"><%= hero.price %></span>
+
                     </div>
 
                 </div>
