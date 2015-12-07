@@ -375,6 +375,7 @@ ul.nav.navbar-nav.nav-main li a:hover
 {
     width: 100%;
     position: relative;
+    height: 170px;
 }
 .item-box:hover .shop-hover
 {
