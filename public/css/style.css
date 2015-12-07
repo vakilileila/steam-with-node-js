@@ -798,9 +798,28 @@ div.modal-footer
     line-height: 40px;
     padding: 0 20px;
 }
+.list-hero-edit span
+{
+    padding-right: 20px;
+    font-size: 12px;
+    text-align: left;
+    direction: ltr;
+
+
+}
+.list-hero-edit-name
+{
+    width: 40%;
+    float: left;
+}
 .listhero-name
 {
     width: 50%;
+    float: left;
+}
+.listhero-name-category
+{
+    width: 80%;
     float: left;
 }
 .list-hero-edit li:nth-of-type(odd)

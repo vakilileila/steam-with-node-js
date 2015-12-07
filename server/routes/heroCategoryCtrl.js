@@ -173,21 +173,19 @@ module.exports = function (app, express) {
 
     /*--------  admin delete hero    --------*/
     apiRouter.route('/admin/category/delete/:id')
-        .get(function (reg, res) {
-            debugger;
-            Hero.findone({'category._id':reg.params.id})
+        .get(function (req, res) {
+            Hero.findOne({'category._id':req.params.id})
              .exec(function (err, hero) {
              if(err){
              console.log('not permit');
              }
-                   debugger;
 
              if(hero){
-             res.end('hero used')
-                 debugger;
+             res.end('hero used'
+             )
              }
              else{
-            HeroCategory.findById(reg.params.id)
+            HeroCategory.findById(req.params.id)
                 .exec(function (err, category) {
                     if (err) {
                         console.log(err);
@@ -215,6 +213,7 @@ module.exports = function (app, express) {
              });*/
 
         });
+
 
     return apiRouter;
 }

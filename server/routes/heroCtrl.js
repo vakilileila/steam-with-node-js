@@ -92,6 +92,7 @@ module.exports = function (app, express) {
                             return;
                         }
                         editedHero.category = JSON.parse(editedHero.category);
+                        hero.imageUrl = editedHero.image;
                         hero.category = editedHero.category;
                         hero.name = editedHero.name;
                         hero.price= editedHero.price;

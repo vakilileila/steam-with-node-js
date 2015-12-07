@@ -19,7 +19,7 @@
                     <% categories.forEach(function(category){ %>
                     <li>
                         <a>
-                            <div class="listhero-name"><%= category.name %></div>
+                            <div class="listhero-name-category"><%= category.name %></div>
                         </a>
 
                         <div>
@@ -27,7 +27,7 @@
 
                             <a href="/admin/category/edit/<%= category._id %>">
                                 <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal"
-                                        data-target="#edit"><span class="glyphicon glyphicon-pencil"></span>
+                                        data-target="#edit"><i class="glyphicon glyphicon-pencil"></i>
                                 </button>
                             </a>
 
@@ -35,7 +35,7 @@
 
                             <a href="/admin/category/delete/<%= category._id %>">
                                 <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal"
-                                        data-target="#delete"><span class="glyphicon glyphicon-trash"></span>
+                                        data-target="#delete"><i class="glyphicon glyphicon-trash"></i>
                                 </button>
                             </a>
 
