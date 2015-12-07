@@ -1,3 +1,8 @@
+<script>
+    $text = preg_replace_callback('/(&#[0-9]+;)/', function($m){
+        return mb_convert_encoding($m[1], 'UTF-8', 'HTML-ENTITIES');
+    }, $text);
+</script>
 <article class="content">
     <div class="row  containerBg">
         <div class="col-md-4">
@@ -82,7 +87,7 @@
     <div class="containerBg row">
 
         <% heros.forEach(function(hero){ %>
-        <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="col-md-3 col-sm-4 col-xs-6 boxs">
 
 
             <div class="item-box">

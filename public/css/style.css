@@ -360,6 +360,10 @@ ul.nav.navbar-nav.nav-main li a:hover
 {
     background-color: #525A63;
 }
+.boxs
+{
+    margin-bottom: 40px;
+}
 .item-box,.item-hero
 {
     width: 100%;
@@ -383,7 +387,7 @@ ul.nav.navbar-nav.nav-main li a:hover
 }
 .item-box:hover .item-box-image
 {
-    border: .2em solid #4F2A92;
+
     border-bottom: 0;
 
     -webkit-box-shadow: 0px -4px 10px 0px rgba(255, 255, 255, 0.2); /* WebKit */
@@ -404,12 +408,12 @@ ul.nav.navbar-nav.nav-main li a:hover
     color: #eeeeee;
 }
 .shop-hover
-{    width: 80%;
+{    width: 90%;
     height: 50px;
     background-color: #262A2D;
     position: absolute;
-    top: 49.9%;
-    right: 18px;
+
+    right: 10px;
     display: none;
 }
 .shop-hover div
