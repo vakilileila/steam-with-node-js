@@ -27,6 +27,18 @@ a
 header, section, footer, aside, nav, main, article, figure {
     display: block;
 }
+
+@font-face {
+    font-family: 'weblogmayekan';
+    src: url('../fonts/Weblogma_Yekan.eot');
+    src: url('../fonts/Weblogma_Yekan.eot#iefix') format('embedded-opentype'),
+    url('../fonts/Weblogma_Yekan.woff') format('woff'),
+    url('../fonts/Weblogma_Yekan.ttf') format('truetype'),
+    url('../fonts/Weblogma_Yekan.svg#CartoGothicStdBook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .nav-login
 {
     position: relative;
@@ -181,7 +193,12 @@ header, section, footer, aside, nav, main, article, figure {
 
 
 }
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
+    .coombbox-create
+    {
+        position: relative;
+        right: -23%;
+    }
 
     .col-md-4.btn-upload
     {
@@ -1035,8 +1052,3 @@ button#myButton {
 }
 
 
-.coombbox-create
-{
-    position: relative;
-    right: -23%;
-}

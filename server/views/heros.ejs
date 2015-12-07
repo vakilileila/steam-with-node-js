@@ -1,8 +1,5 @@
-<script>
-    $text = preg_replace_callback('/(&#[0-9]+;)/', function($m){
-        return mb_convert_encoding($m[1], 'UTF-8', 'HTML-ENTITIES');
-    }, $text);
-</script>
+
+
 <article class="content">
     <div class="row  containerBg">
         <div class="col-md-4">
@@ -111,7 +108,7 @@
                     <div><%= hero.name %></div>
                     <div class="item-name"><%= hero.category.name %></div>
                     <div>
-                        <span><%= hero.price %></span>
+                        <span style="font-family: 'weblogmayekan';"><%= hero.price %></span>
                         <span>rial</span>
                     </div>
 
