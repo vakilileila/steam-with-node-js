@@ -73,16 +73,18 @@
 
                 $('#imageUrl').val(fileInfo.fileName);
                 $('#uploadedFile').attr('src', fileInfo.displayFileName);
+                debugger;
                 $('#uploadedFile').show();
+                debugger;
             },
-            FilesAdded: function (up, files) {
+            FilesAdded: function (up, file) {
                 debugger;
                 up.start();
             }
         }
     });
     uploader.init();
-</script>
+    </script>
 <script>
     debugger;
     $('.createHero').submit(function(){

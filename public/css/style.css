@@ -107,9 +107,17 @@ header, section, footer, aside, nav, main, article, figure {
 }
 @media only screen and  (max-width : 480px)
 {
+    div.head-top-tab
+    {
+        margin-top: 110px;
+    }
     .col-md-4.col-sm-6.specialHero {
         width: 48%;
         margin-left: 8px
+    }
+    span.list-hero-edit-name
+    {
+        width: 50%;
     }
     article.content
     {
@@ -142,6 +150,10 @@ header, section, footer, aside, nav, main, article, figure {
 
 @media only screen and (min-width: 470px) and (max-width: 908px)
 {
+    div.head-top-tab
+    {
+        margin-top: 80px;
+    }
     .col-md-4.col-sm-6.specialHero {
         width: 48%;
         margin-left: 8px
@@ -156,10 +168,24 @@ header, section, footer, aside, nav, main, article, figure {
         width: 90%;
         margin: 0 auto;
     }
+    .col-md-6.col-sm-12.combobox
+    {
+        right: -24%;
+    }
+    .col-md-4.btn-upload
+    {
+        top:340px;
+    }
+
+}
+@media (min-width: 768px)
+{
+
 }
 
 
-@media only screen and (min-width: 450px) {
+@media only screen and (min-width: 480px) {
+
 
     .navbar-toggle {
         display: none;
@@ -183,11 +209,11 @@ header, section, footer, aside, nav, main, article, figure {
 
 
 }
+
 @media only screen and (max-width: 768px) {
-    .coombbox-create
+    .col-md-6.col-sm-12.combobox
     {
-        position: relative;
-        right: -23%;
+        right: -24%;
     }
 
     .col-md-4.btn-upload
@@ -237,6 +263,12 @@ header
 nav.navbar.navbar-inverse
 {
     margin: 0;
+}
+div.navbar-collapse.collapse
+{
+    padding: 0 5px 0;
+width: 70%;
+    margin: 0 auto;
 }
 
 .content{
@@ -315,7 +347,10 @@ nav.navbar.navbar-inverse
     padding: 0px;
 }
 .nav-main-admin
+
 {
+    width: 100%;
+
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4a515b+0,444a54+100 */
     background: #4a515b; /* Old browsers */
     background: -moz-linear-gradient(top,  #4a515b 0%, #444a54 100%); /* FF3.6+ */
@@ -736,7 +771,7 @@ select option
 }
 .content-modal
 {
-    padding: 0 30px;
+    padding: 0 30px 15px;
 }
 .content-modal label
 {
@@ -825,7 +860,7 @@ div.modal-footer
 }
 .list-hero-edit span
 {
-    padding-right: 20px;
+    padding-right: 15px;
     font-size: 12px;
     text-align: left;
     direction: ltr;
@@ -855,7 +890,7 @@ div.modal-footer
 }
 .editicon
 {
-    text-align: center;
+    text-align: right;
 }
 .filter-herolist
 {
@@ -983,7 +1018,7 @@ button#myButton {
     background-color: #010101;
     opacity: .3;
     height: 100%;
-    z-index: 9999;
+    z-index: 999999;
     visibility: hidden;
 
 
@@ -1015,6 +1050,11 @@ button#myButton {
    opacity: 1;
 
 }
+div.loading-top-modal
+{
+top:30%
+}
+
 
 .loading:after
 {

@@ -30,7 +30,7 @@
 
 
 
-                        <div class="col-md-4 col-sm-4 editicon">
+                        <div class="col-md-4 col-sm-4 col-xs-12 editicon">
                             <a href="/admin/hero/edit/<%= hero._id %>">
                                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                             </a>
@@ -62,9 +62,12 @@
     </div>
 </article>
 
-<!-- modal remve discount -->
+<!-- modal remove discount -->
 <form id="remve-discountForm"
       action="">
+    <div id="gif">
+        <div class="loading loading-top-modal"></div>
+    </div>
     <div class="modal modal-undiscount fade" id="mymodal" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -140,6 +143,9 @@
 <!-- modal add discount -->
 <form id="discountForm"
       action="">
+    <div id="gif">
+        <div class="loading loading-top-modal"></div>
+    </div>
     <div class="modal fade " id="myModal" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -154,12 +160,12 @@
 
                     <div class="row content-modal ">
 
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-sm-12">
                             <label> <%=: 'Discount Price' | translate %></label>
                             <input type="text" name="priceDiscount" id="priceDiscount">
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-sm-12">
                             <label> <%=: 'Discount Rate' | translate %></label>
                             <input type="text" name="rateDiscount" id="rateDiscount">
                         </div>
@@ -190,13 +196,13 @@
         $('#myModal').modal({
             show: false
         });
-
+debugger;
         $('.showModal').click(function () {
 
             var id = $(this).attr('hero-id');
             var url = '/api/admin/specialItem/addDiscount/' + id;
             $('#discountForm').attr("action", url);
-
+            debugger;
             $('#myModal').modal('show');
 
         });
@@ -204,17 +210,15 @@
         $('#discountForm').submit(function (e) {
             var form = $(this);
             e.preventDefault();
-
+            debugger;
             $.ajax({
                 url: form.attr('action'),
                 type: 'POST',
                 data: form.serialize(),
                 success: function (data) {
-
-                },
-                error: function () {
-                    alert('There has been an error, please alert us immediately');
+                    debugger;
                 }
+
             });
             window.location.href = "/admin/heros";
 
@@ -229,6 +233,9 @@
 <!--modal update price hero-->
 <form id="changePrice"
       action="">
+    <div id="gif">
+        <div class="loading loading-top-modal"></div>
+    </div>
     <div class="modal modalChangePrice fade" id="mymodal" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -303,32 +310,30 @@
 <!-- end modal update price hero-->
 
 
+<!-- loading -->
+<script>
+
+    $('#discountForm').submit(function(){
+        $('#gif').css('visibility' , 'visible');
+        debugger
+        $('button:submit').attr("disabled", true);
+        debugger
+        return true
+    })
 
 
-<!--
-<script type="text/javascript">
-    $(function(){
-        $('#btnUnDiscount').click(function(e){
-            e.preventDefault();
-            console.log('select_link clicked');
-            var data = {};
-            data.title = "title";
-            data.message = "message";
-
-            $.ajax({
-                type: 'POST',
-                data: JSON.stringify(data),
-                contentType: 'application/json',
-                url: '/api/admin/hero/undiscount/' + $(this).attr('discount-id'),
-                success: function(data) {
-                    console.log('success');
-                    console.log(JSON.stringify(data));
-                }
-            });
-
-        });
-    });
 </script>
--->
+<script>
+
+    $('#changePrice').submit(function(){
+        $('#gif').css('visibility' , 'visible');
+        debugger
+        $('button:submit').attr("disabled", true);
+        debugger
+        return true
+    })
+
+
+</script>
 
 
