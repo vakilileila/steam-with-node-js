@@ -267,10 +267,16 @@ nav.navbar.navbar-inverse
 div.navbar-collapse.collapse
 {
     padding: 0 5px 0;
-width: 70%;
+
     margin: 0 auto;
 }
+div.navbar-collapse.collapse.admin
+{
+    width: 70%;
+    padding: 0 5px 0;
 
+    margin: 0 auto;
+}
 .content{
     width: 70%;
     margin: 10px auto 0;

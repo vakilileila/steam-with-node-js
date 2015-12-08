@@ -155,7 +155,7 @@ module.exports = function (app, express) {
                         console.log(err);
                         res.end('error in update hero');
                     }
-
+                    category.imageUrl = editedCategory.image;
                     category.name = editedCategory.name;
 
 
