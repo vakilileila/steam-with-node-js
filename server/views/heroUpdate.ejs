@@ -19,7 +19,7 @@
                 <div class="col-md-6 col-sm-12 combobox">
                     <label style="    padding-right: 25%;"><%=: 'Select Hero' | translate %></label>
                     <input required style=" width: 75%; border: 1px solid #A9A9A9; " id="categories">
-                    <input required type="hidden" name="category" id="category">
+                    <input required type="hidden" name="category" id="category" value="<%= JSON.stringify(hero.category)%>">
                 </div>
             </div>
             <div class="row">
@@ -103,7 +103,7 @@
     });
     uploader.init();
 
-    $('#categories').kendoComboBox({
+    var combo = $('#categories').kendoComboBox({
         dataTextField: 'name',
         dataValueField: '_id',
         filter: "contains",
@@ -121,7 +121,12 @@
             var dataItem = this.dataItem(e.item.index());
             $('#category').val(JSON.stringify(dataItem));
         }
-    })
+    }).data('kendoComboBox');
+
+debugger;
+    var categoryId = '<%= hero.category._id%>';
+
+    combo.value(categoryId);
 </script>
 
 <!-- loading-->

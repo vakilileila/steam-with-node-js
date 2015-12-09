@@ -6,7 +6,9 @@ module.exports = function (app, express) {
     apiRouter.route('/categories')
         .get(function (req, res) {
             var query = req.query;
-            var term = query.filter.filters[0].value;
+            var term = '';
+            if(query.filter)
+                term = query.filter.filters[0].value;
 
             HeroCategory.find({name: new RegExp(term, "i")})
                 .exec(function (err, cats) {

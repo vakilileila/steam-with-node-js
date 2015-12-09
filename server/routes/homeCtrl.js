@@ -5,54 +5,55 @@ var HeroCategory = require('../models/heroCategory');
 var Enumerable = require('linq');
 
 
-
 module.exports = function (app, express) {
     var apiRouter = express.Router();
-
 
     /*--------- select index page   -------*/
     try {
         apiRouter.route('/')
 
-        .get(function (req, res) {
-             Slide.find().exec(function (err, slide) {
-                 if (err) {
-                     console.log(err);
-                     res.end('Fetching data failed home...');
-                     return;
+            .get(function (req, res) {
 
-                 }
-                 var slideView = Enumerable.from(slide)
-                     .select(function (slide) {
-                         slide.imageUrl = "/uploads/" + slide.imageUrl;
-                         return slide;
-                     })
-                 Hero.find({'discount.isOnDiscount': 'true'})
-                     .exec(function (err, specialHero) {
-                         if (err) {
-                             console.log(err);
-                             res.end('fetching specialHero failed');
-                             return;
-                         }
+                Slide.find().exec(function (err, slides) {
+                    if (err) {
+                        console.log(err);
+                        res.end('Fetching data failed home...');
+                        return;
 
+                    }
 
-                         var specialHeroView = Enumerable.from(specialHero)
-                             .select(function (specialHero) {
-                                 specialHero.imageUrl = "/uploads/" + specialHero.imageUrl;
-                                 return specialHero;
-                             })
-                         res.render('index.ejs', {slide: slideView, specialHero: specialHeroView });
-                     })
+                    var slideView = Enumerable.from(slides)
+                        .select(function (slide) {
+                            slide.imageUrl = "/uploads/" + slide.imageUrl;
+                            return slide;
+                        }).toArray();
+
+                    Hero.find({'discount.isOnDiscount': 'true'})
+                        .exec(function (err, specialHero) {
+                            if (err) {
+                                console.log(err);
+                                res.end('fetching specialHero failed');
+                                return;
+                            }
 
 
-             });
-         });
-     }
-     catch ( err )
-     {
-         if(err)
-       console.log('500')
-     }
+                            var specialHeroView = Enumerable.from(specialHero)
+                                .select(function (specialHero) {
+                                    specialHero.imageUrl = "/uploads/" + specialHero.imageUrl;
+                                    return specialHero;
+                                }).toArray();
+
+                            res.render('index.ejs', {slide: slideView, specialHero: specialHeroView});
+                        })
+
+
+                });
+            });
+    }
+    catch (err) {
+        if (err)
+            console.log('500')
+    }
     apiRouter.route('/admin')
 
         .get(function (req, res) {
@@ -69,7 +70,7 @@ module.exports = function (app, express) {
                     res.end('error');
                     return;
                 }
-                res.render('slideshowCreate.ejs', {slide: slide,  layout: 'layoutAdmin'});
+                res.render('slideshowCreate.ejs', {slide: slide, layout: 'layoutAdmin'});
 
             });
 
@@ -79,7 +80,7 @@ module.exports = function (app, express) {
         .post(function (req, res) {
             var createdSlide = req.body;
 
-            createdSlide.imageUrl=createdSlide.image;
+            createdSlide.imageUrl = createdSlide.image;
             var newslide = new Slide(createdSlide);
             newslide.save(function (err) {
                 if (err) {
