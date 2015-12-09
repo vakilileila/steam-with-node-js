@@ -89,9 +89,9 @@ module.exports = function (app, express) {
         .get(function (req, res) {
             res.render('./categoryCreate.ejs', {layout: 'layoutAdmin',
             notify:[
-                message = "",
-                type = ""
-            ]
+                    {message : ""},
+                    {type : ""}
+                ]
             });
         })
         .post(function (req, res) {
@@ -141,9 +141,9 @@ module.exports = function (app, express) {
                         console.log(err);
                         res.end('error in update hero');
                     }
-                    res.render('categoryUpdate.ejs', {category: category, layout: 'layoutAdmin', notify:[
-                        message = "",
-                        type = ""
+                    res.render('categoryUpdate.ejs', {category: category, layout: 'layoutAdmin',  notify:[
+                        {message : ""},
+                        {type : ""}
                     ]})
                 })
         })

@@ -22,6 +22,11 @@ module.exports = function (app, express) {
                      return;
 
                  }
+                 var slideView = Enumerable.from(slide)
+                     .select(function (slide) {
+                         slide.imageUrl = "/uploads/" + slide.imageUrl;
+                         return slide;
+                     })
                  Hero.find({'discount.isOnDiscount': 'true'})
                      .exec(function (err, specialHero) {
                          if (err) {
@@ -29,12 +34,14 @@ module.exports = function (app, express) {
                              res.end('fetching specialHero failed');
                              return;
                          }
+
+
                          var specialHeroView = Enumerable.from(specialHero)
-                             .select(function (special) {
-                                 special.imageUrl = "/uploads/" + special.imageUrl;
-                                 return special;
+                             .select(function (specialHero) {
+                                 specialHero.imageUrl = "/uploads/" + specialHero.imageUrl;
+                                 return specialHero;
                              })
-                         res.render('index.ejs', {slide: slide, specialHero: specialHeroView});
+                         res.render('index.ejs', {slide: slideView, specialHero: specialHeroView });
                      })
 
 

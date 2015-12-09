@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-md-6 oneInput">
                     <label> <%=: 'name category' | translate %></label>
-                    <input type="text" name="name" value="<%= category.name %>">
+                    <input required type="text" name="name" value="<%= category.name %>">
                 </div>
             </div>
             <div class="row">
@@ -26,7 +26,7 @@
                             DRAG IMAGE OR FILE
                         </div>
                         <img src="" id="uploadedFile" style="display: none">
-                        <input type="hidden" name="image" id="imageUrl">
+                        <input required type="hidden" name="image" id="imageUrl">
                     </div>
 
                 </div>

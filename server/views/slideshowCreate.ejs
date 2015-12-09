@@ -10,10 +10,10 @@
             <div class="row">
                 <div class="col-md-6">
                     <label><%=: 'Item Name' | translate %></label>
-                    <input type="text" name="name"></div>
+                    <input required type="text" name="name"></div>
                 <div class="col-md-6">
                     <label><%=: 'Price' | translate %></label>
-                    <input type="text" name="price">
+                    <input required type="text" name="price">
                 </div>
 
             </div>
@@ -21,15 +21,16 @@
             <div class="row">
                 <div class="col-md-12">
                     <label>description<%=: '' | translate %></label>
-                    <textarea class="form-control create-texterea" rows="5" id="comment" name="description"></textarea>
+                    <textarea required class="form-control create-texterea" rows="5" id="comment" name="description"></textarea>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 btn-upload"><a class="btn btn-default"
-                                                    id="btn_choosefile"><%=: 'upload image' | translate %></a></div>
+                <div class="col-md-4 col-sm-12 btn-upload"><a class="btn btn-default"
+                                                              id="btn_choosefile"><%=: 'upload image' | translate %></a>
+                </div>
 
-                <input type="hidden" name="imageUrl">
-                <div class="col-md-8">
+
+                <div class="col-md-8 col-sm-12">
                     <label><%=: 'upload image' | translate %></label>
 
                     <div id="uploader">
