@@ -29,29 +29,28 @@
                     <label><%=: 'Item Price' | translate %></label>
                     <input required class="create-input" type="text" name="price">
                 </div>
-            </div>
-
-
-            <div class="row">
-                <div class="col-md-4 col-sm-12 btn-upload"><a class="btn btn-default"
-                                                    id="btn_choosefile"><%=: 'upload image' | translate %></a>
-                </div>
-
-
-                <div class="col-md-8 col-sm-12">
-                    <label><%=: 'upload image' | translate %></label>
-
-                    <div id="uploader">
-                        <div id="drop_element" class="draging-box">
-                            DRAG IMAGE OR FILE
-                        </div>
-                        <img src="" id="uploadedFile" style="display: none">
-                        <input type="hidden" name="image" id="imageUrl">
+                <div class="col-md-6 col-sm-12">
+                    <div class="col-md-4 col-sm-12 btn-upload"><a class="btn btn-default"
+                                                                  id="btn_choosefile"><%=: 'upload image' | translate %></a>
                     </div>
 
-                </div>
 
+                    <div class="col-md-8 col-sm-12">
+                        <label><%=: 'upload image' | translate %></label>
+
+                        <div id="uploader">
+                            <div id="drop_element" class="draging-box">
+                                DRAG IMAGE OR FILE
+                            </div>
+                            <img src="" id="uploadedFile" style="display: none">
+                            <input type="hidden" name="image" id="imageUrl">
+                        </div>
+
+                    </div>
+                </div>
             </div>
+
+
             <div class="row">
                 <script>
                     debugger;

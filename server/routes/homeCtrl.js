@@ -61,6 +61,18 @@ module.exports = function (app, express) {
                 res.render('./categoryList.ejs', {categories: cats, layout: 'layoutAdmin'});
             });
         });
+
+    /*--- category List ---*/
+apiRouter.route('/admin/slides')
+    .get(function(req,res){
+        Slide.find().exec(function(err, slides){
+            if(err){
+                console.log("error fetching admin list slides")
+            }
+            res.render('slideshowList.ejs', {slides:slides, layout: 'layoutAdmin' })
+        })
+    })
+
     /*--------  admin create slideshow (nameSlide, upload image, description, price)    --------*/
     apiRouter.route('/admin/slideshow/create')
         .get(function (reg, res) {
@@ -92,5 +104,54 @@ module.exports = function (app, express) {
             });
         });
 
+
+
+
+    apiRouter.route('/admin/slide/delete/:id')
+        .get(function (req, res) {
+            Slide.findById(req.params.id)
+                .exec(function (err, slide) {
+                    if (err) {
+                        console.log(err);
+                        res.end('error in delete slide');
+                    }
+                    else
+                        slide.remove(function (err, slide) {
+                            if (err) {
+                                return console.error(err);
+                            } else {
+                                console.log('DELETE removing ID: ' + slide._id);
+
+
+                                res.redirect("/admin/slides");
+
+                            }
+                        });
+
+                });
+        });
+
+
+
+
     return apiRouter;
-}
+};
+/*/!*delete slide*!/
+apiRouter.route('/admin/delete')
+    .get(function(req, res){
+        Slide.findById(req.params.id)
+            .exec(function(err, slide){
+                if(err){
+                    console.log(err)
+                    res.end("error delete slide")
+                }
+
+                slide.remove(function(err, slide){
+                    if (err) {
+                        console.log(err);
+                        res.end('error delete slide')
+                    }
+                })
+                res.redirect('/admin/slides')
+            })
+    })*/

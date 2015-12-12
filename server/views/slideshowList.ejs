@@ -1,0 +1,46 @@
+<article class="content" xmlns="http://www.w3.org/1999/html">
+    <div class="  createHero">
+        <h1>list heros</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="filter-herolist">filtering</h1>
+
+                <div class="col-md-12 new-item"><a href="/admin/slideshow/create">
+                        <button type="button" id="loading-example-btn" data-loading-text="Loading..."
+                                class="btn btn-primary" autocomplete="off">
+                            new slide
+                            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                        </button>
+
+
+                    </a></div>
+
+                <ul class="list-hero-edit">
+                    <% slides.forEach(function(slide){ %>
+                    <li>
+                        <a>
+                            <div class="listhero-name-category"><%= slide.name %></div>
+                        </a>
+
+                        <div>
+
+
+
+
+
+                            <a href="/admin/slide/delete/<%= slide._id %>">
+                                <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal"
+                                        data-target="#delete"><i class="glyphicon glyphicon-trash"></i>
+                                </button>
+                            </a>
+
+                        </div>
+                    </li>
+                    <% }); %>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</article>

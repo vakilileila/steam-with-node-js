@@ -5,8 +5,11 @@
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="2500">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <% for(i=0; i< slide.length; i++){%>
+
+                    <li data-target="#carousel-example-generic" data-slide-to="<%= i%>" class="<%= slide[i] == slide[0] ? "active" : "" %>"></li>
+                    
+                    <%}%>
 
                 </ol>
 

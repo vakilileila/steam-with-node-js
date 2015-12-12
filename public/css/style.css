@@ -936,6 +936,7 @@ button#myButton {
 .create-form .col-md-6
 {
     float: right;
+    text-align: right;
 
 }
 .create-slide .col-md-6
@@ -963,20 +964,21 @@ button#myButton {
 .draging-box
 {
     width: 100%;
-    height: 250px;
+    height: 100px;
+    padding-top: 20px;
     border: 5px dashed rgb(85, 85, 85);
-    padding: 50px;
+
     position: relative;
     text-align: center;
-    font-size: 3em;
+    font-size: 1em;
     color: #E2E2E2;
-    line-height: 150px;
+    line-height: 50px;
 
 }
 .btn-upload{
     position: relative;
     z-index: 1;
-    top: 150px;
+    top: 100px;
     text-align: center;
 }
 .item img
