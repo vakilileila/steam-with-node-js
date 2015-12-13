@@ -199,7 +199,7 @@ header, section, footer, aside, nav, main, article, figure {
     }
     .create-form.col-md-6,.col-md-6.oneInput
     {
-        width: 100%;
+
     float:right;
     }
     .list-hero-edit
@@ -831,9 +831,9 @@ div.modal-footer
     margin: 20px 0 10px 0;
     text-align: right;
 }
-.col-md-6.oneInput {
+.oneInput {
     float: right;
-    width: 60%;
+   text-align: right;
 }
 .col-md-6.oneInput input
 {
@@ -966,10 +966,10 @@ button#myButton {
 .draging-box
 {
     width: 100%;
-    height: 100px;
+    height: 150px;
     padding-top: 20px;
     border: 5px dashed rgb(85, 85, 85);
-
+margin-bottom: 20px;
     position: relative;
     text-align: center;
     font-size: 1em;
@@ -980,21 +980,31 @@ button#myButton {
 .btn-upload{
     position: relative;
     z-index: 1;
-    top: 100px;
+    text-align: right;
+    margin-top: 100px;
+}
+.btn-upload-item
+{
     text-align: center;
-    right: 20px;
+
 }
 #uploadedFile
 {
-    width: 300px;
+    width: 100%;
     position: absolute;
     top: 0px;
-    height: 100px;
-    right: 20px;
+    height: 150px;
+    right: 0px;
 }
+
 .item img
 {
     width: 100%;
+}
+.hero-name{
+    font-size: 14px;
+    color: #D6D2D2;
+    padding: 5px 0;
 }
 .legend-discount
 {

@@ -14,43 +14,58 @@
 
             <div class="row">
                 <div class="col-md-6 col-xs-12 col-sm-12">
-                    <label><%=: 'Item Name' | translate %></label>
-                    <input required type="text" class="create-input" name="name"></div>
-                <!--JSON.stringify(cat)-->
-                <div class="col-md-6 col-xs-12 col-sm-12 combobox">
-                    <label ><%=: 'Select Hero' | translate %></label>
-                    <input required style=" width: 75%; border: 1px solid #A9A9A9; " id="categories">
-                    <input required type="hidden" name="category" id="category">
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-6 col-xs-12 col-sm-12">
-                    <label><%=: 'Item Price' | translate %></label>
-                    <input required class="create-input" type="text" name="price">
-                </div>
-                <div style="padding-right: 0px;" class="col-md-6 col-xs-12 col-sm-12">
-                    <div class="col-md-2 col-sm-12 btn-upload"><a class="btn btn-default"
-                                                                  id="btn_choosefile"><%=: 'upload image' | translate %></a>
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <label><%=: 'Item Name' | translate %></label>
+                            <input required type="text" class="create-input" name="name"></div>
+
+
                     </div>
-
-
-                    <div class="col-md-10 col-xs-12 col-sm-12">
-                        <label><%=: 'upload image' | translate %></label>
-
-                        <div id="uploader">
-                            <div id="drop_element" class="draging-box">
-                                DRAG IMAGE OR FILE
-                            </div>
-                            <img src="" id="uploadedFile" style="display: none">
-                            <input type="hidden" name="image" id="imageUrl">
+                    <div class="row">
+                        <!--JSON.stringify(cat)-->
+                        <div class="col-md-12 col-xs-12 col-sm-12 combobox">
+                            <label><%=: 'Select Hero' | translate %></label>
+                            <input required style=" width: 75%; border: 1px solid #A9A9A9; " id="categories">
+                            <input required type="hidden" name="category" id="category">
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <label><%=: 'Item Price' | translate %></label>
+                            <input required class="create-input" type="text" name="price">
+                        </div>
+                    </div>
 
+
+                </div>
+
+
+                <div class="col-md-6 col-xs-12 col-sm-12">
+                    <div class="row">
+
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+
+
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                <label><%=: 'upload image' | translate %></label>
+
+                                <div id="uploader">
+                                    <div id="drop_element" class="draging-box">
+                                        DRAG IMAGE OR FILE
+                                    </div>
+                                    <img src="" id="uploadedFile" style="display: none">
+                                    <input type="hidden" name="image" id="imageUrl">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 btn-upload-item"><a class="btn btn-default"
+                                                                            id="btn_choosefile"><%=: 'upload image' | translate %></a>
+                        </div>
                     </div>
                 </div>
             </div>
-
-
             <div class="row">
                 <script>
                     debugger;
@@ -79,12 +94,19 @@
 
 
     </div>
+
+
+
+
+
+    </div>
 </article>
 
 <script src="/public/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/public/bower_components/plupload/js/plupload.full.min.js"></script>
 <script>
     window.JalaliDate = Date;
+
 </script>
 <script src="/public/js/kendo.all.2015.2.624.hasPersian.js"></script>
 
