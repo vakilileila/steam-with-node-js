@@ -13,29 +13,29 @@
         <form class="create-form" action="/admin/hero/create" method="post">
 
             <div class="row">
-                <div class="col-md-6 col-sm-12">
+                <div class="col-md-6 col-xs-12 col-sm-12">
                     <label><%=: 'Item Name' | translate %></label>
                     <input required type="text" class="create-input" name="name"></div>
                 <!--JSON.stringify(cat)-->
-                <div class="col-md-6 col-sm-12 combobox">
-                    <label style="    padding-right: 25%;"><%=: 'Select Hero' | translate %></label>
+                <div class="col-md-6 col-xs-12 col-sm-12 combobox">
+                    <label ><%=: 'Select Hero' | translate %></label>
                     <input required style=" width: 75%; border: 1px solid #A9A9A9; " id="categories">
                     <input required type="hidden" name="category" id="category">
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-6 col-sm-12">
+                <div class="col-md-6 col-xs-12 col-sm-12">
                     <label><%=: 'Item Price' | translate %></label>
                     <input required class="create-input" type="text" name="price">
                 </div>
-                <div class="col-md-6 col-sm-12">
-                    <div class="col-md-4 col-sm-12 btn-upload"><a class="btn btn-default"
+                <div style="padding-right: 0px;" class="col-md-6 col-xs-12 col-sm-12">
+                    <div class="col-md-2 col-sm-12 btn-upload"><a class="btn btn-default"
                                                                   id="btn_choosefile"><%=: 'upload image' | translate %></a>
                     </div>
 
 
-                    <div class="col-md-8 col-sm-12">
+                    <div class="col-md-10 col-xs-12 col-sm-12">
                         <label><%=: 'upload image' | translate %></label>
 
                         <div id="uploader">

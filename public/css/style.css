@@ -170,11 +170,11 @@ header, section, footer, aside, nav, main, article, figure {
     }
     .col-md-6.col-sm-12.combobox
     {
-        right: -24%;
+
     }
     .col-md-4.btn-upload
     {
-        top:340px;
+        top:190px;
     }
 
 }
@@ -213,12 +213,12 @@ header, section, footer, aside, nav, main, article, figure {
 @media only screen and (max-width: 768px) {
     .col-md-6.col-sm-12.combobox
     {
-        right: -24%;
+
     }
 
     .col-md-4.btn-upload
     {
-        top:340px;
+        top:190px;
     }
     .col-md-12.edit-button
     {
@@ -833,10 +833,12 @@ div.modal-footer
 }
 .col-md-6.oneInput {
     float: right;
+    width: 60%;
 }
 .col-md-6.oneInput input
 {
     float: right;
+
 }
 .createHero input[type=text],.createHero select
 {
@@ -980,6 +982,15 @@ button#myButton {
     z-index: 1;
     top: 100px;
     text-align: center;
+    right: 20px;
+}
+#uploadedFile
+{
+    width: 300px;
+    position: absolute;
+    top: 0px;
+    height: 100px;
+    right: 20px;
 }
 .item img
 {

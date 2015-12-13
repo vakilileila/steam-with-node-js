@@ -27,27 +27,27 @@
                     <label><%=: 'Item Price' | translate %></label>
                     <input required class="create-input" type="text" name="price" value="<%= hero.price %>">
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 btn-upload"><a class="btn btn-default"
-                                                    id="btn_choosefile"><%=: 'upload image' | translate %></a>
-                </div>
-
-
-                <div class="col-md-8">
-                    <label><%=: 'upload image' | translate %></label>
-
-                    <div id="uploader">
-                        <div id="drop_element" class="draging-box">
-                            DRAG IMAGE OR FILE
-                        </div>
-                        <img src="" id="uploadedFile" style="display: none">
-                        <input type="hidden" name="image" id="imageUrl">
+                <div style="padding-right: 0px;" class="col-md-6 col-xs-12 col-sm-12">
+                    <div class="col-md-2 col-sm-12 btn-upload"><a class="btn btn-default"
+                                                                  id="btn_choosefile"><%=: 'upload image' | translate %></a>
                     </div>
 
-                </div>
 
+                    <div class="col-md-10 col-xs-12 col-sm-12">
+                        <label><%=: 'upload image' | translate %></label>
+
+                        <div id="uploader">
+                            <div id="drop_element" class="draging-box">
+                                DRAG IMAGE OR FILE
+                            </div>
+                            <img src="" id="uploadedFile" style="display: none">
+                            <input type="hidden" name="image" id="imageUrl">
+                        </div>
+
+                    </div>
+                </div>
             </div>
+
             <div class="row">
                 <div class="col-md-12" style="text-align: center; margin: 50px 0;">
                     <button type="submit" id="myButton" data-loading-text="Loading..." class="btn btn-primary"
