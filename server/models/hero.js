@@ -12,7 +12,8 @@ var HeroShema = new Schema({
         priceDiscount: String,
         rate:String
         //endDate:
-    }
+    },
+
 
 });
 

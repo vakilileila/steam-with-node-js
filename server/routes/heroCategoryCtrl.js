@@ -12,7 +12,7 @@ module.exports = function (app, express) {
     apiRouter.route('/category')
 
         .get(function (req, res) {
-            HeroCategory.find().exec(function (err, categoreis) {
+            HeroCategory.find().sort('name').exec(function (err, categoreis) {
                 if (err) {
                     console.log(err);
                     res.end('Fetching data failed...');
@@ -115,7 +115,7 @@ module.exports = function (app, express) {
     apiRouter.route('/heros/:id')
         .get(function (req, res) {
             Hero.find({'category._id': req.params.id})
-                .exec(function (err, heros) {
+                .sort('name').exec(function (err, heros) {
                     if (err) {
                         console.log(err);
                         res.end('Fetching data failed...');
