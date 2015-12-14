@@ -11,9 +11,15 @@ module.exports = function (app, express) {
     /*-------- select page heroList (info hero, update, delete, edit and put price) --------*/
     apiRouter.route('/admin/heros')
         .get(function (req, res) {
-            Hero.find().exec(function (err, heros) {
+            Hero.find().sort('name').exec(function (err, heros) {
+
+                var heroView = Enumerable.from(heros)
+                    .select(function (hero) {
+                        hero.imageUrl = "/uploads/" + hero.imageUrl;
+                        return hero;
+                    });
                 res.render('./heroList.ejs',{
-                    heros: heros,
+                    heros: heroView,
                     layout: 'layoutAdmin'
                 });
             });

@@ -1,4 +1,4 @@
-<article class="content" >
+<article class="content">
     <div class="row  containerBg">
         <div class="col-md-4">
 
@@ -8,7 +8,6 @@
                 <select class="select-dropdown" name="list hero"></select>
 
             </form>
-
 
 
         </div>
@@ -45,21 +44,25 @@
                 <ul class="pager">
                     <% if (paginate.hasPreviousPages) { %>
                     <li class="previus">
-                        <a href=<% paginate.href(true).prev %>>
+                        <a href=
+                                <% paginate.href(true).prev %>
+                                >
                             <i class="fa fa-arrow-circle-left"></i>
                             | Previous
                         </a>
                     </li>
                     <% } %>
-                    <% if(pages){%>
+                    <% if(pages){ %>
                     <% pages.forEach(function(page){ %>
-                    <a class="btn btn-default" href="<%= page.url= page.number%>" ></a>
+                    <a class="btn btn-default" href="<%= page.url = page.number %>"></a>
 
                     <% }); %>
-                    <%};%>
+                    <% }; %>
                     <% if (paginate.hasNextPages(pageCount)) { %>
                     <li class="next">
-                        <a href=<% paginate.href(true).next %>>
+                        <a href=
+                                <% paginate.href(true).next %>
+                                >
                             | Next
                             <i class="fa fa-arrow-circle-right"></i>
                         </a>
@@ -76,50 +79,54 @@
                 </ul></form>--></div>
         <div class=" col-md-4"></div>
         <div class="col-sm-6 col-md-4 paging">
-            <form name="paging" target="_blank" >
-                <a href="#"> <span class="glyphicon glyphicon-triangle-right webfont pagenav-right pagenav" aria-hidden="true"></span></a>
+            <form name="paging" target="_blank">
+                <a href="#"> <span class="glyphicon glyphicon-triangle-right webfont pagenav-right pagenav"
+                                   aria-hidden="true"></span></a>
                 <ul>
-                    <a href="#"><li>1</li></a>
-                    <a href="#"><li>2</li></a>
-                    <a href="#"><li>3</li></a>
+                    <a href="#">
+                        <li>1</li>
+                    </a>
+                    <a href="#">
+                        <li>2</li>
+                    </a>
+                    <a href="#">
+                        <li>3</li>
+                    </a>
                     <li>...</li>
-                    <a href="#"><li>17</li></a>
+                    <a href="#">
+                        <li>17</li>
+                    </a>
                 </ul>
                 <a href="#"><span class="glyphicon glyphicon-triangle-left pagenav" aria-hidden="true"></span></a>
             </form>
         </div>
 
 
-
     </div>
     <div class="containerBg row">
 
+        <% categoreis.forEach(function(category){ %>
+        <div class="box-hero">
 
-            <% categoreis.forEach(function(category){ %>
-            <div class="col-md-3 col-sm-4 col-xs-6 boxs">
 
+            <div class="item-hero">
+                <a href="/heros/<%= category._id %>">
 
-                <div class="item-hero">
-                    <a href="/heros/<%= category._id%>">
-
-                        <img class="item-box-image" src="<%= category.imageUrl %>">
-
-                    </a>
-                    <div class="item-info">
+                    <img src="<%= category.imageUrl %>">
+                    <div class="item-info-category">
 
                         <div class="item-name"><%= category.name %></div>
-
-
-
                     </div>
 
+                </a>
 
-                </div>
+
+
 
             </div>
-            <% }); %>
 
-
+        </div>
+        <% }); %>
 
     </div>
 

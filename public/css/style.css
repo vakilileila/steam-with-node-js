@@ -411,6 +411,22 @@ ul.nav.navbar-nav.nav-main li a:hover
 .boxs
 {
     margin-bottom: 40px;
+
+}
+.box-hero
+{
+    margin-bottom: 40px;
+    width: 12%;
+    display: inline-block;
+    clear: both;
+
+
+}
+.box-hero img
+{
+    width: 100%;
+    position: relative;
+    height: 100px;
 }
 .item-box,.item-hero
 {
@@ -443,7 +459,7 @@ ul.nav.navbar-nav.nav-main li a:hover
     -moz-box-shadow: 0px -4px 10px 0px rgba(255, 255, 255, 0.2); /* Firefox */
     box-shadow: 0px -4px 10px 0px rgba(255, 255, 255, 0.2); /* Standard */
 }
-.item-info
+.item-info,.item-info-category
 {
     font-size: 12px;
     text-align: center;
@@ -868,16 +884,38 @@ div.modal-footer
 }
 .list-hero-edit span
 {
-    padding-right: 15px;
-    font-size: 12px;
+    padding-right: 8px;
+    font-size: 11px;
     text-align: left;
     direction: ltr;
 
 
 }
+.list-hero-edit .list-admin-item div{
+    font-size: 11px;
+    padding: 20px 10px;
+}
+.list-hero-edit .list-admin-item img
+{
+    width: 60px;
+    height: 60px;
+}
+.header-admin-edit
+{
+    background-color: #60478a;
+    font-size: 12px;
+    color: #fff;
+}
+.header-admin-edit div div
+{
+    font-size: 13px;
+    line-height: 15px;
+    padding: 5px 10px;
+    border-right: 1px solid #fff;
+}
 .list-hero-edit-name
 {
-    width: 40%;
+    width: 20%;
     float: left;
 }
 .listhero-name

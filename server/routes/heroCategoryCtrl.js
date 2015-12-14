@@ -23,7 +23,6 @@ module.exports = function (app, express) {
                         category.imageUrl = "/uploads/" + category.imageUrl;
                         return category;
                     });
-                debugger;
                 if (!HeroCategory.paginate)
                     consoleSchema.log('Mongose Plugin is Exits ...');
 
@@ -77,7 +76,7 @@ module.exports = function (app, express) {
     /*--------select page categoryList --------  */
     apiRouter.route('/admin/heroCategories')
         .get(function (req, res) {
-            HeroCategory.find().exec(function (err, cats) {
+            HeroCategory.find().sort('name').exec(function (err, cats) {
 
 
                 res.render('./categoryList.ejs', {categories: cats, layout: 'layoutAdmin'});
