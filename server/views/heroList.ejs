@@ -20,11 +20,11 @@
                  <div class="col-md-10" >
                      <div class="row">
                          <div class="col-md-2">image Item</div>
-                         <div class="col-md-2">Name Item</div>
+                         <div class="col-md-4">Name Item</div>
                          <div class="col-md-2">Name Hero</div>
                          <div class="col-md-2">Rarity</div>
-                         <div class="col-md-2">Price Item</div>
-                         <div class="col-md-2" style="border-right: 0">Discount Price</div>
+                         <div class="col-md-1">Price</div>
+                         <div class="col-md-1" style="border-right: 0">Discoun</div>
                      </div>
                  </div>
                  <div class="col-md-2">Edit Item</div>
@@ -36,11 +36,11 @@
                         <a>
                         <div class="col-md-10 col-sm-8 list-admin-item">
                             <div class="col-md-2"><img class="list-image-admin" src="<%= hero.imageUrl %>"></div>
-                            <div class="col-md-2"><%= hero.name %></div>
+                            <div class="col-md-4"><%= hero.name %></div>
                             <div class="col-md-2"><%= hero.category.name %></div>
                             <div class="col-md-2">Rarity</div>
-                            <div class="col-md-2"><%= hero.price%></div>
-                            <div class="col-md-2"><%= hero.discount.isOnDiscount%></div>
+                            <div class="col-md-1"><%= hero.price%></div>
+                            <div class="col-md-1"><%= hero.discount.isOnDiscount%></div>
 
 
                             <!--<span class="list-hero-edit-name"></span>
