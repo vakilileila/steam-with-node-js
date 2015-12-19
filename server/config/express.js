@@ -5,7 +5,7 @@ var session = require('express-session');
 var passport = require('passport');
 var multer = require('multer');
 var mongoosePaginate = require('mongoose-paginate');
-var paginate = require('express-paginate');
+//var paginate = require('express-paginate');
 
 
 var ejsLayout = require("express-ejs-layouts")
@@ -24,7 +24,7 @@ module.exports = function (app, config) {
     app.use(passport.session());
 
 
-    app.use(paginate.middleware(10, 50));
+    //app.use(paginate.middleware(10, 50));
 
 
 
@@ -46,7 +46,8 @@ module.exports = function (app, config) {
         res.locals = {
             siteTitle: 'alaki',
             isAuthenticated: req.isAuthenticated(),
-            user: req.isAuthenticated() ? req.user : null
+            user: req.isAuthenticated() ? req.user : null,
+            notify: {}
         }
 
         next();

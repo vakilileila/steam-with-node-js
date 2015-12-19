@@ -1,7 +1,7 @@
 var Hero = require('../models/hero');
 var HeroCategory = require('../models/heroCategory');
 var Enumerable = require('linq');
-var paginate = require('express-paginate');
+//var paginate = require('express-paginate');
 
 
 module.exports = function (app, express) {
@@ -29,48 +29,18 @@ module.exports = function (app, express) {
                 HeroCategory.paginate({}, {page: req.query.page, limit: req.query.limit}
                     ,
                     function (err, categoreis, pageCount, itemCount) {
+                        debugger;
                         res.render('./category.ejs', {
                             categoreis: categoriesView,
                             pageCount: pageCount,
                             itemCount: itemCount,
                             pages: paginate.getArrayPages(req)(3, pageCount, req.query.page),
-                            paginate:paginate
+                           paginate:paginate
 
                         });
                     });
             });
-           /*HeroCategory.find().exec(function (err, categoreis) {
-                if (err) {
-                    console.log(err);
-                    res.end('Fetching data failed...');
-                    return;
-                }
-                var categoriesView = Enumerable.from(categoreis)
-                    .select(function (category) {
-                        category.imageUrl = "/uploads/" + category.imageUrl;
-                        return category;
-                    });
 
-
-                categoreis.paginate({}, {
-                    page: req.query.page,
-                    limit: req.query.limit
-                }, function (err, categoreis, pageCount, itemCount) {
-
-                    if (err) return next(err);
-
-                    res.render('./category.ejs', {
-                        categoreis: categoriesView,
-                        categoreis: categoreis,
-                        pageCount: pageCount,
-                        itemCount: itemCount,
-                        pages: paginate.getArrayPages(req)(3, pageCount, req.query.page)
-                    });
-
-                });
-
-                res.render('./category.ejs', {categoreis: categoriesView});
-            });*/
         });
 
     /*--------select page categoryList --------  */

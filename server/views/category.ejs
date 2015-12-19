@@ -1,3 +1,4 @@
+
 <article class="content">
     <div class="row  containerBg">
         <div class="col-md-4">
@@ -45,7 +46,7 @@
                     <% if (paginate.hasPreviousPages) { %>
                     <li class="previus">
                         <a href=
-                                <% paginate.href(true).prev %>
+                           <% paginate.href(true).prev %>
                                 >
                             <i class="fa fa-arrow-circle-left"></i>
                             | Previous
@@ -61,7 +62,7 @@
                     <% if (paginate.hasNextPages(pageCount)) { %>
                     <li class="next">
                         <a href=
-                                <% paginate.href(true).next %>
+                           <% paginate.href(true).next %>
                                 >
                             | Next
                             <i class="fa fa-arrow-circle-right"></i>
@@ -113,14 +114,13 @@
                 <a href="/heros/<%= category._id %>">
 
                     <img src="<%= category.imageUrl %>">
+
                     <div class="item-info-category">
 
                         <div class="item-name"><%= category.name %></div>
                     </div>
 
                 </a>
-
-
 
 
             </div>
@@ -131,3 +131,37 @@
     </div>
 
 </article>
+
+
+<div id="grid"></div>
+
+<script>
+    $(function () {
+        $('#grid').kendoGrid({
+            dataSource: new kendo.data.DataSource({
+                transport: {
+                    read: ''
+                },
+                parameterMap: function (options, parameters) {
+
+                },
+                pageSize: 10,
+                schema: {
+                    model: {
+                        id: '_id',
+                        fields: {
+                            name: {type: "string"}
+                        }
+                    }
+                }
+            }),
+            navigatable: true,
+            pageable: true,
+            columns: [
+                {field: 'name', title: 'Name'},
+            ]
+        })
+    });
+
+    /*format: "{0:c}*/
+</script>

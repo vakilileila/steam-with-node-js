@@ -6,11 +6,11 @@ var HeroShema = new Schema({
     name: String,
     imageUrl: String,
     category: {},
-    price: String,
+    price: Number,
     discount:{
         isOnDiscount:Boolean,
-        priceDiscount: String,
-        rate:String
+        priceDiscount: Number,
+        rate:Number
         //endDate:
     },
 

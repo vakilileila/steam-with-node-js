@@ -17,7 +17,17 @@ module.exports = function (app, express) {
                         res.end('Errors ..');
                         return;
                     }
-                    res.json(cats);
+
+                    if (!HeroCategory.paginate)
+                        consoleSchema.log('Mongose Plugin is Exits ...');
+                    HeroCategory.paginate({}, {page: req.query.page, limit: req.query.limit}
+                        ,
+                        function (err,  pageCount, itemCount) {
+                            res.json({
+                                data: cats,
+                                total: itemCount
+                            });
+                        })
                 });
         });
 

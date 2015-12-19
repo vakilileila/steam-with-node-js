@@ -1,9 +1,36 @@
 <article class="content">
     <div class="  createHero">
         <h1>List Item</h1>
+
         <div class="row">
+
+            <div id="grid"></div>
+            <div class="row" style="margin-bottom: 30px;">
+
+
+                <div class="col-md-3">
+                    <label>select item</label>
+                    <input id="hero">
+                    <input type="hidden" name="hero" id="hero">
+                </div>
+                <div class="col-md-3">
+                    <label><%=: 'Select Hero' | translate %></label>
+                    <input id="categories">
+                    <input type="hidden" name="category" id="category">
+                </div>
+                <div class="col-md-3">
+                    <label>select rarity</label>
+                    <input id="rarity">
+                    <input type="hidden" name="rarity" id="rarity">
+                </div>
+                <div class="col-md-3">
+                    <label>select discount </label>
+                    <input id="discount">
+                    <input type="hidden" name="discount" id="discount">
+                </div>
+            </div>
+
             <div class="col-md-12">
-                <h1 class="filter-herolist">filtering</h1>
 
 
                 <div class="col-md-12 new-item"><a href="/admin/hero/create">
@@ -15,40 +42,38 @@
 
 
                     </a></div>
-         <ul class="list-hero-edit">
-             <li class=" header-admin-edit" style="background-color: #60478a;">
-                 <div class="col-md-10" >
-                     <div class="row">
-                         <div class="col-md-2">image Item</div>
-                         <div class="col-md-4">Name Item</div>
-                         <div class="col-md-2">Name Hero</div>
-                         <div class="col-md-2">Rarity</div>
-                         <div class="col-md-1">Price</div>
-                         <div class="col-md-1" style="border-right: 0">Discoun</div>
-                     </div>
-                 </div>
-                 <div class="col-md-2">Edit Item</div>
-             </li>
+                <ul class="list-hero-edit">
+                    <li class=" header-admin-edit" style="background-color: #60478a;">
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-2">image Item</div>
+                                <div class="col-md-4">Name Item</div>
+                                <div class="col-md-2">Name Hero</div>
+                                <div class="col-md-2">Rarity</div>
+                                <div class="col-md-1">Price</div>
+                                <div class="col-md-1" style="border-right: 0">Discoun</div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">Edit Item</div>
+                    </li>
 
-             <% heros.forEach(function(hero){ %>
+                    <% heros.forEach(function(hero){ %>
 
                     <li>
                         <a>
-                        <div class="col-md-10 col-sm-8 list-admin-item">
-                            <div class="col-md-2"><img class="list-image-admin" src="<%= hero.imageUrl %>"></div>
-                            <div class="col-md-4"><%= hero.name %></div>
-                            <div class="col-md-2"><%= hero.category.name %></div>
-                            <div class="col-md-2">Rarity</div>
-                            <div class="col-md-1"><%= hero.price%></div>
-                            <div class="col-md-1"><%= hero.discount.isOnDiscount%></div>
+                            <div class="col-md-10 col-sm-8 list-admin-item">
+                                <div class="col-md-2"><img class="list-image-admin" src="<%= hero.imageUrl %>"></div>
+                                <div class="col-md-4"><%= hero.name %></div>
+                                <div class="col-md-2"><%= hero.category.name %></div>
+                                <div class="col-md-2">Rarity</div>
+                                <div class="col-md-1"><%= hero.price %></div>
+                                <div class="col-md-1"><%= hero.discount.isOnDiscount %></div>
 
 
-                            <!--<span class="list-hero-edit-name"></span>
-                            <span class="list-hero-edit-name"></span>-->
-                        </div>
+                                <!--<span class="list-hero-edit-name"></span>
+                                <span class="list-hero-edit-name"></span>-->
+                            </div>
                         </a>
-
-
 
 
                         <div class="col-md-2 col-sm-4 col-xs-12 editicon">
@@ -59,18 +84,17 @@
                                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                             </a>
 
-                            <a href="#" class="showPriceModal" price-id="<%= hero._id%>"  >
+                            <a href="#" class="showPriceModal" price-id="<%= hero._id %>">
                                 <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
                             </a>
 
 
-
-                            <a href="#" id="showAddDiscount"  class="showModal" hero-id="<%= hero._id %>">
+                            <a href="#" id="showAddDiscount" class="showModal" hero-id="<%= hero._id %>">
                                 <span class="glyphicon glyphicon-import" aria-hidden="true"></span>
                             </a>
 
 
-                            <a  class="showModalundiscount" id="btnUnDiscount" discount-id="<%= hero._id %>">
+                            <a class="showModalundiscount" id="btnUnDiscount" discount-id="<%= hero._id %>">
                                 <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
                             </a>
 
@@ -124,19 +148,19 @@
     </div>
 </form>
 <script>
-    $(function(){
+    $(function () {
         $('.modal-undiscount').modal({
             show: false
         });
-        $('.showModalundiscount').click(function(){
-            var id= $(this).attr('discount-id');
-            var url= '/api/admin/hero/undiscount/' + id;
+        $('.showModalundiscount').click(function () {
+            var id = $(this).attr('discount-id');
+            var url = '/api/admin/hero/undiscount/' + id;
 
             $('#remve-discountForm').attr("action", url);
             $('.modal-undiscount').modal('show');
 
-        }) ;
-        $('#remve-discountForm').submit(function(e){
+        });
+        $('#remve-discountForm').submit(function (e) {
 
             var form = $(this);
             e.preventDefault();
@@ -217,7 +241,7 @@
         $('#myModal').modal({
             show: false
         });
-debugger;
+
         $('.showModal').click(function () {
 
             var id = $(this).attr('hero-id');
@@ -250,7 +274,6 @@ debugger;
 <!-- end modal add discount-->
 
 
-
 <!--modal update price hero-->
 <form id="changePrice"
       action="">
@@ -272,7 +295,7 @@ debugger;
                     <div class="row content-modal ">
                         <label><%=: 'Item Price' | translate %></label>
 
-                       <input type="text"  name="changePrice">
+                        <input type="text" name="changePrice">
                     </div>
 
                     <div class="modal-footer">
@@ -293,38 +316,40 @@ debugger;
     </div>
 </form>
 <script>
-    $(function(){
-        $('.modalChangePrice').modal
-        {
-            show:false;
-        }
-       $('.showPriceModal').click(function(){
-
-           var id = $(this).attr('price-id');
-           var  url='/api/admin/hero/changePrice/' + id;
-           $('#changePrice').attr("action", url);
-           $('.modalChangePrice').modal('show')
-
-       })
-        $('#changePrice').submit(function(e){
-            e.preventDefault();
-            var form= $(this)
-
-            $.ajax({
-                type: 'post',
-                data:form.serialize(),
-                url:form.attr('action'),
-                success: function(data) {
-                    console.log('success');
-                    console.log(JSON.stringify(data));
-                }
 
 
-            })
+    /*$(function () {
+     $('.modalChangePrice').modal
+     {
+     show:false;
+     }
+     $('.showPriceModal').click(function () {
 
-            window.location.href = "/admin/heros";
-        })
-    })
+     var id = $(this).attr('price-id');
+     var url = '/api/admin/hero/changePrice/' + id;
+     $('#changePrice').attr("action", url);
+     $('.modalChangePrice').modal('show')
+
+     })
+     $('#changePrice').submit(function (e) {
+     e.preventDefault();
+     var form = $(this)
+
+     $.ajax({
+     type: 'post',
+     data: form.serialize(),
+     url: form.attr('action'),
+     success: function (data) {
+     console.log('success');
+     console.log(JSON.stringify(data));
+     }
+
+
+     })
+
+     window.location.href = "/admin/heros";
+     })
+     })*/
 
 
 </script>
@@ -334,8 +359,8 @@ debugger;
 <!-- loading -->
 <script>
 
-    $('#discountForm').submit(function(){
-        $('#gif').css('visibility' , 'visible');
+    $('#discountForm').submit(function () {
+        $('#gif').css('visibility', 'visible');
         debugger
         $('button:submit').attr("disabled", true);
         debugger
@@ -346,8 +371,8 @@ debugger;
 </script>
 <script>
 
-    $('#changePrice').submit(function(){
-        $('#gif').css('visibility' , 'visible');
+    $('#changePrice').submit(function () {
+        $('#gif').css('visibility', 'visible');
         debugger
         $('button:submit').attr("disabled", true);
         debugger
@@ -355,6 +380,124 @@ debugger;
     })
 
 
+</script>
+<script>
+    $(function () {
+        $('#grid').kendoGrid({
+            dataSource: new kendo.data.DataSource({
+                transport: {
+                    read: '/api/admin/heros'
+                },
+                parameterMap: function (options, parameters) {
+
+                },
+                pageSize: 3,
+                serverPaging: true,
+                serverFiltering: true,
+                schema: {
+                    model: {
+                        id: '_id',
+                        fields: {
+                            name: {type: "string"},
+                            'category._id': {type: "string"},
+                            price: {type: 'number'}
+                        }
+                    },
+                    data: 'data',
+                    total: 'total'
+                }
+            }),
+            navigatable: true,
+            pageable: true,
+            sortable: true,
+            columns: [
+                {
+                    field: 'name',
+                    title: 'Name',
+                    filterable: {
+                        cell:{
+                            showOperators: false,
+                            operator: 'contains'
+                        }
+                    }
+                },
+                {
+                    field: 'category._id',
+                    title: 'Name Hero',
+                    template: '${data.category.name}',
+                    filterable: {
+                        cell: {
+                            showOperators: false,
+                            operator: 'eq',
+                            template: function (args) {
+                                debugger;
+                                args.element.kendoComboBox({
+                                    valuePrimitive: true,
+                                    dataTextField: 'name',
+                                    dataValueField: '_id',
+                                    filter: "contains",
+                                    autoBind: false,
+                                    minLength: 3,
+                                    dataSource: {
+                                        serverFiltering: true,
+                                        transport: {
+                                            read: {
+                                                url: '/api/categories'
+                                            }
+                                        },
+                                        schema:{
+                                            parse: function (result) {
+                                                return result.data;
+                                            }
+                                        }
+                                    }
+                                })
+                            }
+                        }
+                    }
+                },
+                {
+                    field: 'price',
+                    title: 'Price',
+                    filterable: {
+                        cell: {showOperators: true}
+                    }
+                },
+                {
+                    command: [
+                        {
+                            text: 'Edit',
+                            click: function (e) {
+                                debugger;
+                                var currentItem = this.dataItem($(e.currentTarget).closest("tr"));
+                                alert(JSON.stringify(currentItem));
+                            }
+                        }
+                    ]
+                }
+            ],
+            filterable: {
+                mode: 'row',
+                /*operators: {
+                    string: {contains: 'Contains'},
+                    number: {
+                        eq: 'Equal to',
+                        gte: "Greater than or equal to",
+                        gt: "Greater than",
+                        lte: "Less than or equal to",
+                        lt: "Less than"
+                    },
+                    date: {
+                        gt: "After",
+                        lt: "Before",
+                        eq: "Equal"
+                    }
+                }*/
+            }
+        })
+    });
+
+    /*format: "{0:c}*/
 </script>
 
 

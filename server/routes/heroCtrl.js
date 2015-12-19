@@ -2,6 +2,7 @@ var bodyParser = require('body-parser');
 var Hero = require('../models/hero');
 var HeroCategory = require('../models/heroCategory');
 var Enumerable = require('linq');
+var notify = require('../service/notify');
 
 
 module.exports = function (app, express) {
@@ -18,9 +19,10 @@ module.exports = function (app, express) {
                         hero.imageUrl = "/uploads/" + hero.imageUrl;
                         return hero;
                     });
-                res.render('./heroList.ejs',{
+                res.render('./heroList.ejs', {
                     heros: heroView,
-                    layout: 'layoutAdmin'
+                    layout: 'layoutAdmin',
+                    notify: notify.success('Application', 'Done Successfully')
                 });
             });
         });
@@ -47,8 +49,8 @@ module.exports = function (app, express) {
             var dto = req.body;
             dto.imageUrl = dto.image;
             dto.category = JSON.parse(dto.category);
-            dto.discount={
-                isOnDiscount:false
+            dto.discount = {
+                isOnDiscount: false
             };
             var newHero = new Hero(dto);
             newHero.save(function (err) {
@@ -101,7 +103,7 @@ module.exports = function (app, express) {
                         hero.imageUrl = editedHero.image;
                         hero.category = editedHero.category;
                         hero.name = editedHero.name;
-                        hero.price= editedHero.price;
+                        hero.price = editedHero.price;
                         hero.save(function (err) {
                             if (err) {
                                 console.log(err);
@@ -114,7 +116,6 @@ module.exports = function (app, express) {
                     });
                 });
         });
-
 
 
     /*--------  admin delete hero    --------*/
@@ -141,8 +142,6 @@ module.exports = function (app, express) {
 
                 });
         });
-
-
 
 
     return apiRouter;

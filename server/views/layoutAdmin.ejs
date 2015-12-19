@@ -5,15 +5,30 @@
     <link href="/public/css/style.css" rel="stylesheet">
     <link href="/public/css/bootstrap.css" rel="stylesheet">
     <link href="/public/css/bootstrap.min.css" rel="stylesheet">
-    <script src="/../public/js/jquery.js"></script>
-    <link href="/public/css/toastr.css" rel="stylesheet"/>
-    <script src="/public/js/toastr.js"></script>
 
+    <link href="/public/css/toastr.css" rel="stylesheet"/>
+
+    <link href="http://kendo.cdn.telerik.com/2015.2.624/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="http://kendo.cdn.telerik.com/2015.2.624/styles/kendo.bootstrap.min.css" rel="stylesheet">
+
+    <script src="http://kendo.cdn.telerik.com/2015.2.624/js/jquery.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.2.624/js/kendo.web.min.js"></script>
+    <script src="/public/js/toastr.js"></script>
 
 </head>
 <body class="main-body">
 
+<script>
+    $(function () {
+        debugger;
+        var jsonNotifiction = '<%= JSON.stringify(notify)%>'.replace(/&quot;/g, '"');
+        var notification = JSON.parse(jsonNotifiction);
 
+        if(notification.hasOwnProperty('type')){
+            toastr[notification.type](notification.message, notification.title);
+        }
+    })
+</script>
 
     <div class="row head-top">
 

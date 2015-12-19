@@ -3,6 +3,39 @@ module.exports = function (app, express) {
     var apiRouter = express.Router();
 
     /*--------- inclusive discount ------*/
+
+    apiRouter.route('/admin/heros')
+        .get(function (req, res) {
+
+            Hero.find().exec(function (err, heros) {
+
+               /* var heroView = Enumerable.from(heros)
+                    .select(function (hero) {
+                        hero.imageUrl = "/uploads/" + hero.imageUrl;
+                        return hero;
+                    });*/
+
+                res.json({
+                    data: heros,
+                    total: 100
+                });
+
+                /*if (!Hero.paginate)
+                    consoleSchema.log('Mongose Plugin is Exits ...');
+                Hero.paginate({f}, {page: req.query.page, limit: req.query.pageSize}
+                    ,
+                    function (err, heros ,pageCount, itemCount) {
+                        res.json({
+                            data: heros,
+                            total: itemCount
+                        });
+                    })*/
+
+
+            });
+        });
+
+
     apiRouter.route('/admin/specialItem/addDiscount/:id')
 
         .get(function (reg, res) {
@@ -93,18 +126,17 @@ module.exports = function (app, express) {
         })
         .post(function (reg, res) {
             Hero.findById(reg.params.id)
-                .exec(function(err, changePrice){
-                    if(err)
-                    {
+                .exec(function (err, changePrice) {
+                    if (err) {
                         console.log(err);
                         res.end('error in update changePrice')
 
                     }
-                    var priceInfo= reg.body;
+                    var priceInfo = reg.body;
                     changePrice.price = priceInfo.changePrice;
 
-                    changePrice.save(function(err){
-                        if(err){
+                    changePrice.save(function (err) {
+                        if (err) {
                             console.log(err);
                             res.end('error in save changePrice')
                             return;
