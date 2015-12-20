@@ -50,18 +50,10 @@ module.exports = function (app, express) {
 
     apiRouter.route('/admin/rarity')
         .get(function (req, res) {
+            var rarity=Rarity.rarity
 
-            var query = req.query;
-            var term = query.filter.filters[0].value;
-            Rarity.find({rarity: new RegExp(term, "i")})
-                .exec(function (err, rarity) {
-                    if (err) {
-                        console.log('Errors ....');
-                        res.end('Errors ..');
-                        return;
-                    }
                     res.json(rarity);
-                });
+
         });
 
 
