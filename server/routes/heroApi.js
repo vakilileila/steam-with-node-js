@@ -1,4 +1,5 @@
 var Hero = require('../models/hero');
+
 module.exports = function (app, express) {
     var apiRouter = express.Router();
 
@@ -145,7 +146,11 @@ module.exports = function (app, express) {
                     })
                 })
 
-        })
+        });
+
+
+
+
 
     return apiRouter;
 }

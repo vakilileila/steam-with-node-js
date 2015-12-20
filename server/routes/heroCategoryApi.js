@@ -1,5 +1,5 @@
 var HeroCategory = require('../models/heroCategory');
-
+var Rarity = require('../StaticData/RarityData');
 module.exports = function (app, express) {
     var apiRouter = express.Router();
 
@@ -30,6 +30,41 @@ module.exports = function (app, express) {
                         })
                 });
         });
+
+
+    apiRouter.route('/combo/categories')
+        .get(function (req, res) {
+            var query = req.query;
+            var term = query.filter.filters[0].value;
+
+            HeroCategory.find({name: new RegExp(term, "i")})
+                .exec(function (err, cats) {
+                    if (err) {
+                        console.log('Errors ....');
+                        res.end('Errors ..');
+                        return;
+                    }
+                    res.json(cats);
+                });
+        });
+
+    apiRouter.route('/admin/rarity')
+        .get(function (req, res) {
+
+            var query = req.query;
+            var term = query.filter.filters[0].value;
+            Rarity.find({rarity: new RegExp(term, "i")})
+                .exec(function (err, rarity) {
+                    if (err) {
+                        console.log('Errors ....');
+                        res.end('Errors ..');
+                        return;
+                    }
+                    res.json(rarity);
+                });
+        });
+
+
 
     return apiRouter;
 }

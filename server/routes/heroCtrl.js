@@ -5,6 +5,7 @@ var Enumerable = require('linq');
 var notify = require('../service/notify');
 
 
+
 module.exports = function (app, express) {
     var apiRouter = express.Router();
 
@@ -30,7 +31,7 @@ module.exports = function (app, express) {
     /*--------  admin create hero (nameHero, upload image, select category, price)    --------*/
     apiRouter.route('/admin/hero/create')
         .get(function (req, res) {
-            HeroCategory.find().exec(function (err, cats) {
+            HeroCategory.find().exec(function (err, cats, rarity) {
                 if (err) {
                     console.log(err);
                     res.end('error ');
@@ -38,7 +39,8 @@ module.exports = function (app, express) {
                 }
                 res.render('./heroCreate.ejs', {
                     layout: 'layoutAdmin',
-                    categories: cats
+                    categories: cats,
+                    rarity:rarity
                     /*errors: []*/
                 });
             });
@@ -142,6 +144,9 @@ module.exports = function (app, express) {
 
                 });
         });
+
+
+
 
 
     return apiRouter;

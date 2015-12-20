@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="/public/css/kendo/kendo.common.min.css">
-<link rel="stylesheet" href="/public/css/kendo/kendo.material.min.css">
+
 <link rel="stylesheet" href="/public/css/kendo/kendo.rtl.min.css">
+
 
 
 <article class="content" xmlns="http://www.w3.org/1999/html">
@@ -22,12 +22,21 @@
 
 
                     </div>
+
                     <div class="row">
                         <!--JSON.stringify(cat)-->
                         <div class="col-md-12 col-xs-12 col-sm-12 combobox">
                             <label><%=: 'Select Hero' | translate %></label>
                             <input required style=" width: 75%; border: 1px solid #A9A9A9; " id="categories">
                             <input required type="hidden" name="category" id="category">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!--JSON.stringify(cat)-->
+                        <div class="col-md-12 col-xs-12 col-sm-12 combobox">
+                            <label><%=: 'Select Rarity' | translate %></label>
+                            <input required style=" width: 75%; border: 1px solid #A9A9A9; " id="rarity">
+                            <input required type="hidden" name="rarity" id="rarity">
                         </div>
                     </div>
                     <div class="row">
@@ -108,7 +117,7 @@
     window.JalaliDate = Date;
 
 </script>
-<script src="/public/js/kendo.all.2015.2.624.hasPersian.js"></script>
+
 
 <script>
     var uploader = new plupload.Uploader({
@@ -141,8 +150,19 @@
         }
     });
     uploader.init();
+</script>
+
+
+
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.web.min.js"></script>
+<script>
+
+
 
     $('#categories').kendoComboBox({
+        valuePrimitive: true,
         dataTextField: 'name',
         dataValueField: '_id',
         filter: "contains",
@@ -152,14 +172,56 @@
             serverFiltering: true,
             transport: {
                 read: {
-                    url: '/api/categories'
+                    url: '/api/combo/categories'
                 }
             }
         },
+
+
         select: function (e) {
             var dataItem = this.dataItem(e.item.index());
             $('#category').val(JSON.stringify(dataItem));
         }
+
     });
+
+</script>
+<script>
+    debugger;
+    $('#rarity').kendoComboBox({
+        valuePrimitive: true,
+        dataTextField: 'rarity',
+        dataValueField: 'rarity',
+        filter: "contains",
+        autoBind: false,
+        minLength: 3,
+
+        dataSource: {
+
+            serverFiltering: true,
+            transport: {
+                read: {
+                    url: '/api/admin/rarity'
+
+                }
+
+            }
+
+            /*{rarity:'Arcana'},
+             {rarity: 'Common'},
+             {rarity:'Uncommon'},
+             {rarity:'Rare'},
+             {rarity:'Rare'},*/
+
+        },
+
+
+        select: function (e) {
+            var dataItem = this.dataItem(e.item.index());
+            $('#rarity').val(JSON.stringify(dataItem));
+        }
+
+    });
+    debugger;
 </script>
 

@@ -456,6 +456,43 @@
                         }
                     }
                 },
+
+
+                {
+                    field: 'category._id',
+                    title: 'Name Hero',
+                    template: '${data.category.name}',
+                    filterable: {
+                        cell: {
+                            showOperators: false,
+                            operator: 'eq',
+                            template: function (args) {
+                                debugger;
+                                args.element.kendoComboBox({
+                                    valuePrimitive: true,
+                                    dataTextField: 'name',
+                                    dataValueField: '_id',
+                                    filter: "contains",
+                                    autoBind: false,
+                                    minLength: 3,
+                                    dataSource: {
+                                        serverFiltering: true,
+                                        transport: {
+                                            read: {
+                                                url: '/api/categories'
+                                            }
+                                        },
+                                        schema:{
+                                            parse: function (result) {
+                                                return result.data;
+                                            }
+                                        }
+                                    }
+                                })
+                            }
+                        }
+                    }
+                },
                 {
                     field: 'price',
                     title: 'Price',
@@ -463,6 +500,7 @@
                         cell: {showOperators: true}
                     }
                 },
+
                 {
                     command: [
                         {
@@ -498,6 +536,32 @@
     });
 
     /*format: "{0:c}*/
+</script>
+<script>
+
+$()
+    {
+        field: 'rarity',
+                title: 'Rarity',
+            filterable:
+        {
+            cell:{
+                showOperators:false,
+                        operator: 'eq',
+                        template: function(args){
+                    args.element.kendoDropDownList({
+                        dataSource: args.dataSource,
+                        dataTextField: 'rarity',
+                        dataValueField:'rarity',
+                        valuePrimitive: true
+                    })
+                }
+
+
+            }
+
+        }
+    }
 </script>
 
 
