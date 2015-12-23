@@ -1,6 +1,4 @@
-
 <link rel="stylesheet" href="/public/css/kendo/kendo.rtl.min.css">
-
 
 
 <article class="content" xmlns="http://www.w3.org/1999/html">
@@ -35,8 +33,8 @@
                         <!--JSON.stringify(cat)-->
                         <div class="col-md-12 col-xs-12 col-sm-12 combobox">
                             <label><%=: 'Select Rarity' | translate %></label>
-                            <input required style=" width: 75%; border: 1px solid #A9A9A9; " id="rarity">
-                            <input required type="hidden" name="rarity" id="rarity">
+                            <!--<input required style=" width: 75%; border: 1px solid #A9A9A9; " id="rarity">-->
+                            <input required  name="rarity" id="rarity">
                         </div>
                     </div>
                     <div class="row">
@@ -105,9 +103,6 @@
     </div>
 
 
-
-
-
     </div>
 </article>
 
@@ -133,18 +128,18 @@
 
         init: {
             FileUploaded: function (file, up, res) {
-                debugger;
+
 
                 var fileInfo = JSON.parse(res.response);
 
                 $('#imageUrl').val(fileInfo.fileName);
                 $('#uploadedFile').attr('src', fileInfo.displayFileName);
-                debugger;
+
                 $('#uploadedFile').show();
-                debugger;
+
             },
             FilesAdded: function (up, file) {
-                debugger;
+
                 up.start();
             }
         }
@@ -153,12 +148,9 @@
 </script>
 
 
-
-
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.web.min.js"></script>
+<script src="/public/js/jquery-1.9.1.min.js"></script>
+<script src="/public/js/kendo.web.min.js"></script>
 <script>
-
 
 
     $('#categories').kendoComboBox({
@@ -166,7 +158,7 @@
         dataTextField: 'name',
         dataValueField: '_id',
         filter: "contains",
-        autoBind: false,
+        autoBind: true,
         minLength: 3,
         dataSource: {
             serverFiltering: true,
@@ -179,8 +171,10 @@
 
 
         select: function (e) {
+            debugger;
             var dataItem = this.dataItem(e.item.index());
             $('#category').val(JSON.stringify(dataItem));
+            debugger;
         }
 
     });
@@ -190,12 +184,16 @@
     debugger;
     $('#rarity').kendoComboBox({
         valuePrimitive: true,
-        dataTextField: 'rarityData',
-        dataValueField: 'rarityData',
+        dataTextField: '',
+        dataValueField: '',
         filter: "contains",
-        autoBind: false,
+        autoBind: true,
         minLength: 3,
-
+        change: function(e){
+            debugger;
+            var dataItem = e.sender.dataItem();
+            debugger;
+        },
         dataSource: {
 
             serverFiltering: true,
@@ -206,20 +204,9 @@
                 }
 
             }
-
-            /*{rarity:'Arcana'},
-             {rarity: 'Common'},
-             {rarity:'Uncommon'},
-             {rarity:'Rare'},
-             {rarity:'Rare'},*/
-
-        },
-
-
-        select: function (e) {
-            var dataItem = this.dataItem(e.item.index());
-            $('#rarity').val(JSON.stringify(dataItem));
         }
+
+
 
     });
     debugger;

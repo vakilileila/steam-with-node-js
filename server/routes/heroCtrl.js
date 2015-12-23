@@ -3,7 +3,7 @@ var Hero = require('../models/hero');
 var HeroCategory = require('../models/heroCategory');
 var Enumerable = require('linq');
 var notify = require('../service/notify');
-
+var Rarity = require('../StaticData/RarityData');
 
 
 module.exports = function (app, express) {
@@ -20,10 +20,13 @@ module.exports = function (app, express) {
                         hero.imageUrl = "/uploads/" + hero.imageUrl;
                         return hero;
                     });
+                var rarity=Rarity.rarity;
                 res.render('./heroList.ejs', {
                     heros: heroView,
                     layout: 'layoutAdmin',
-                    notify: notify.success('Application', 'Done Successfully')
+                    notify: notify.success('Application', 'Done Successfully'),
+                    rarity: rarity
+
                 });
             });
         });
@@ -31,17 +34,17 @@ module.exports = function (app, express) {
     /*--------  admin create hero (nameHero, upload image, select category, price)    --------*/
     apiRouter.route('/admin/hero/create')
         .get(function (req, res) {
-            HeroCategory.find().exec(function (err, cats, rarity) {
+            HeroCategory.find().exec(function (err, cats) {
                 if (err) {
                     console.log(err);
                     res.end('error ');
                     return;
                 }
+                var rarity=Rarity.rarity;
                 res.render('./heroCreate.ejs', {
                     layout: 'layoutAdmin',
                     categories: cats,
-                    rarity:rarity
-                    /*errors: []*/
+                   rarity:rarity
                 });
             });
         })
@@ -54,15 +57,15 @@ module.exports = function (app, express) {
             dto.discount = {
                 isOnDiscount: false
             };
+
             var newHero = new Hero(dto);
+            Hero.rarity= dto.rarity
             newHero.save(function (err) {
-                debugger;
                 if (err) {
                     console.log(err);
                     res.end('new hero failed ...');
                     return;
                 }
-                debugger;
                 res.redirect('/admin/heros');
             });
         })

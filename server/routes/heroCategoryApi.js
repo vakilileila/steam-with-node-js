@@ -50,7 +50,7 @@ module.exports = function (app, express) {
 
     apiRouter.route('/admin/rarity')
         .get(function (req, res) {
-            var rarity=Rarity.rarity
+            var rarity=Rarity.rarity;
 
                     res.json(rarity);
 

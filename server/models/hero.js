@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var mongoosePaginate = require('mongoose-paginate');
 
 
 var HeroShema = new Schema({
@@ -17,6 +18,8 @@ var HeroShema = new Schema({
 
 
 });
+
+HeroShema.plugin(mongoosePaginate);
 
 
 module.exports = mongoose.model('Hero', HeroShema);

@@ -247,7 +247,7 @@
             var id = $(this).attr('hero-id');
             var url = '/api/admin/specialItem/addDiscount/' + id;
             $('#discountForm').attr("action", url);
-            debugger;
+
             $('#myModal').modal('show');
 
         });
@@ -255,13 +255,12 @@
         $('#discountForm').submit(function (e) {
             var form = $(this);
             e.preventDefault();
-            debugger;
             $.ajax({
                 url: form.attr('action'),
                 type: 'POST',
                 data: form.serialize(),
                 success: function (data) {
-                    debugger;
+
                 }
 
             });
@@ -361,9 +360,9 @@
 
     $('#discountForm').submit(function () {
         $('#gif').css('visibility', 'visible');
-        debugger
+
         $('button:submit').attr("disabled", true);
-        debugger
+
         return true
     })
 
@@ -373,14 +372,18 @@
 
     $('#changePrice').submit(function () {
         $('#gif').css('visibility', 'visible');
-        debugger
+
         $('button:submit').attr("disabled", true);
-        debugger
+
         return true
     })
 
 
 </script>
+
+
+
+
 <script>
     $(function () {
         $('#grid').kendoGrid({
@@ -430,7 +433,7 @@
                             showOperators: false,
                             operator: 'eq',
                             template: function (args) {
-                                debugger;
+
                                 args.element.kendoComboBox({
                                     valuePrimitive: true,
                                     dataTextField: 'name',
@@ -459,19 +462,18 @@
 
 
                 {
-                    field: 'category._id',
-                    title: 'Name Hero',
-                    template: '${data.category.name}',
+                    field: 'rarity',
+                    title: 'Rarity',
                     filterable: {
                         cell: {
                             showOperators: false,
                             operator: 'eq',
                             template: function (args) {
-                                debugger;
+
                                 args.element.kendoComboBox({
                                     valuePrimitive: true,
-                                    dataTextField: 'name',
-                                    dataValueField: '_id',
+                                    dataTextField: '',
+                                    dataValueField: '',
                                     filter: "contains",
                                     autoBind: false,
                                     minLength: 3,
@@ -479,14 +481,16 @@
                                         serverFiltering: true,
                                         transport: {
                                             read: {
-                                                url: '/api/categories'
+                                                url: '/api/admin/rarity'
                                             }
+
                                         },
-                                        schema:{
+
+                                        /*schema:{
                                             parse: function (result) {
                                                 return result.data;
                                             }
-                                        }
+                                        }*/
                                     }
                                 })
                             }
@@ -506,7 +510,7 @@
                         {
                             text: 'Edit',
                             click: function (e) {
-                                debugger;
+
                                 var currentItem = this.dataItem($(e.currentTarget).closest("tr"));
                                 alert(JSON.stringify(currentItem));
                             }
@@ -536,32 +540,6 @@
     });
 
     /*format: "{0:c}*/
-</script>
-<script>
-
-$()
-    {
-        field: 'rarity',
-                title: 'Rarity',
-            filterable:
-        {
-            cell:{
-                showOperators:false,
-                        operator: 'eq',
-                        template: function(args){
-                    args.element.kendoDropDownList({
-                        dataSource: args.dataSource,
-                        dataTextField: 'rarity',
-                        dataValueField:'rarity',
-                        valuePrimitive: true
-                    })
-                }
-
-
-            }
-
-        }
-    }
 </script>
 
 

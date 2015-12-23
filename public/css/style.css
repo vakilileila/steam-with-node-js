@@ -837,7 +837,7 @@ div.modal-footer
 {
     width: 100%;
     background-color: #f2f2f2;
-    padding: 25px;
+    padding: 10px 25px;
     position: relative;
 }
 .createHero h1
@@ -845,13 +845,14 @@ div.modal-footer
     text-align: right;
     text-align: right;
     border-bottom: 2px solid #ddd;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     color: #138FCC;
+    font-size: 14px;
 }
 .createHero label
 {
     width: 100%;
-    margin: 20px 0 10px 0;
+    margin: 15px 0 10px 0;
     text-align: right;
 }
 .oneInput {

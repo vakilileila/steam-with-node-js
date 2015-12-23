@@ -7,33 +7,31 @@ module.exports = function (app, express) {
 
     apiRouter.route('/admin/heros')
         .get(function (req, res) {
+            var query = req.query;
+            var filters = [];
+            var filter = {};
+            var pageSize = query.pageSize || 10;
+            var page = query.page || 1;
 
-            Hero.find().exec(function (err, heros) {
+            if (query.filter)
+                if (query.filter.filters)
+                    filters = query.filter.filters;
 
-               /* var heroView = Enumerable.from(heros)
-                    .select(function (hero) {
-                        hero.imageUrl = "/uploads/" + hero.imageUrl;
-                        return hero;
-                    });*/
 
-                res.json({
-                    data: heros,
-                    total: 100
+            if (filters.length > 0) {
+                filters.forEach(function (f) {
+                    filter[f.field] = f.value;
                 });
-
-                /*if (!Hero.paginate)
-                    consoleSchema.log('Mongose Plugin is Exits ...');
-                Hero.paginate({f}, {page: req.query.page, limit: req.query.pageSize}
-                    ,
-                    function (err, heros ,pageCount, itemCount) {
-                        res.json({
-                            data: heros,
-                            total: itemCount
-                        });
-                    })*/
-
-
+            }
+            Hero.paginate(filter, {limit: pageSize, page: page}, function (err, result, page, itemCount) {
+                res.json({
+                    data: result,
+                    total: itemCount
+                });
             });
+
+
+
         });
 
 
@@ -147,9 +145,6 @@ module.exports = function (app, express) {
                 })
 
         });
-
-
-
 
 
     return apiRouter;

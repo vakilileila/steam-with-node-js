@@ -23,21 +23,8 @@ module.exports = function (app, express) {
                         category.imageUrl = "/uploads/" + category.imageUrl;
                         return category;
                     });
-                if (!HeroCategory.paginate)
-                    consoleSchema.log('Mongose Plugin is Exits ...');
-
-                HeroCategory.paginate({}, {page: req.query.page, limit: req.query.limit}
-                    ,
-                    function (err, categoreis, pageCount, itemCount) {
-                        debugger;
                         res.render('./category.ejs', {
-                            categoreis: categoriesView,
-                            pageCount: pageCount,
-                            itemCount: itemCount,
-                            pages: paginate.getArrayPages(req)(3, pageCount, req.query.page),
-                           paginate:paginate
-
-                        });
+                            categoreis: categoriesView
                     });
             });
 
@@ -52,7 +39,6 @@ module.exports = function (app, express) {
                 res.render('./categoryList.ejs', {categories: cats, layout: 'layoutAdmin'});
             });
         });
-
 
     /*-------- create category (nameCategory-image)  --------*/
     apiRouter.route('/admin/heroCategories/create')
