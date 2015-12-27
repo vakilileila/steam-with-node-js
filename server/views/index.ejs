@@ -5,11 +5,12 @@
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="2500">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
-                    <% for(i=0; i< slide.length; i++){%>
+                    <% for(i = 0; i < slide.length; i++){ %>
 
-                    <li data-target="#carousel-example-generic" data-slide-to="<%= i%>" class="<%= slide[i] == slide[0] ? "active" : "" %>"></li>
-                    
-                    <%}%>
+                    <li data-target="#carousel-example-generic" data-slide-to="<%= i %>"
+                        class="<%= slide[i] == slide[0] ? "active" : "" %>"></li>
+
+                    <% } %>
 
                 </ol>
 
@@ -57,14 +58,13 @@
         <div class="tab-right">
 
             <!-- HTML to write  tooltip-->
-    <!--<span rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="left" data-html="true"
-          data-title="<h1>name item</h1>">
-hover over me to see HTML
-</span>-->
+            <!--<span rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="left" data-html="true"
+                  data-title="<h1>name item</h1>">
+        hover over me to see HTML
+        </span>-->
 
             <% specialHero.forEach(function(specil){ %>
             <div class="col-md-4 col-sm-6 specialHero " style="padding: 0;">
-
 
 
                 <a href="#">
@@ -96,10 +96,25 @@ hover over me to see HTML
 
     </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').popover({
+                placement : 'top',
+                trigger : 'click',
+                html: 'true',
+                content : '<h2>Rarity</h2>',
+                template: '<div class="popover"><div class="arrow"></div>'+
+                '<h4 class="popover-title"></h4>'+
+                '<h5 class="tooltip-item-rarity">Rarity</h5>'+
+                '<div class="row tooltip-item"><div class="col-md-3 col-sm-3"><img src=""  /></div>'+
+                '<div class="col-md-8 col-sm-8"> <span class="tooltip-text">Used By :</span> <span class="tooltip-item-name">Name item</span></div></div>'
 
-
+            });
+        });
+    </script>
+    <button type="button" class="btn btn-info" data-toggle="popover" title="title" data-content="A larger popover to demonstrate the max-width of the Bootstrap popover.">Large popover</button>
 </article>
-<script src="../../public/js/bootstrap.min.js"></script>
+
 
 
 
