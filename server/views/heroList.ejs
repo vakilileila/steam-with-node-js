@@ -382,8 +382,6 @@
 </script>
 
 
-
-
 <script>
     $(function () {
         $('#grid').kendoGrid({
@@ -418,7 +416,7 @@
                     field: 'name',
                     title: 'Name',
                     filterable: {
-                        cell:{
+                        cell: {
                             showOperators: false,
                             operator: 'contains'
                         }
@@ -448,7 +446,7 @@
                                                 url: '/api/categories'
                                             }
                                         },
-                                        schema:{
+                                        schema: {
                                             parse: function (result) {
                                                 return result.data;
                                             }
@@ -459,7 +457,6 @@
                         }
                     }
                 },
-
 
                 {
                     field: 'rarity',
@@ -487,16 +484,65 @@
                                         },
 
                                         /*schema:{
-                                            parse: function (result) {
-                                                return result.data;
-                                            }
-                                        }*/
+                                         parse: function (result) {
+                                         return result.data;
+                                         }
+                                         }*/
                                     }
                                 })
                             }
                         }
                     }
                 },
+
+                {
+                    field: 'discount',
+                    title: 'discount',
+                    filterable: {
+                        cell: {
+                            showOperators: false,
+                            operator: 'eq',
+                            template: function (args) {
+
+                                args.element.kendoComboBox({
+                                    valuePrimitive: true,
+                                    dataTextField: 'discount',
+                                    dataValueField: 'discount',
+                                    filter: "contains",
+                                    autoBind: false,
+                                    minLength: 3,
+                                    dataSource:[
+                                        {discount: "true"},
+                                        {discount: "false"}
+                                    ]
+                                })
+                            }
+                        }
+                    }
+                },
+
+                /*{
+                    field: "discount",
+                    title: "Discount"
+                    filterable: {
+                        cell: {
+                            template: function (args) {
+                                // create a DropDownList of unique values (colors)
+                                args.element.kendoComboBox({
+                                    dataSource:[
+                                        {discount: "true"},
+                                        {discount: "false"}
+                                    ] ,
+                                    dataTextField: "discount",
+                                    dataValueField: "discount",
+                                    valuePrimitive: true
+                                });
+                            },
+                            showOperators: false
+                        }
+                    }
+                },*/
+
                 {
                     field: 'price',
                     title: 'Price',
@@ -521,20 +567,20 @@
             filterable: {
                 mode: 'row',
                 /*operators: {
-                    string: {contains: 'Contains'},
-                    number: {
-                        eq: 'Equal to',
-                        gte: "Greater than or equal to",
-                        gt: "Greater than",
-                        lte: "Less than or equal to",
-                        lt: "Less than"
-                    },
-                    date: {
-                        gt: "After",
-                        lt: "Before",
-                        eq: "Equal"
-                    }
-                }*/
+                 string: {contains: 'Contains'},
+                 number: {
+                 eq: 'Equal to',
+                 gte: "Greater than or equal to",
+                 gt: "Greater than",
+                 lte: "Less than or equal to",
+                 lt: "Less than"
+                 },
+                 date: {
+                 gt: "After",
+                 lt: "Before",
+                 eq: "Equal"
+                 }
+                 }*/
             }
         })
     });

@@ -55,8 +55,5 @@ module.exports = function (app, express) {
                     res.json(rarity);
 
         });
-
-
-
     return apiRouter;
 }

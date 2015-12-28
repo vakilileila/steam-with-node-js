@@ -1,5 +1,3 @@
-
-
 <article class="content">
     <div class="row  containerBg">
         <div class="col-md-4">
@@ -86,8 +84,22 @@
         <% heros.forEach(function(hero){ %>
         <div class="col-md-3 col-sm-4 col-xs-6 boxs">
 
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('[data-toggle="popover"]').popover({
+                        placement: 'left',
+                        trigger: 'click',
+                        html: 'true',
+                        template: '<div class="popover"><div class="arrow"></div>' +
+                        '<h4 class="popover-title"></h4>'+
+                        '<h5 class="tooltip-item-rarity"><%= hero.rarity%></h5>' +
+                        '<div class="row tooltip-item"><div class="col-md-4 col-sm-4"><img src="<%= hero.category.imageUrl%>"  /></div>' +
+                        '<div class="col-md-8 col-sm-8"> <span class="tooltip-text">Used By :</span> <span class="tooltip-item-name"><%= hero.category.name%></span></div></div>'
 
-            <div class="item-box">
+                    });
+                });
+            </script>
+            <div class="item-box" data-toggle="popover" title="<%= hero.name %>">
                 <a href="#">
                     <div class="<%= hero.discount.isOnDiscount ? "discounted-hero" : "discounted-hero-hide" %>"><span
                                 class="discounted-item">4</span></div>

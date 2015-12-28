@@ -108,10 +108,7 @@
 
 <script src="/public/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/public/bower_components/plupload/js/plupload.full.min.js"></script>
-<script>
-    window.JalaliDate = Date;
 
-</script>
 
 
 <script>
@@ -148,17 +145,16 @@
 </script>
 
 
+
 <script src="/public/js/jquery-1.9.1.min.js"></script>
 <script src="/public/js/kendo.web.min.js"></script>
 <script>
-
-
     $('#categories').kendoComboBox({
         valuePrimitive: true,
         dataTextField: 'name',
         dataValueField: '_id',
         filter: "contains",
-        autoBind: true,
+        autoBind: false,
         minLength: 3,
         dataSource: {
             serverFiltering: true,
