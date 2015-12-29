@@ -119,6 +119,7 @@ header, section, footer, aside, nav, main, article, figure {
     {
         width: 50%;
     }
+
     article.content
     {
         width: 90%;
@@ -370,7 +371,7 @@ div.navbar-collapse.collapse.admin
 }
 .content-admin
 {
-    width: 72%;
+    width: 100%;
     margin: 0px auto 0;
 }
 .nav-main li
@@ -916,13 +917,17 @@ div.modal-footer
 .createHero input[type=text],.createHero select
 {
     width: 75%;
-    height: 30px;
+
     color:#222
 }
 .createHero label
 
 {
     color: #111111;
+}
+#rarity
+{
+    width: 75%;
 }
 .list-hero-edit
 {

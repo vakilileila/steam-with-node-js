@@ -1,4 +1,4 @@
-<article class="content">
+<article class="content-admin">
     <div class="  createHero">
         <h1>List Item</h1>
 
@@ -317,7 +317,7 @@
 <script>
 
 
-    /*$(function () {
+    $(function () {
      $('.modalChangePrice').modal
      {
      show:false;
@@ -348,7 +348,7 @@
 
      window.location.href = "/admin/heros";
      })
-     })*/
+     })
 
 
 </script>
@@ -381,7 +381,7 @@
 
 </script>
 
-
+<!-- filtering -->
 <script>
     $(function () {
         $('#grid').kendoGrid({
@@ -392,7 +392,7 @@
                 parameterMap: function (options, parameters) {
 
                 },
-                pageSize: 3,
+                pageSize: 10,
                 serverPaging: true,
                 serverFiltering: true,
                 schema: {
@@ -481,7 +481,7 @@
                                                 url: '/api/admin/rarity'
                                             }
 
-                                        },
+                                        }
 
                                         /*schema:{
                                          parse: function (result) {
@@ -496,7 +496,7 @@
                 },
 
                 {
-                    field: 'discount',
+                    field: 'discount.isOnDiscount',
                     title: 'discount',
                     filterable: {
                         cell: {
@@ -521,28 +521,6 @@
                     }
                 },
 
-                /*{
-                    field: "discount",
-                    title: "Discount"
-                    filterable: {
-                        cell: {
-                            template: function (args) {
-                                // create a DropDownList of unique values (colors)
-                                args.element.kendoComboBox({
-                                    dataSource:[
-                                        {discount: "true"},
-                                        {discount: "false"}
-                                    ] ,
-                                    dataTextField: "discount",
-                                    dataValueField: "discount",
-                                    valuePrimitive: true
-                                });
-                            },
-                            showOperators: false
-                        }
-                    }
-                },*/
-
                 {
                     field: 'price',
                     title: 'Price',
@@ -565,7 +543,7 @@
                 }
             ],
             filterable: {
-                mode: 'row',
+                mode: 'row'
                 /*operators: {
                  string: {contains: 'Contains'},
                  number: {
