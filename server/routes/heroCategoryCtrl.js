@@ -1,6 +1,7 @@
 var Hero = require('../models/hero');
 var HeroCategory = require('../models/heroCategory');
 var Enumerable = require('linq');
+var Rarity = require('../StaticData/RarityData');
 //var paginate = require('express-paginate');
 
 
@@ -76,14 +77,27 @@ module.exports = function (app, express) {
                         console.log(err);
                         res.end('Fetching data failed...');
                     }
+                    var rarity=Rarity.rarity;
 
                     var herosView = Enumerable.from(heros)
                         .select(function (hero) {
                             hero.imageUrl = "/uploads/" + hero.imageUrl;
                             return hero;
                         });
+                var setcalssRarity =  function(rar){
 
-                    res.render('./heros.ejs', {heros: herosView});
+                   ( rar == "Rare" ) ?
+                          "rare"
+                          :( rar == "Arcana" ) ?
+                          "common"
+                          :( rar == "Common") ?
+                          "rare"
+                          :console.log('not fetch rarity');
+                    return rar
+
+                  }
+
+                    res.render('./heros.ejs', {heros: herosView,setcalssRarity:setcalssRarity, rarity:rarity});
                 })
         });
 

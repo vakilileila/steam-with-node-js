@@ -535,7 +535,7 @@
                             text: 'Edit',
                             click: function (e) {
 
-                                var currentItem = this.dataItem($(e.currentTarget).closest("tr"));
+                                var currentItem = this.dataItem($(e.currentTarget).closest("currentItem"));
                                 alert(JSON.stringify(currentItem));
                             }
                         }

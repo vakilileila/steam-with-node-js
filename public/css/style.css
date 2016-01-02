@@ -504,7 +504,7 @@ ul.nav.navbar-nav.nav-main li a:hover
     color: #EEEEEE;
     font-size: 12px;
 }
-.tooltip-item-rarity
+.rare
 {
     background-color: #1118AF;
     background-position: center center;
@@ -516,6 +516,14 @@ ul.nav.navbar-nav.nav-main li a:hover
     text-align: center;
     padding: 3px;
     color: #000000;
+}
+.common
+{
+    background-color: red;
+}
+.arcana
+{
+    background-color: #00b0ff;
 }
 .tooltip-text
 {
