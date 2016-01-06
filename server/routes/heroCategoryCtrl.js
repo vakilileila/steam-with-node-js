@@ -85,14 +85,60 @@ module.exports = function (app, express) {
                             return hero;
                         });
                 var setcalssRarity =  function(rar){
+                   /* switch(rar){
+                        case "Arcana":
+                            rar="arcana"
+                            break
+                        case "Common" :
+                            rar = "common"
+                            break
+                        case "UnCommon" :
+                            rar = "uncommon"
+                            break
+                        case "Rare":
+                            rar = "rare";
+                            break
+                        case "Mythical":
+                            rar = "mythical"
+                            break
+                        case "Legendary" :
+                            rar = "legendary"
+                            break
+                        case "Ancient" :
+                            rar = "ancient"
+                            break
+                        case "Immortal" :
+                            rar = "immortal"
+                            break
+                    }*/
 
-                   ( rar == "Rare" ) ?
-                          "rare"
-                          :( rar == "Arcana" ) ?
-                          "common"
-                          :( rar == "Common") ?
-                          "rare"
-                          :console.log('not fetch rarity');
+
+                   if (rar == "Arcana")
+                   {rar = "arcana";}
+                   else
+                 if(rar == "Common")
+                 {rar = "common";}
+                 else
+                   if ( rar == "UnCommon" ){
+                   rar = "uncommon";}
+                   else
+                 if(rar == "Rare")
+                 {rar = "rare";}
+                 else
+                 if(rar == "Mythical")
+                 {rar = "mythical";}
+                 else
+                 if(rar == "Legendary")
+                 {rar = "legendary";}
+                 else
+                   if(rar == "Ancient")
+                   {rar = "ancient";}
+                   else
+                   if(rar == "Immortal")
+                   {rar = "immortal";}
+
+                    else{console.log('not fetch rarity');}
+
                     return rar
 
                   }

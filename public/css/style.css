@@ -519,7 +519,42 @@ ul.nav.navbar-nav.nav-main li a:hover
 }
 .common
 {
-    background-color: red;
+    background-color: #FFFFFF;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2125B1));
+    background: -webkit-radial-gradient(circle, #d4d4d4, #97A7AB);
+    background: -moz-radial-gradient(circle, #d4d4d4, #97A7AB);
+    background: -ms-radial-gradient(circle, #d4d4d4, #97A7AB);
+    text-align: center;
+    padding: 3px;
+    color: #000000;
+}
+.uncommon
+{
+    background-color: #66d0ff;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2125B1));
+    background: -webkit-radial-gradient(circle, #4774A6,#3B6089);
+    background: -moz-radial-gradient(circle, #4774A6,#3B6089);
+    background: -ms-radial-gradient(circle, #4774A6,#3B6089);
+    text-align: center;
+    padding: 3px;
+    color: #000000;
+}
+.mythical
+{
+    background-color: #66d0ff;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2125B1));
+    background: -webkit-radial-gradient(circle, #9769EA,#562CA1);
+    background: -moz-radial-gradient(circle, #9769EA,#562CA1);
+    background: -ms-radial-gradient(circle, #9769EA,#562CA1);
+    text-align: center;
+    padding: 3px;
+    color: #000000;
 }
 .arcana
 {
