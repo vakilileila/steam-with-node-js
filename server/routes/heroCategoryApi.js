@@ -33,9 +33,12 @@ module.exports = function (app, express) {
 
 
     apiRouter.route('/combo/categories')
+
         .get(function (req, res) {
             var query = req.query;
-            var term = query.filter.filters[0].value;
+            var term = '';
+            if(query.filter)
+                term = query.filter.filters[0].value;
 
             HeroCategory.find({name: new RegExp(term, "i")})
                 .exec(function (err, cats) {
@@ -44,15 +47,31 @@ module.exports = function (app, express) {
                         res.end('Errors ..');
                         return;
                     }
-                    res.json(cats);
+
+                    res.json(cats)
                 });
         });
+
+    /*.get(function (req, res) {
+     var query = req.query;
+     var term = query.filters[0].value;
+
+     HeroCategory.find({name: new RegExp(term, "i")})
+     .exec(function (err, cats) {
+     if (err) {
+     console.log('Errors ....');
+     res.end('Errors ..');
+     return;
+     }
+     res.json(cats);
+     });
+     });*/
 
     apiRouter.route('/admin/rarity')
         .get(function (req, res) {
             var rarity=Rarity.rarity;
 
-                    res.json(rarity);
+            res.json(rarity);
 
         });
     return apiRouter;
