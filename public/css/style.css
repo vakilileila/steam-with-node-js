@@ -504,6 +504,16 @@ ul.nav.navbar-nav.nav-main li a:hover
     color: #EEEEEE;
     font-size: 12px;
 }
+.popover-content h5
+{
+    font-weight: bold;
+    font-size: 16px;
+}
+.popover-content h4
+{
+    text-align: center;
+    color: #ddd;
+}
 .rare
 {
     background-color: #1118AF;
@@ -532,13 +542,13 @@ ul.nav.navbar-nav.nav-main li a:hover
 }
 .uncommon
 {
-    background-color: #66d0ff;
+    background-color: #639AD6;
     background-position: center center;
     background-repeat: no-repeat;
     background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2125B1));
-    background: -webkit-radial-gradient(circle, #4774A6,#3B6089);
-    background: -moz-radial-gradient(circle, #4774A6,#3B6089);
-    background: -ms-radial-gradient(circle, #4774A6,#3B6089);
+    background: -webkit-radial-gradient(circle, #639AD6,#406B9A);
+    background: -moz-radial-gradient(circle, #639AD6,#406B9A);
+    background: -ms-radial-gradient(circle, #639AD6,#406B9A);
     text-align: center;
     padding: 3px;
     color: #000000;
@@ -556,9 +566,43 @@ ul.nav.navbar-nav.nav-main li a:hover
     padding: 3px;
     color: #000000;
 }
+.immortal
+{
+    background-color: #E4AE39;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2125B1));
+    background: -webkit-radial-gradient(circle, #E4AE39,#A77B0A);
+    background: -moz-radial-gradient(circle, #E4AE39,#A77B0A);
+    background: -ms-radial-gradient(circle, #E4AE39,#A77B0A);
+    text-align: center;
+    padding: 3px;
+    color: #000000;
+}
+.legendary{
+    background-color: #B425C4;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2125B1));
+    background: -webkit-radial-gradient(circle, #B425C4,#900D8B);
+    background: -moz-radial-gradient(circle, #B425C4,#900D8B);
+    background: -ms-radial-gradient(circle, #B425C4,#900D8B);
+    text-align: center;
+    padding: 3px;
+    color: #000000;
+}
 .arcana
 {
-    background-color: #00b0ff;
+    background-color: #2FC425;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2125B1));
+    background: -webkit-radial-gradient(circle,  #2FC425,#197713);
+    background: -moz-radial-gradient(circle,  #2FC425,#197713);
+    background: -ms-radial-gradient(circle,  #2FC425,#197713);
+    text-align: center;
+    padding: 3px;
+    color: #000000;
 }
 .tooltip-text
 {

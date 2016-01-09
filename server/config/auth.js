@@ -51,5 +51,11 @@ module.exports = {
                     });
             }
         ));
+    },
+    shouldAuthenticate: function (req, res, next) {
+        if (req.isAuthenticated())
+            next();
+        else
+            res.send(401, 'not auth');
     }
 }

@@ -85,106 +85,13 @@
 
             <div class="item-box" data-toggle="popover" data-container="body"
                  data-placement="top" type="button" data-html="true">
-                <div class="hide page-content">
-                    <h1><%= hero.rarity %></h1>
-                </div>
-                <!--tooltip-->
-                <script>
-                    $(document).ready(function () {
-                        $(".item-box").each(function () {
-                            var mycontent = $('<div class="hide popover-content"> <h4 ><%= hero.rarity %></h4></div>');
-                            $(this).append(mycontent)
-                            $('[data-toggle="popover"]').popover({
-                                html: true,
-                                content: function () {
-                                    debugger;
-                                    var content= $(this).find('.page-content');
-                                    return content.html();
-                                }
-                            });
-                        });
-                    });
-
-
-                    /* $.each('.item-box',function(){
-                     ('.item-box').find('.popover-content')
-                     $("this").append(".popover-content");
-                     });*/
-
-
-                </script>
-
-
-
-
-
-
-
-
-                <!-- <script>
-                   $.each('.item-box',function() {
-                       $('.item-box').find('.popover-content')
-                       var mycontent = '  <div class="hide popover-content"> <h4 ><%= hero.rarity %></h4></div>'
-                       $(this).append(mycontent)
-                   }
-               </script>-->
-                <div class="popover-content hide">
-                    <!--<h4 class="popover-title"><%= hero.name%></h4>
+                <div class="hide popover-content">
+                    <h4><%= hero.name%></h4>
                     <h5  class="<%= setcalssRarity(hero.rarity) %>"><%= hero.rarity%></h5>
-                    <div class="row tooltip-item"><div class="col-md-4 col-sm-4"><img src="<%= hero.category.imageUrl%>"  /></div>
+                    <div class="row tooltip-item"><div class="col-md-4 col-sm-4"><img src="<%= hero.category.imageUrl%>"/></div>
                         <div class="col-md-8 col-sm-8"> <span class="tooltip-text">Used By :</span>
-                            <span class="tooltip-item-name"><%= hero.category.name%></span></div></div>-->
-
+                            <span class="tooltip-item-name"><%= hero.category.name%></span></div></div>
                 </div>
-
-
-                <!--<script>
-                    var my= '  <h4 > hero.rarity </h4>'
-                    $('popover-content').append(my)
-
-                </script>-->
-
-
-
-                <!--<script>
-                    $(document).ready(function() {
-                        $target.find('.myPopOver').mouseenter(function () {
-                            if ($(this).data('popover') == null) {
-                                $(this).popover({
-                                    animation: false,
-                                    placement: 'right',
-                                    trigger: 'click',
-                                    html: true,
-                                    content: function () {
-                                        return $('.popoverTemplate').html();
-                                    }
-
-                                });
-                            }
-                            $(this).popover('show');
-
-                        });
-
-                        $target.find('.myPopOver').mouseleave(function () {
-                            $(this).popover('hide');
-                        });
-                    });
-                </script>-->
-
-                <!-- <div class="myPopOver" id="popoverTemplateContainer" style="display: none">
-
-                     <div class="popoverTemplate">
-                         <div class="popover" >
-                             <div class="arrow"></div>
-                             <div class="popover-inner">
-
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>-->
-
-                <!--end tooltip-->
 
                 <a href="#">
                     <div class="<%= hero.discount.isOnDiscount ? "discounted-hero" : "discounted-hero-hide" %>"><span
@@ -214,7 +121,24 @@
         <% }); %>
 
     </div>
+    <!--tooltip-->
+    <script>
+        $(document).ready(function () {
 
+                $('[data-toggle="popover"]').popover({
+                    trigger: 'hover',
+                    placement: 'auto left',
+                    html: true,
+                    content: function () {
+                        debugger;
+                        var content= $(this).find('.popover-content');
+                        return content.html();
+                    }
+                });
+
+        });
+
+    </script>
 </article>
 
 

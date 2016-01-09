@@ -17,4 +17,5 @@ module.exports = function (app) {
     app.use('/', require('../routes/homeCtrl')(app, express));
 
     app.use('/api', require('../routes/uploadApi')(app, express));
+    app.use('/api', require('../routes/userApi')(app,express));
 }

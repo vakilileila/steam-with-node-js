@@ -85,32 +85,7 @@ module.exports = function (app, express) {
                             return hero;
                         });
                 var setcalssRarity =  function(rar){
-                   /* switch(rar){
-                        case "Arcana":
-                            rar="arcana"
-                            break
-                        case "Common" :
-                            rar = "common"
-                            break
-                        case "UnCommon" :
-                            rar = "uncommon"
-                            break
-                        case "Rare":
-                            rar = "rare";
-                            break
-                        case "Mythical":
-                            rar = "mythical"
-                            break
-                        case "Legendary" :
-                            rar = "legendary"
-                            break
-                        case "Ancient" :
-                            rar = "ancient"
-                            break
-                        case "Immortal" :
-                            rar = "immortal"
-                            break
-                    }*/
+
 
 
                    if (rar == "Arcana")
@@ -136,6 +111,35 @@ module.exports = function (app, express) {
                    else
                    if(rar == "Immortal")
                    {rar = "immortal";}
+
+
+
+                   /* switch(rar){
+                    case "Arcana":
+                    rar="arcana"
+                    break
+                    case "Common" :
+                    rar = "common"
+                    break
+                    case "UnCommon" :
+                    rar = "uncommon"
+                    break
+                    case "Rare":
+                    rar = "rare";
+                    break
+                    case "Mythical":
+                    rar = "mythical"
+                    break
+                    case "Legendary" :
+                    rar = "legendary"
+                    break
+                    case "Ancient" :
+                    rar = "ancient"
+                    break
+                    case "Immortal" :
+                    rar = "immortal"
+                    break
+                    }*/
 
                     else{console.log('not fetch rarity');}
 
