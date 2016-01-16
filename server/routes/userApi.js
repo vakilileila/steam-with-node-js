@@ -1,6 +1,10 @@
 var bodyParser = require('body-parser');
 var User = require('../models/user');
 var auth = require('../config/auth');
+var Shop = require('../models/shoppingCart');
+var Hero = require('../models/hero');
+var User = require('../models/user');
+var Enumerable = require('linq');
 
 module.exports = function (app, express) {
     var apiRouter = express.Router();
@@ -49,6 +53,68 @@ module.exports = function (app, express) {
         auth.shouldAuthenticate,
         function (req, res) {
             console.log('user is auth');
+        });
+
+    apiRouter.route('/users/current/carts/add/:id')
+        .post(auth.shouldAuthenticate,function (req, res) {
+            var id = req.params.id;
+            var currentUser = req.user;
+            var cart = currentUser.shoppingCart;
+
+            var isExist = Enumerable.from(cart).any(function (c) {
+                return c.item.product._id == id;
+            });
+
+            if (isExist) {
+                var item = Enumerable.from(cart).first(function (c) {
+                    return c.item.product._id == id;
+                });
+                var product = item.item.product;
+                product.qty++;
+
+                user.save(function (err) {
+                    if (err) {
+                        res.code(500).send("Cart not saved");
+                        return;
+                    }
+
+                    var qty = Enumerable.from(cart).sum(function (c) {
+                        return c.item.qty;
+                    });
+
+                    res.json({cartQty: qty});
+                });
+            }
+            else {
+                Hero.findById(id).exec(function (err, hero) {
+                    if (err) {
+                        res.code(404).send('Hero not found');
+                        return;
+                    }
+
+                    cart.push({
+                        item: {
+                            type: 'hero',
+                            product: hero
+                        },
+                        qty: 1
+                    });
+
+                    user.save(function (err) {
+                        if (err) {
+                            res.code(500).send("Cart not saved");
+                            return;
+                        }
+
+                        var qty = Enumerable.from(cart).sum(function (c) {
+                            return c.item.qty;
+                        });
+
+                        res.json({cartQty: qty});
+                    });
+                });
+            }
+
         });
 
     return apiRouter;

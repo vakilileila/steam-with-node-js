@@ -538,10 +538,10 @@ debugger;
                                /* var currentItem = this.dataItem($(e.currentTarget).closest("currentItem"));*/
                                 var tr = $(e.target).closest("tr"); // get the current table row (tr)
                                 // get the data bound to the current table row
-                                var data = this.dataItem(tr);
+                                var current = this.dataItem(tr);
                                 debugger;
-                                window.location.href = "/admin/hero/edit/" + data.id;
-                                /*alert(JSON.stringify(currentItem));*/
+                                window.location.href = "/admin/hero/edit/" + current.id;
+
                             }
 
                         }

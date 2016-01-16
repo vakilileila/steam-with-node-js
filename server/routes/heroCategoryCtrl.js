@@ -146,8 +146,43 @@ module.exports = function (app, express) {
                     return rar
 
                   }
+                    var setClassborder =  function(rar){
 
-                    res.render('./heros.ejs', {heros: herosView,setcalssRarity:setcalssRarity, rarity:rarity});
+
+
+                        if (rar == "Arcana")
+                        {rar = "arcanaborder";}
+                        else
+                        if(rar == "Common")
+                        {rar = "commonborder";}
+                        else
+                        if ( rar == "UnCommon" ){
+                            rar = "uncommonborder";}
+                        else
+                        if(rar == "Rare")
+                        {rar = "rareborder";}
+                        else
+                        if(rar == "Mythical")
+                        {rar = "mythicalborder";}
+                        else
+                        if(rar == "Legendary")
+                        {rar = "legendaryborder";}
+                        else
+                        if(rar == "Ancient")
+                        {rar = "ancientborder";}
+                        else
+                        if(rar == "Immortal")
+                        {rar = "immortalborder";}
+
+                        else{console.log('not fetch rarity');}
+
+                        return rar
+
+                    }
+
+
+
+                    res.render('./heros.ejs', {heros: herosView,setcalssRarity:setcalssRarity,setClassborder:setClassborder, rarity:rarity});
                 })
         });
 

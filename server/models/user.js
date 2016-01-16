@@ -3,7 +3,8 @@ var Schema       = mongoose.Schema;
 
 var userSchema = new Schema({
     name: String,
-    dropbox: {}
+    dropbox: {},
+    shoppingCart: []
 });
 
 module.exports = mongoose.model('user', userSchema);
